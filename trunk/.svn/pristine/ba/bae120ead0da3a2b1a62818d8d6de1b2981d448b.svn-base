@@ -1,0 +1,216 @@
+DROP TABLE master_search_form CASCADE CONSTRAINTS;
+
+CREATE TABLE master_search_form (
+msf_id INTEGER NOT NULL PRIMARY KEY,
+mse_id INTEGER NOT NULL ,
+msf_order_no INTEGER NOT NULL,
+msf_identifier VARCHAR(255) NOT NULL,
+msf_name VARCHAR(255) NOT NULL,	
+msf_mandatory CHAR(1) NOT NULL, 	
+msf_type VARCHAR(255) NOT NULL,
+msf_code VARCHAR(255) NOT NULL,
+msf_bk VARCHAR(255) ,
+msf_created_usr_id INTEGER NOT NULL ,
+msf_modified_usr_id INTEGER,
+msf_created_dttm TIMESTAMP NOT NULL,
+msf_modified_dttm TIMESTAMP,
+UNIQUE (msf_code),
+UNIQUE (msf_bk)
+);
+
+insert into master_search_form values ( 221 , 22, 1, 'jbcCount','Capability','N', 'integer','jobcapability-count','jobcapability-count',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+
+insert into master_search_form values ( 421 , 42, 1, 'atpCode','Code','Y', 'string','alerttype-code','alerttype-code',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 422 , 42, 2, 'atpPriority','Priority','Y', 'string','alerttype-priority','alerttype-priority',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 423 , 42, 3, 'atpEmail','Email','N', 'string','alerttype-email','alerttype-email',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 424 , 42, 4, 'atpSms','Sms','N', 'string','alerttype-sms','alerttype-sms',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 425 , 42, 5, 'atpDesc','Description','Y', 'bigstring','alerttype-desc','alerttype-desc',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+
+insert into master_search_form values ( 511 , 51, 1, 'fpsName','Name','N', 'string','filepollersettings-name','filepollersettings-name',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 512 , 51, 2, 'fpsSourceDir','Source Directory','Y', 'string','filepollersettings-source_dir','filepollersettings-source_dir',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 513 , 51, 3, 'fpsFreqSecs','Frequency Seconds','Y', 'integer','filepollersettings-freq_secs','filepollersettings-freq_secs',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 514 , 51, 4, 'fpsPollerJbt','Poller Job Type','Y', 'select','filepollersettings-poller_jbt_id','filepollersettings-poller_jbt_id',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 515 , 51, 5, 'fpsTransferJbt','Transfer Job Type','Y', 'select','filepollersettings-transfer_jbt_id','filepollersettings-transfer_jbt_id',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+
+insert into master_search_form values ( 521 , 52, 1, 'fapName','Name','Y', 'string','failedtaskspollersettings-name','failedtaskspollersettings-name',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 522 , 52, 2, 'fapRetryCount','Retry Count','Y', 'integers','failedtaskspollersettings-retry_count','failedtaskspollersettings-retry_count',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 523 , 52, 3, 'fapFreqSecs','Frequency Seconds','Y', 'integers','failedtaskspollersettings-freq_secs','failedtaskspollersettings-freq_secs',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 524 , 52, 4, 'fapLookbackDays','Look Back Days','Y', 'integers','failedtaskspollersettings-lookback_days','failedtaskspollersettings-lookback_days',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 525 , 52, 5, 'fapPollerJbt','Poller Job Type','Y', 'select','failedtaskspollersettings-poller_jbt_id','failedtaskspollersettings-poller_jbt_id',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+
+insert into master_search_form values ( 531 , 53, 1, 'ftpServerAddress','Server Address','Y', 'string','ftpsettings-server_address','ftpsettings-server_address',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 532 , 53, 2, 'ftpUsername','User Name','Y', 'string','ftpsettings-ftpUsername','ftpsettings-ftpUsername',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 533 , 53, 3, 'ftpPassword','Password','Y', 'string','ftpsettings-ftpPassword','ftpsettings-ftpPassword',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 534 , 53, 4, 'ftpDirectory','Directory','Y', 'string','ftpsettings-ftpDirectory','ftpsettings-ftpDirectory',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+
+
+insert into master_search_form values ( 541 , 54, 1, 'hcsName','Name','Y', 'string','healthcheckersettings-name','healthcheckersettings-name',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 542 , 54, 2, 'jbt','Job Type','Y', 'select','healthcheckersettings-jbt_id','healthcheckersettings-jbt_id',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 543 , 54, 3, 'hcsFreqSecs','Frequency Seconds','Y', 'integer','healthcheckersettings-freq_secs','healthcheckersettings-freq_secs',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+
+insert into master_search_form values ( 551 , 55, 1, 'hksName','Name','Y', 'string','housekeepingsettings-name','housekeepingsettings-name',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 552 , 55, 2, 'hksFreqSecs','Frequency Seconds','Y', 'integer','housekeepingsettings-freq_secs','housekeepingsettings-freq_secs',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 553 , 55, 3, 'hksJbt','JobType','Y', 'select','housekeepingsettings-jbt_id','housekeepingsettings-jbt_id',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+
+insert into master_search_form values ( 561 , 56, 1, 'pbsName','Name','Y', 'string','pendingbixopfilesettings-name','pendingbixopfilesettings-name',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 562 , 56, 2, 'pbsBatchSize','Batch Size','Y', 'integer','pendingbixopfilesettings-batch_size','pendingbixopfilesettings-batch_size',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 563 , 56, 3, 'pbsFrequencySecs','Frequency Seconds','Y', 'integer','pendingbixopfilesettings-frequency_secs','pendingbixopfilesettings-frequency_secs',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 564 , 56, 4, 'pbsTimeoutSecs','Timeout Seconds','Y', 'integer','pendingbixopfilesettings-timeout_secs','pendingbixopfilesettings-timeout_secs',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 565 , 56, 5, 'pbsPollerJbt','Poller Job Type','Y', 'select','pendingbixopfilesettings-poller_jbt_id','pendingbixopfilesettings-poller_jbt_id',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 566 , 56, 6, 'pbsBixExportJbt','DWH Export JobType','Y', 'select','pendingbixopfilesettings-bix_export_jbt_id','pendingbixopfilesettings-bix_export_jbt_id',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+
+insert into master_search_form values ( 571 , 57, 1, 'pdsName','Name','Y', 'string','pendingdataloadsettings-name','pendingdataloadsettings-name',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 572 , 57, 2, 'pdsBatchSize','Batch Size','Y', 'integer','pendingdataloadsettings-batch_size','pendingdataloadsettings-batch_size',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 573 , 57, 3, 'pdsFrequencySecs','Frequency Seconds','Y', 'integer','pendingdataloadsettings-frequency_secs','pendingdataloadsettings-frequency_secs',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 574 , 57, 4, 'pdsTimeoutSecs','Timeout Seconds','Y', 'integer','pendingdataloadsettings-timeout_secs','pendingdataloadsettings-timeout_secs',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 575 , 57, 5, 'pdsPollerJbt','Poller Job Type','Y', 'select','pendingdataloadsettings-poller_jbt_id','pendingdataloadsettings-poller_jbt_id',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 576 , 57, 6, 'pdsDataloadJbt','DataLoader JobType','Y', 'select','pendingdataloadsettings-dataload_jbt_id','pendingdataloadsettings-dataload_jbt_id',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+
+insert into master_search_form values ( 591 , 59, 1, 'pemName','Name','Y', 'string','pendingmissingjobsettings-name','pendingmissingjobsettings-name',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 592 , 59, 2, 'pemFrequencySecs','Frequency Seconds','Y', 'integer','pendingmissingjobsettings-frequency_secs','pendingmissingjobsettings-frequency_secs',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 593 , 59, 3, 'pemPendingMissingPJbt','Pending Missing Poller Job Type','Y', 'select','pendingmissingjobsettings-pending_missing_p_jbt_id','pendingmissingjobsettings-pending_missing_p_jbt_id',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 594 , 59, 4, 'pemPendingMissingJbt','Pending Missing Job Type','Y', 'select','pendingmissingjobsettings-pending_missing_jbt_id','pendingmissingjobsettings-pending_missing_jbt_id',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+
+insert into master_search_form values ( 5101 , 510, 1, 'pjsName','Name','Y', 'string','pendingjobpollersettings-name','pendingjobpollersettings-name',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 5102 , 510, 2, 'pjsBatchSize','Batch Size','Y', 'integer','pendingjobpollersettings-batch_size','pendingjobpollersettings-batch_size',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 5103 , 510, 3, 'pjsFrequencySecs','Frequency Seconds','Y', 'integer','pendingjobpollersettings-frequency_secs','pendingjobpollersettings-frequency_secs',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 5104 , 510, 4, 'pjsPollerJbt','Poller Job Type','Y', 'select','pendingjobpollersettings-poller_jbt_id','pendingjobpollersettings-poller_jbt_id',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+
+insert into master_search_form values ( 5201 , 520, 1, 'prsName','Name','Y', 'string','pendingraterfilesettings-name','pendingraterfilesettings-name',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 5202 , 520, 2, 'prsBatchSize','Batch Size','Y', 'integer','pendingraterfilesettings-batch_size','pendingraterfilesettings-batch_size',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 5203 , 520, 3, 'prsFrequencySecs','Frequency Seconds','Y', 'integer','pendingraterfilesettings-frequency_secs','pendingraterfilesettings-frequency_secs',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 5204 , 520, 4, 'prsTimeoutSecs','Timeout Seconds','Y', 'integer','pendingraterfilesettings-timeout_secs','pendingraterfilesettings-timeout_secs',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 5205 , 520, 5, 'prsPollerJbt','Poller Job Type','Y', 'select','pendingraterfilesettings-poller_jbt_id','pendingraterfilesettings-poller_jbt_id',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 5206 , 520, 6, 'prsTransferJbt','Transfer Job Type','Y', 'select','pendingraterfilesettings-transfer_jbt_id','pendingraterfilesettings-transfer_jbt_id',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 5207 , 520, 7, 'prsRaterJbt','Rater Job Type','Y', 'select','pendingraterfilesettings-rater_jbt_id','pendingraterfilesettings-rater_jbt_id',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 5208 , 520, 8, 'prsReRaterJbt','Rerater Job Type','Y', 'select','pendingraterfilesettings-re_rater_jbt_id','pendingraterfilesettings-re_rater_jbt_id',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+
+insert into master_search_form values ( 5301 , 530, 1, 'prcName','Name','Y', 'string','pendingrecomputesettings-name','pendingrecomputesettings-name',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 5302 , 530, 2, 'prcBatchSize','Batch Size','Y', 'integer','pendingrecomputesettings-batch_size','pendingrecomputesettings-batch_size',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 5303 , 530, 3, 'prcFrequencySecs','Frequency Seconds','Y', 'integer','pendingrecomputesettings-frequency_secs','pendingrecomputesettings-frequency_secs',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 5304 , 530, 4, 'prcPollerJbt','Poller Job Type','Y', 'select','pendingrecomputesettings-poller_jbt_id','pendingrecomputesettings-poller_jbt_id',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 5305 , 530, 5, 'prcReraterJbt','Rerater Job Type','Y', 'select','pendingrecomputesettings-rerater_jbt_id','pendingrecomputesettings-rerater_jbt_id',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+
+
+insert into master_search_form values ( 5401 , 540, 1, 'pesName','Name','Y', 'string','pendingfiletransfersettings-name','pendingfiletransfersettings-name',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 5402 , 540, 2, 'pesBatchSize','Batch Size','Y', 'integer','pendingfiletransfersettings-batch_size','pendingfiletransfersettings-batch_size',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 5403 , 540, 3, 'pesFrequencySecs','Frequency Seconds','Y', 'integer','pendingfiletransfersettings-frequency_secs','pendingfiletransfersettings-frequency_secs',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 5404 , 540, 4, 'pesTimeoutSecs','Timeout Seconds','Y', 'integer','pendingfiletransfersettings-timeout_secs','pendingfiletransfersettings-timeout_secs',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 5405 , 540, 5, 'fts','File Transfer Settings','Y', 'select','pendingfiletransfersettings-fts_id','pendingfiletransfersettings-fts_id',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 5406 , 540, 6, 'pesPollerJbt','Poller Job Type','Y', 'select','pendingfiletransfersettings-poller_jbt_id','pendingfiletransfersettings-poller_jbt_id',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 5407 , 540, 7, 'pesParserJbt','Parser Job Type','Y', 'select','pendingfiletransfersettings-parser_jbt_id','pendingfiletransfersettings-parser_jbt_id',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+
+insert into master_search_form values ( 5501 , 550, 1, 'rpsName','Name','Y', 'string','referencefilepollersettings-name','referencefilepollersettings-name',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 5502 , 550, 2, 'rpsSourceDir','Source Directory','Y', 'string','referencefilepollersettings-source_dir','referencefilepollersettings-source_dir',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 5503 , 550, 3, 'rpsTargetDir','Target Directory','Y', 'string','referencefilepollersettings-target_dir','referencefilepollersettings-target_dir',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 5504 , 550, 4, 'rpsFreqSecs','Frequency Seconds','Y', 'integer','referencefilepollersettings-frequency_secs','referencefilepollersettings-frequency_secs',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 5505 , 550, 5, 'rpsPollerJbt','Poller Job Type','Y', 'select','referencefilepollersettings-poller_jbt_id','referencefilepollersettings-poller_jbt_id',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 5506 , 550, 6, 'rpsRefDataComparatorJbt','Reference DataComparator Job Type','Y', 'select','referencefilepollersettings-ref_data_comparator_jbt_id','referencefilepollersettings-ref_data_comparator_jbt_id',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+
+insert into master_search_form values ( 811 , 81, 1, 'besName','Name','Y', 'string','bixexportersettings-name','bixexportersettings-name',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 812 , 81, 2, 'besBixExporterJbt','DWH Exporter Job Type','Y', 'select','bixexportersettings-bix_exporter_jbt_id','bixexportersettings-bix_exporter_jbt_id',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 813 , 81, 3, 'besCompressedDir','Compressed Directory','Y', 'string','bixexportersettings-compressed_dir','bixexportersettings-compressed_dir',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+
+insert into master_search_form values ( 821 , 82, 1, 'fiaName','Name','Y', 'string','filearchiversettings-name','filearchiversettings-name',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 822 , 82, 2, 'fiaType','Type','Y', 'string','filearchiversettings-type','filearchiversettings-type',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 823 , 82, 3, 'fiaSourceDir','Source Directory','Y', 'string','filearchiversettings-source_dir','filearchiversettings-source_dir',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 824 , 82, 4, 'fiaDestDir','Destination Directory','Y', 'string','filearchiversettings-dest_dir','filearchiversettings-dest_dir',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 825 , 82, 5, 'fiaRetentionDays','Retention Days','Y', 'integer','filearchiversettings-retention_days','filearchiversettings-retention_days',1,null,TIMESTAMP'2014-05-15 00:00:00',null); 
+
+
+insert into master_search_form values ( 831 , 83, 1, 'fasName','Name','Y', 'string','fileparsersettings-name','fileparsersettings-name',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 832 , 83, 2, 'fasTargetDir','Target Directory','Y', 'string','fileparsersettings-target_dir','fileparsersettings-target_dir',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 833 , 83, 3, 'fasParserJbt','Parent Job Type','Y', 'select','fileparsersettings-parser_jbt_id','fileparsersettings-parser_jbt_id',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 834 , 83, 4, 'fasProcessDuplicate','Process Duplicate','Y', 'boolean','fileparsersettings-process_duplicate','fileparsersettings-process_duplicate',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+
+
+insert into master_search_form values ( 841 , 84, 1, 'ftsName','Name','Y', 'string','filetransfersettings-name','filetransfersettings-name',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 842 , 84, 2, 'ftsTargetDir','Target Directory','Y', 'string','filetransfersettings-target_dir','filetransfersettings-target_dir',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 843 , 84, 3, 'ftsTransferJbt','Transfer Job Type','Y', 'select','filetransfersettings-transfer_jbt_id','filetransfersettings-transfer_jbt_id',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 844 , 84, 4, 'ftsValidMask','Valid Mask','Y', 'string','filetransfersettings-valid_mask','filetransfersettings-valid_mask',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 845 , 84, 5, 'ftsRerateMask','Rerate Mask','Y', 'string','filetransfersettings-rerate_mask','filetransfersettings-rerate_mask',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 846 , 84, 6, 'ftsStabilitySecs','Stability Seconds','Y', 'integer','filetransfersettings-stability_secs','filetransfersettings-stability_secs',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 847 , 84, 7, 'ftsStabilityRetry','Stability Retry','Y', 'integer','filetransfersettings-stability_retry','filetransfersettings-stability_retry',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 848 , 84, 8, 'fps','File Poller settings','Y', 'select','filetransfersettings-fps_id','filetransfersettings-fps_id',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+
+insert into master_search_form values ( 851 , 85, 1, 'rasName','Name','Y', 'string','ratersettings-name','ratersettings-name',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 852 , 85, 2, 'rasTargetDir','Target Directory','Y', 'string','ratersettings-target_dir','ratersettings-target_dir',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 853 , 85, 3, 'rasBixTargetDir','DWH Target Directory','Y', 'string','ratersettings-bix_target_dir','ratersettings-bix_target_dir',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 854 , 85, 4, 'rasFps','File Poller Settings','Y', 'select','ratersettings-fps_id','ratersettings-fps_id',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 855 , 85, 5, 'rasRaterJbt','Rater Job Type','Y', 'select','ratersettings-rater_jbt_id','ratersettings-rater_jbt_id',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 856 , 85, 6, 'rasReRaterJbt','Rerater Job Type','Y', 'select','ratersettings-re_rater_jbt_id','ratersettings-re_rater_jbt_id',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 857 , 85, 7, 'rasDataloadJbt','Dataloader Job Type','Y', 'select','ratersettings-dataload_jbt_id','ratersettings-dataload_jbt_id',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+
+insert into master_search_form values ( 861 , 86, 1, 'rrsName','Name','Y', 'string','reratersettings-name','reratersettings-name',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 862 , 86, 2, 'rrsTargetDir','Target Directory','Y', 'string','reratersettings-target_dir','reratersettings-target_dir',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 863 , 86, 3, 'rrsBixTargetDir','DWH Target Directory','Y', 'string','reratersettings-bix_target_dir','reratersettings-bix_target_dir',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 864 , 86, 4, 'rrsFps','File Poller Settings','Y', 'select','reratersettings-fps_id','reratersettings-fps_id',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 866 , 86, 5, 'rrsReRaterJbt','Rerater Job Type','Y', 'select','reratersettings-re_rater_jbt_id','reratersettings-re_rater_jbt_id',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 867 , 86, 6, 'rrsDataloadJbt','Dataloader Job Type','Y', 'select','reratersettings-dataload_jbt_id','reratersettings-dataload_jbt_id',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+
+
+insert into master_search_form values ( 871 , 87, 1, 'rdcName','Name','Y', 'string','refdatacomparatorsettings-name','refdatacomparatorsettings-name',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 872 , 87, 2, 'jbt','Job Type','Y', 'select','refdatacomparatorsettings-jbt_id','refdatacomparatorsettings-jbt_id',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 873 , 87, 3, 'rdcReRaterJbt','ReRater Job Type','Y', 'select','refdatacomparatorsettings-re_rater_jbt_id','refdatacomparatorsettings-re_rater_jbt_id',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 874 , 87, 4, 'fas','File Parser Settings','Y', 'select','refdatacomparatorsettings-fas_id','refdatacomparatorsettings-fas_id',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 875 , 87, 5, 'fps','File Poller Settings','Y', 'select','refdatacomparatorsettings-fps_id','refdatacomparatorsettings-fps_id',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+insert into master_search_form values ( 911 , 91, 1, 'emsSmtpAuth','SMTP Authentication','Y', 'string','emailsettings-smtp_auth','emailsettings-smtp_auth',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 912 , 91, 2, 'emsSmtpHost','SMTP Host','Y', 'string','emailsettings-smtp_host','emailsettings-smtp_host',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 913 , 91, 3, 'emsSmtpPort','SMTP Port','Y', 'integer','emailsettings-smtp_port','emailsettings-smtp_port',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 914 , 91, 4, 'emsSmtpStarttlsEnable','SMTP Strat TLS Enable','Y', 'string','emailsettings-smtp_starttls_enable','emailsettings-smtp_starttls_enable',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 915 , 91, 5, 'emsUserName','User Name','Y', 'string','emailsettings-user_name','emailsettings-user_name',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 916 , 91, 6, 'emsFromEmail','From Email','Y', 'string','emailsettings-from_email','emailsettings-from_email',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 917 , 91, 7, 'emsPassword','Password','Y', 'string','emailsettings-password','emailsettings-password',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+
+insert into master_search_form values ( 921, 92, 1, 'sesCode','Code','Y', 'string','serversettings-code','serversettings-code',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 922, 92, 2, 'sesValue','Value','Y', 'string','serversettings-value','serversettings-value',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+
+insert into master_search_form values ( 931, 93, 1, 'sfsName','Name','Y', 'string','sfssettings-name','sfssettings-name',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 932, 93, 2, 'sfsServerAddress','Server Address','Y', 'string','sfssettings-serveraddress','sfs_settings-server_address',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 933, 93, 3, 'sfsPort','Port','Y', 'integer','sfssettings-port','sfssettings-port',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 934, 93, 4, 'sfsDirectory','Directory','Y', 'string','sfssettings-directory','sfssettings-directory',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 935, 93, 5, 'sfsPassword','Password','Y', 'string','sfssettings-password','sfssettings-password',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 936, 93, 6, 'sfsJobType','Job Type','Y', 'select','sfssettings-id','sfssettings-id',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+
+insert into master_search_form values ( 941, 94, 1, 'smsName','Name','Y', 'string','smssettings-name','smssettings-name',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 942, 94, 2, 'smsSmtpHost','SMS Host','Y', 'string','smssettings-smtp_host','smssettings-smtp_host',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 943, 94, 3, 'smsSmtpPort','SMS Port','Y', 'integer','smssettings-smtp_port','smssettings-smtp_port',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 944, 94, 4, 'smsUserName','User Name','Y', 'string','smssettings-user_name','smssettings-user_name',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 945, 94, 5, 'smsPassword','Password','Y', 'string','smssettings-password','smssettings-password',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+
+insert into master_search_form values ( 951, 95, 1, 'srtFilName','File Name','Y', 'string','scripttbl-fil_name','scripttbl-fil_name',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 952, 95, 2, 'srtDesc','Description','Y', 'string','scripttbl-desc','scripttbl-desc',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+
+
+
+insert into master_search_form values ( 991, 99, 1, 'usrName','Login Name','Y', 'string','usertbl-usr_name','usertbl-usr_name',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 992, 99, 2, 'usrFirstName','First Name','Y', 'string','usertbl-usr_first_name','usertbl-usr_first_name',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 993, 99, 3, 'usrLastName','Last Name','Y', 'string','usertbl-usr_last_name','usertbl-usr_last_name',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 994, 99, 4, 'usrEmail','User Email','Y', 'string','usertbl-usr_email','usertbl-usr_email',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 995, 99, 5, 'usrMobilePhone','Phone Number','Y', 'string','usertbl-usr_mobile_phone','usertbl-usr_mobile_phone',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_form values ( 996, 99, 6, 'rol','User Role Code','Y', 'select','usertbl-rol','usertbl-rol',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+
+
+commit;

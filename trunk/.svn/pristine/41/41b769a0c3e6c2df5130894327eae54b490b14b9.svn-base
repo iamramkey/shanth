@@ -1,0 +1,51 @@
+
+DROP TABLE master_search CASCADE CONSTRAINTS;
+
+CREATE TABLE master_search (
+mse_id INTEGER NOT NULL PRIMARY KEY,
+mse_url VARCHAR(255) NOT NULL,
+mse_bk VARCHAR(255) NOT NULL,
+mse_created_usr_id INTEGER NOT NULL,
+mse_modified_usr_id INTEGER,
+mse_created_dttm TIMESTAMP NOT NULL,
+mse_modified_dttm TIMESTAMP,
+UNIQUE (mse_url),
+UNIQUE (mse_bk)
+);
+
+insert into master_search values (42,'master/AlertType','master/AlertType',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+
+insert into master_search values (51,'master/FilePollerSettings','master/FilePollerSettings',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search values (52,'master/FailedTasksPollerSettings','master/FailedTasksPollerSettings',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search values (53,'master/FtpSettings','master/FtpSettings',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search values (54,'master/HealthCheckerSettings','master/HealthCheckerSettings',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search values (55,'master/HouseKeepingSettings','master/HouseKeepingSettings',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search values (56,'master/PendingBixOpFileSettings','master/PendingBixOpFileSettings',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search values (57,'master/PendingDataloadSettings','master/PendingDataloadSettings',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search values (59,'master/PendingMissingJobSettings','master/PendingMissingJobSettings',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search values (510,'master/PendingJobPollerSettings','master/PendingJobPollerSettings',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search values (520,'master/PendingRaterFileSettings','master/PendingRaterFileSettings',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search values (530,'master/PendingRecomputeSettings','master/PendingRecomputeSettings',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search values (540,'master/PendingFileTransferSettings','master/PendingFileTransferSettings',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search values (550,'master/ReferenceFilePollerSettings','master/ReferenceFilePollerSettings',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+
+insert into master_search values (81,'master/BixExporterSettings','master/BixExporterSettings',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search values (82,'master/FileArchiverSettings','master/FileArchiverSettings',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search values (83,'master/FileParserSettings','master/FileParserSettings',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search values (84,'master/FileTransferSettings','master/FileTransferSettings',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search values (85,'master/RaterSettings','master/RaterSettings',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search values (86,'master/ReRaterSettings','master/ReRaterSettings',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search values (87,'master/RefDataComparatorSettings','master/RefDataComparatorSettings',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+
+insert into master_search values (21,'master/Node','master/Node',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search values (22,'master/JobCapability','master/JobCapability',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+
+ 
+
+insert into master_search values (91,'master/EmailSettings','master/EmailSettings',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search values (92,'master/ServerSettings','master/ServerSettings',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search values (93,'master/SfsSettings','master/SfsSettings',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search values (94,'master/SmsSettings','master/SmsSettings',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search values (95,'master/ScriptTbl','master/ScriptTbl',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+
+insert into master_search values (99,'master/UserTbl','master/UserTbl',1,null,TIMESTAMP'2014-05-15 00:00:00',null);

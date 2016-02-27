@@ -1,0 +1,5 @@
+url=jdbc:oracle:thin:@localhost:1521:XE
+driverClassString=oracle.jdbc.driver.OracleDriver
+username=stigaudit
+password=5rJPXwj4L6s=d2VsY29tZQ==
+sid=XE

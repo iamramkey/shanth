@@ -1,0 +1,170 @@
+<!-- BEGIN MAIN CONTENT -->
+<div class="row">
+	<div class="col-md-12">
+		<!-- BEGIN EXAMPLE TABLE PORTLET-->
+		<div class="portlet box green-haze">
+			<div class="portlet-title">
+				<div class="caption" style="text-transform: capitalize;" id="searchHeader">
+					
+				</div>
+				<div class="tools">
+					<a href="javascript:;" class="reload" ng-click="refreshTable()" id="refreshTable">
+					</a>
+				</div>
+				<div class="actions" id="headerActionsId">
+					<span ng-repeat="ha in headerActions"> 
+						<a ng-show="ha.visible" ng-click="this[ha.function](ha.param)" class="btn default" id="headerBtn" href="javascript:void(0);" ><i class="fa {{ha.icon}}"></i><span class="hidden-480"> {{ha.label}} </span></a>
+					</span>
+				</div>
+			</div>
+			<div class="portlet-body">
+				<table class="table table-striped table-bordered table-hover" id="masterTable">
+					<thead>
+						<tr class="heading">
+							<th ng-repeat="header in tableHeader track by $index">{{header}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="row in tableData">
+							<td ng-repeat="cell in row  track by $index">{{cell}}</td>
+							<td>
+								<span ng-repeat="ra in rowActions">
+								<a ng-show="ra.visible" ng-click="this[ra.function](row[0],ra.param)" href="javascript:void(0);" id="rowBtn" class="edit btn default btn-xs {{ra.colour}}"><i class="fa {{ra.icon}}"></i>{{ra.label}}</a>
+								</span>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<!-- END EXAMPLE TABLE PORTLET-->
+	</div>
+</div>
+<div id="customModal" class="modal fade" aria-hidden="true" data-width="760">
+	<div class="modal-dialog one_layout">
+    	<div class="modal-content">
+    		<div class="modal-header">
+    			<div class="portlet box green-haze" id="modolColor" >
+					<div class="portlet-title">
+						<div class="caption">
+							<i class="fa fa-edit" ></i><span id="customModalTitle"></span>
+						</div>
+					</div>
+	        	</div>
+
+		        <!-- <h3 class="modal-title" style="text-transform: capitalize;" ></h3> -->
+		    </div>
+		    <input type="hidden" id="customModalUrl">
+		    <input type="hidden" id="customModalId">
+		    <div class="modal-body" id="customModalMessage">
+		       
+		    </div>
+		    <div class="modal-footer custom_footer">
+		    	<div class="form-group" style="text-align:center;">
+		        	<button type="button" class="btn btn-primary green-haze" id="customModalSaveButton"><i class="fa fa-check"></i> Save </button>
+		        	<a class="btn btn-default" data-dismiss="modal">Cancel</a>
+		    	</div>
+		    </div>
+    	</div>
+    </div>
+</div>
+
+
+<div id="formDataModal" class="modal fade in" role="dialog" ng-controller="MasterFormController">
+	<div class="modal-dialog two_layout">
+		<div class="modal-content">
+			<div class="portlet box green-haze" style="border-bottom: 0 none;">
+				<div class="portlet-title">
+					<div class="caption" id="modalTitle">
+					</div>
+				</div>
+				<div class="portlet-body form">
+					<div class="modal-body form">
+						<form action="#" class="form-horizontal form-row-seperated" id="avhmForm" ng-submit="modalFormSubmit()">
+							<input type="hidden" id="id" value="0"> 
+							<div id="avhmFormContainer">
+							</div>
+							<div class="clearfix"></div>
+							<div class="form-group" style="text-align:center;">
+								<button type="submit" class="btn btn-primary green-haze" id="saveBtn"><i class="fa fa-check"></i> Save </button>
+								<a class="btn btn-default" data-dismiss="modal">Close</a>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<!-- responsive audit Modal-->
+<div id="auditModal" class="modal fade" tabindex="-1" data-width="1200">
+	<div class="message"></div>
+	<div class="modal-body" style="width:70%; margin:auto;">
+		<!-- BEGIN SAMPLE FORM PORTLET-->
+		<div class="portlet box green">
+			<div class="portlet-title">
+				<div class="caption">
+					<i class="fa fa-edit"></i><span id="auditHeader">View Audit Information</span>
+				</div>
+			</div>
+			<div class="portlet-body">
+				<form class="form_lg" id="auditForm" role="form">
+					<div class="form-group">
+						<input type="hidden" id="usrIdForEdit">
+						<div class="group">
+							<input type="text" value="{{auditData.auditStringList[1]}}" class="inputMaterial" id="auditCreatedUser" required="required" readonly />
+							<span class="highlight"></span>
+							<span class="bar"></span>
+							<label class="md_label inputActive">Created User </label>
+						</div>
+
+						<div class="group">
+							<input type="text" value="{{auditData.auditStringList[3]}}" class="inputMaterial" id="auditCreatedDttm" required="required" readonly />
+							<span class="highlight"></span>
+							<span class="bar"></span>
+							<label class="md_label inputActive">Created DateTime </label>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="group">
+							<input type="text" value="{{auditData.auditStringList[2]}}" class="inputMaterial" id="auditModifiedUser" required="required" readonly />
+							<span class="highlight"></span>
+							<span class="bar"></span>
+							<label class="md_label inputActive">Modified User </label>
+						</div>
+						<div class="group">
+							<input type="text" value="{{auditData.auditStringList[4]}}" class="inputMaterial" id="auditModifiedDttm" required="required" readonly />
+							<span class="highlight"></span>
+							<span class="bar"></span>
+							<label class="md_label inputActive">Modified DateTime</label>
+						</div>
+					</div>
+
+				</form>
+				<table class="table table-striped table-bordered table-hover" id="auditTable">
+					<thead>
+						<tr class="heading">
+							<th ng-repeat="aheader in auditData.headers track by $index">{{aheader}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr  ng-repeat="arow in auditData.data">
+							<td ng-repeat="acell in arow  track by $index" style="color:{{acell.colour}}">{{acell.value}}</td>
+						</tr>
+					</tbody>
+
+				</table>
+
+				<div class="" style="width: 100%;">
+					<div style="margin-left: 47%;">
+						<button type="button" data-dismiss="modal" class="btn btn-default ">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- END SAMPLE FORM PORTLET-->
+	</div>
+</div>
+<!-- End of the modal -->

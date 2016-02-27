@@ -1,0 +1,2654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="description" content="Emon" />
+	<link rel="shortcut icon" href="favicon.ico" sizes="16x16"/>
+	<title>Safebase</title>
+
+	<link rel="stylesheet" href="../js/client/jquery-ui/css/no-theme/jquery-ui-1.10.3.custom.min.css">
+	<link rel="stylesheet" href="../css/client/font-icons/entypo/css/entypo.css">
+	<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,400italic">
+	<link rel="stylesheet" href="../css/client/neon.css">
+
+	<!-- <link rel="stylesheet" href="assets/css/bootstrap.css">
+	<link rel="stylesheet" href="assets/css/neon-core.css">
+	<link rel="stylesheet" href="assets/css/neon-theme.css">
+	<link rel="stylesheet" href="assets/css/neon-forms.css">
+	<link rel="stylesheet" href="assets/css/custom.css"> -->
+
+	<script src="../js/lib/jquery-1.11.1.min.js"></script>
+	<script src="../js/lib/jquery.cookie.js"></script>
+	<script src="../js/client/config.js"></script>
+	<script type="text/javascript" src="../js/lib/jquery.i18n.properties-min-1.0.9.js"></script>
+
+	<!--[if lt IE 9]><script src="../js/client/ie8-responsive-file-warning.js"></script><![endif]-->
+
+	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+
+	<style type="text/css">
+	.waitForResponse{
+		cursor: wait;
+	}
+	.responseReceved{
+		cursor: default;
+	}
+	.clearfix1{
+		clear: both;
+	}
+
+	.content.edit {
+		display:none;
+	}
+
+	#site_statistics_loading, #site_statistics_loading_One {
+		left: 45%;
+	    margin: auto !important;
+	    position: absolute;
+	    top: 25%;
+	    z-index: 1;
+	    display:block;
+	}
+	.form-group {
+		position:relative;
+	}
+
+input[type=radio] {
+  display:none;
+}
+.custom + label:before {
+  height:150px;
+  width:195px;
+  margin-right: 15px;
+  margin-top: 2px;
+  content: " ";
+  display:inline-block;
+  vertical-align: baseline;
+  border:2px #EEEEEE solid;
+  color:#949494;
+  cursor: pointer;
+}
+
+.custom:checked + label:before {
+	width: 195px;
+	height: 150px;
+	float: left;
+	border:2px #949494 solid;
+	color:#949494 ;
+	cursor: pointer;
+}
+
+.custom + label:before {
+  border-radius:5px;
+  float: left;
+  margin-top: 0px;
+  cursor: pointer;
+}
+.radio_text {
+    position: absolute;
+    text-align: center;
+	color:#949494;
+	cursor: pointer;
+	width: 87%;
+}
+.radio_text_one {
+    text-align: center;
+}
+.priority + label:before {
+  height:80px;
+  width:80px;
+  margin-right: 15px;
+  margin-top: 2px;
+  content: " ";
+  display:inline-block;
+  vertical-align: baseline;
+  border:2px #EEEEEE solid;
+  color:#EEEEEE;
+  border-radius:5px;
+  cursor: pointer;
+}
+
+.priority:checked + label:before {
+	width: 80px;
+	height: 80px;
+	float: left;
+	border:2px #949494 solid;
+	color:#949494 ;
+	cursor: pointer;
+}
+#priority_label1, #priority_label2, #priority_label3 {
+	color: #949494;
+    cursor: pointer;
+    margin-left: 3px;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+}
+#high_lighted {
+	height:150px;
+ 	width:195px;
+ 	border-radius:5px;
+ 	border:2px #949494 solid;
+ 	float: left;
+ 	color:#949494;
+}
+.high_lighted {
+	height:150px;
+ 	width:195px;
+ 	border-radius:5px;
+ 	border:2px #949494 solid;
+ 	float: left;
+ 	color:#949494;
+ 	cursor: pointer;
+}
+.high_lighted .icon_size {
+	color:#949494;
+    font-size: 32px;
+    margin-top: 21px;
+    text-align: center;
+    cursor: pointer;
+}
+.Not_high_lighted .icon_size {
+	font-size: 32px;
+    margin-top: 21px;
+    text-align: center;
+	color: #EEEEEE;
+	cursor: pointer;
+}
+#Not_high_lighted {
+	height:150px;
+ 	width:195px;
+ 	border-radius:5px;
+ 	border:2px #EEEEEE solid;
+ 	float: left;
+ 	color:#EEEEEE;
+}
+.Not_high_lighted {
+	height:150px;
+ 	width:195px;
+ 	border-radius:5px;
+ 	border:2px #EEEEEE solid;
+ 	float: left;
+ 	color:#EEEEEE;
+ 	cursor: pointer;
+}
+#box_high_lighted {
+	width: 80px;
+	height: 80px;
+	border-radius:5px;
+ 	border:2px #949494 solid;
+ 	float: left;
+ 	color:#949494;
+}
+.box_high_lighted{
+	width: 80px;
+	height: 80px;
+	border-radius:5px;
+ 	border:2px #949494 solid;
+ 	float: left;
+ 	/*color:#949494;*/
+ 	cursor: pointer;
+}
+.box_high_lighted .priority_heading{
+ 	color:#949494;
+}
+.box_high_lighted .priority_icon {
+	/*color: #cc2424;*/
+    display: block;
+    font-size: 20px;
+    margin-top: 15px;
+    text-align: center;
+    cursor: pointer;
+}
+.Not_box_high_lighted {
+	width: 80px;
+	height: 80px;
+	border-radius:5px;
+ 	border:2px #EEEEEE solid;
+ 	float: left;
+ 	color:#EEEEEE;
+ 	cursor: pointer;
+}
+.Not_box_high_lighted .priority_icon {
+	font-size: 20px;
+    text-align: center;
+	color: #EEEEEE;
+	display: block;
+	margin-top: 15px;
+	cursor: pointer;
+}
+#Not_box_high_lighted {
+	width: 80px;
+	height: 80px;
+	border-radius:5px;
+ 	border:2px #EEEEEE solid;
+ 	float: left;
+ 	color:#EEEEEE;
+}
+.icon_bright {
+	color:#949494;
+    font-size: 32px;
+    margin-top: 21px;
+    text-align: center;
+
+}
+.icon_Not_bright {
+    font-size: 32px;
+    margin-top: 21px;
+    text-align: center;
+	color: #EEEEEE;
+}
+.icon_alert {
+	border: 1px solid;
+}
+.alert_heading {
+	display: block;
+    font-size: 15px;
+    font-weight: bold;
+    margin: 9px auto auto;
+    text-align: center;
+}
+.para {
+	display: block;
+    font-style: italic;
+    margin-top: 3px;
+    text-align: center;
+}
+.para_one {
+	font-style: italic;
+    text-align: center;
+}
+.icon_priority_bright {
+    display: block;
+    font-size: 20px;
+    margin-top: 15px;
+    text-align: center;
+}
+.icon_priority_not_bright {
+	font-size: 20px;
+    text-align: center;
+	color: #EEEEEE;
+	display: block;
+	margin-top: 15px;
+}
+.priority_heading {
+	display: block;
+    font-size: 14px;
+    margin-top: 6px;
+    text-align: center;
+}
+.Time_display {
+	display: block;
+}
+.Time_display_one {
+	display: none;
+}
+.box_high_lighted .fa-exclamation-circle {
+	color: red;
+}
+.box_high_lighted .fa-exclamation-triangle {
+	color: yellow;
+}
+.box_high_lighted .fa-info-circle {
+	color: blue;
+}
+
+.nr-of-alarms .badge {
+	border-radius: 50% !important;
+	float: none !important;
+	height: 23px !important;
+	left: 25px !important;
+	line-height: 20px;
+	margin: -5px 0 0 !important;
+	padding: 2px !important;
+	position: absolute !important;
+	width: 48% !important;
+	}
+.history span {
+	width:0px;
+	height:0px;
+}
+
+.align-center .badge {
+	border-radius: 50% !important;
+	float: none !important;
+	height: 23px !important;
+	left: 25px !important;
+	line-height: 20px;
+	margin: -5px 0 0 !important;
+	padding: 2px !important;
+	position: absolute !important;
+	width: 48% !important;
+}
+
+/*.highcharts-container {
+	width:99% !important;
+}*/
+/*.highcharts-title {
+	width: 100% !important;
+	text-align: center !important;
+}*/
+
+/* CUSTOM RADIO AND CHECKBOX STYLES */
+	</style>
+
+</head>
+
+<body id="page-unit-details" class="page-body boxed-layout">
+
+<div class="page-container horizontal-menu" >
+
+	<header class="navbar" id="headerPanner"><!-- set fixed position by adding class "navbar-fixed-top" -->
+		<!-- Content will be loaded from header.html -->
+	</header>
+	<div class="clearfix1"></div>
+	<div class="main-content">
+		<div class="container">
+
+			<div class="row">
+				<div class="col-md-6">
+
+					<h2><a href="#patient-details"><span id="headerPatentName"></span></a></h2>
+					<span class="sub-heading">
+						<a href="#unit-overview"><span class="i_unitid">Unit ID</span>: <span id="headerDeviceCode"></span></a>
+						<input type="hidden" id="unitIdForWholePage">
+						<a href="#caregiver-details"><span class="i_caregiver">Caregiver</span>: <span id="headerCaregiverName"></span></a>
+					</span>
+
+				</div><!-- .col-md-6 -->
+
+				<div class="col-md-6">
+
+					<ul class="pager">
+						<!--<button type="button" class="btn btn-primary tooltip-primary" data-toggle="tooltip" data-placement="top" title="" data-original-title="Tooltip on top">Tooltip on top</button>-->
+						<li><a href="#" id="prevNav" data-toggle="tooltip" data-placement="top" title="Previous unit"><i class="fa fa-long-arrow-left"></i><span id="prevNavText"></span> </a></li>
+						<li><a href="units.html" class="allunit">All units</a></li>
+						<li><a href="#" id="nxtNav" data-toggle="tooltip" data-placement="top" data-original-title="Next unit"><span id="nxtNavText"></span><i class="fa fa-long-arrow-right"></i></a></li>
+					</ul>
+
+				</div><!-- .col-md-6 -->
+			</div><!-- .row -->
+
+			<div class="form-horizontal form-groups-bordered validate">
+
+				<!-- Unit Overview -->
+				<div class="row">
+					<div class="col-md-12">
+
+						<div id="unit-overview" class="panel panel-primary panel-collapse" data-collapsed="0">
+
+							<div class="panel-heading">
+								<div class="panel-title">
+									<a href="#" data-rel="collapse"><i class="fa fa-tachometer large-icon"></i><span class="i_unitoverview">Unit Overview</span> <i class="fa fa-caret-down"></i></a>
+								</div>
+
+								<!-- <div class="panel-options editPriviledge">
+									<a href="#" class="edit"><i class="fa fa-pencil"></i></a>
+								</div> -->
+							</div>
+
+							<div class="panel-body">
+								<div id="unit-overview-edittab">
+									<form id="editUnitOverviewForm">
+										<div class="form-group">
+											<div class="col-sm-4">
+												<div class="col-sm-2">
+												    <div class="make-switch" data-text-label="<i class='fa fa-refresh'></i>">
+												      <input id="autoRefreshFlag" type="checkbox" checked />
+												    </div>
+												</div>
+											</div>
+											<div class="col-sm-3">
+												<div class="input-group">
+													<input type="text" class="form-control datepicker input-lg" id="fromDateForUnitOverview" data-format="yyyy-mm-dd"  placeholder="YYYY-MM-DD">
+													<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+												</div>
+											</div>
+											<div class="col-sm-3">
+												<div class="input-group">
+													<input type="text" class="form-control datepicker input-lg" id="toDateForUnitOverview" data-format="yyyy-mm-dd"  placeholder="YYYY-MM-DD">
+													<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+												</div>
+											</div>
+											<div class="col-sm-2" style="float:right;" >
+												<div class="input-group">
+													<button class="btn btn-success btn-lg i_search" title="Search for the corresponding date" id="search_bed_chart">Search</button>
+												</div>
+											</div>
+											<div class="col-sm-4" style="margin-top:20px;">
+												<div class="col-sm-10">
+													<select class="selectpicker show-tick form-control" id="time_filter1">
+														<option value="Select" class="i_select">Select</option>
+														<option value="24 Hours" class="i_hours">24 Hours</option>
+														<option value="22-06">22-06</option>
+														<option value="06-22">06-22</option>
+														<option value="Custom" class="i_custom">Custom</option>
+
+													</select>
+												</div>
+											</div>
+											<div class="user_time_input time_filter1" style="display:none; margin-top:54px;">
+												<div class="col-sm-3">
+													<div class="input-group bootstrap-timepicker timepicker">
+														<input type="text" class="form-control input-lg" id="timeFrom_user1" placeholder="HH:MM" readonly>
+														<span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
+													</div>
+												</div>
+												<div class="col-sm-3">
+													<div class="input-group bootstrap-timepicker timepicker">
+														<input type="text" class="form-control input-lg" id="timeTo_user1"  placeholder="HH:MM" readonly>
+														<span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
+													</div>
+												</div>
+
+											</div>
+										</div>
+										 <hr />
+										<div class="form-group">
+
+										</div>
+									</form>
+								</div>
+								<div class="form-group">
+									<div id="site_statistics_loading">
+										<img src="images/loading.gif" alt="loading"/>
+									</div>
+									<div id="test-graph" style="width:100%; height:400px; margin:10px 0;"></div>
+								</div>
+									<!--<form id="editUnitOverviewFormOne">
+											<div class="form-group">
+												<div class="col-sm-4">
+													<div class="col-sm-2">
+														<div class="make-switch" data-text-label="<i class='fa fa-refresh'></i>">
+														  <input id="autoRefreshFlag" type="checkbox" checked />
+														</div>
+													</div>
+												</div>
+												<div class="col-sm-3">
+													<div class="input-group">
+														<input type="text" class="form-control datepicker input-lg" id="fromDateForUnitOverviewOne" data-format="yyyy-mm-dd"  placeholder="YYYY-MM-DD">
+														<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+													</div>
+												</div>
+												<div class="col-sm-3">
+													<div class="input-group">
+														<input type="text" class="form-control datepicker input-lg" id="toDateForUnitOverviewOne" data-format="yyyy-mm-dd"  placeholder="YYYY-MM-DD">
+														<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+													</div>
+												</div>
+												<div class="col-sm-2" style="float:right; margin-top:-15px;" >
+													<div class="input-group">
+														<button class="btn btn-success btn-lg" title="Search for the corresponding date">Search</button>
+													</div>
+												</div>
+											</div>
+											 <hr />
+											<div class="form-group"></div>
+									</form>-->
+								<!--<div id="test-graph-one" style="width:100%; height:400px; margin:10px 0;"></div>
+
+								<hr /> -->
+								<!--<form id="editUnitOverviewFormTwo">
+										<div class="form-group">
+											<div class="col-sm-4">
+												<div class="col-sm-2">
+													<div class="make-switch" data-text-label="<i class='fa fa-refresh'></i>">
+													  <input id="autoRefreshFlag" type="checkbox" checked />
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-3">
+												<div class="input-group">
+													<input type="text" class="form-control datepicker input-lg" id="fromDateForUnitOverviewTwo" data-format="yyyy-mm-dd"  placeholder="YYYY-MM-DD">
+													<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+												</div>
+											</div>
+											<div class="col-sm-3">
+												<div class="input-group">
+													<input type="text" class="form-control datepicker input-lg" id="toDateForUnitOverviewTwo" data-format="yyyy-mm-dd"  placeholder="YYYY-MM-DD">
+													<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+												</div>
+											</div>
+											<div class="col-sm-2" style="float:right; margin-top:-15px;">
+												<div class="input-group">
+													<button class="btn btn-success btn-lg" title="Search for the corresponding date">Search</button>
+												</div>
+											</div>
+										</div>
+										 <hr />
+										<div class="form-group"></div>
+									</form>-->
+								<!--<div id="test-graph-two" style="width:100%; height:400px; margin:10px 0;"></div>-->
+
+							</div><!-- .panel-body -->
+						</div><!-- .panel -->
+					</div><!-- .col-md-12 -->
+				</div><!-- .row -->
+				<!-- End Unit Overview -->
+
+				<!-- Movement Index Begin -->
+
+				<div class="row">
+					<div class="col-md-12">
+						<div id="unit-overview" class="panel panel-primary panel-collapse" data-collapsed="0">
+
+							<div class="panel-heading">
+								<div class="panel-title">
+									<a href="#" data-rel="collapse"><i class="fa fa-tachometer large-icon"></i><span class="i_movementindex">Movement Index</span> <i class="fa fa-caret-down"></i></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div id="unit-overview-edittab">
+									<form id="editUnitOverviewFormFour">
+										<div class="form-group">
+											<div class="col-sm-4">
+												<div class="col-sm-2">
+												    <div class="make-switch" data-text-label="<i class='fa fa-refresh'></i>">
+												      <input id="autoRefreshFlag" type="checkbox" checked />
+												    </div>
+												</div>
+											</div>
+											<div class="col-sm-3">
+												<div class="input-group">
+													<input type="text" class="form-control datepicker input-lg" id="fromDateForMovement" data-format="yyyy-mm-dd"  placeholder="YYYY-MM-DD">
+													<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+												</div>
+											</div>
+											<div class="col-sm-3">
+												<div class="input-group">
+													<input type="text" class="form-control datepicker input-lg" id="toDateForMovement" data-format="yyyy-mm-dd"  placeholder="YYYY-MM-DD">
+													<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+												</div>
+											</div>
+											<div class="col-sm-2" style="float:right; margin-top:-15px;" >
+												<div class="input-group">
+													<button class="btn btn-success btn-lg i_search" title="Search for the corresponding date" id="search_bed_chart_Four">Search</button>
+												</div>
+											</div>
+											<div class="col-sm-4" style="margin-top:20px;">
+												<div class="col-sm-10">
+													<select class="selectpicker show-tick form-control" id="time_filter2">
+														<option value="Select" class="i_select">Select</option>
+														<option value="24 Hours" class="i_hours">24 Hours</option>
+														<option value="22-06">22-06</option>
+														<option value="06-22">06-22</option>
+														<option value="Custom" class="i_custom">Custom</option>
+													</select>
+												</div>
+											</div>
+											<div class="user_time_input time_filter2" style="display:none; margin-top:54px;">
+												<div class="col-sm-3">
+													<div class="input-group bootstrap-timepicker timepicker">
+														<input type="text" class="form-control input-lg" id="timeFrom_user2" placeholder="HH:MM" readonly>
+														<span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
+													</div>
+												</div>
+												<div class="col-sm-3">
+													<div class="input-group bootstrap-timepicker timepicker">
+														<input type="text" class="form-control input-lg" id="timeTo_user2"  placeholder="HH:MM" readonly>
+														<span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
+													</div>
+												</div>
+
+											</div>
+										</div>
+										<div class="form-group">
+
+										</div>
+									</form>
+								</div>
+								<div class="form-group">
+									<div id="site_statistics_loading_One">
+										<img src="images/loading.gif" alt="loading"/>
+									</div>
+									<div id="test-graph_Four" style="width:100%; height:400px; margin:10px 0;"></div>
+								</div>
+                                <hr />
+
+							</div><!-- .panel-body -->
+						</div><!-- .panel -->
+					</div><!-- .col-md-12 -->
+				</div><!-- .row -->
+
+				<!-- Movement Index End -->
+				<!-- On Bed Hours -->
+
+					<div class="row">
+					<div class="col-md-12">
+
+						<div id="accordionForPatientTab" class="panel panel-primary" data-collapsed="0">
+
+							<div class="panel-heading">
+								<div class="panel-title">
+									<a href="#" data-rel="collapse"><i class="fa fa-tachometer large-icon"></i><span class="i_onbedhours">On Bed Hours</span> <i class="fa fa-caret-down"></i></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div id="on-bed-hours-edittabOne">
+									<form id="editUnitOverviewFormOne">
+											<div class="form-group">
+												<div class="col-sm-4">
+													<div class="col-sm-2">
+														<div class="make-switch" data-text-label="<i class='fa fa-refresh'></i>">
+														  <input id="autoRefreshFlagOne" type="checkbox" checked />
+														</div>
+													</div>
+												</div>
+												<div class="col-sm-3">
+													<div class="input-group">
+														<input type="text" class="form-control datepicker input-lg" id="fromDateForUnitOverviewOne" data-format="yyyy-mm-dd"  placeholder="YYYY-MM-DD">
+														<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+													</div>
+												</div>
+												<div class="col-sm-3">
+													<div class="input-group">
+														<input type="text" class="form-control datepicker input-lg" id="toDateForUnitOverviewOne" data-format="yyyy-mm-dd"  placeholder="YYYY-MM-DD">
+														<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+													</div>
+												</div>
+												<div class="col-sm-2" style="float:right; margin-top:-15px;" >
+													<div class="input-group">
+														<button class="btn btn-success btn-lg i_search" title="Search for the corresponding date" id="search_bed_chart2">Search</button>
+													</div>
+												</div>
+												<div class="col-sm-4" style="margin-top:20px;">
+												<div class="col-sm-10">
+													<select class="selectpicker show-tick form-control" id="time_filter3">
+														<option value="Select" class="i_select">Select</option>
+														<option value="24 Hours" class="i_hours">24 Hours</option>
+														<option value="22-06">22-06</option>
+														<option value="06-22">06-22</option>
+														<option value="Custom" class="i_custom">Custom</option>
+													</select>
+												</div>
+											</div>
+											<div class="user_time_input time_filter3" style="display:none; margin-top:54px;">
+												<div class="col-sm-3">
+													<div class="input-group bootstrap-timepicker timepicker">
+														<input type="text" class="form-control input-lg" id="timeFrom_user3" placeholder="HH:MM" readonly>
+														<span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
+													</div>
+												</div>
+												<div class="col-sm-3">
+													<div class="input-group bootstrap-timepicker timepicker">
+														<input type="text" class="form-control input-lg" id="timeTo_user3"  placeholder="HH:MM" readonly>
+														<span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
+													</div>
+												</div>
+
+											</div>
+											</div>
+											 <hr />
+											<div class="form-group">
+                                            <div id="test-graph-one" style="width:100%; height:400px; margin:10px 0; text-align:center;"></div>
+
+                                    		<hr/>
+
+                                            </div>
+									</form>
+
+
+							</div><!-- .panel-body -->
+						</div><!-- .panel -->
+					</div><!-- .col-md-12 -->
+				</div>
+                </div>
+				<!-- End On Bded Hours -->
+
+                <!-- No Exists -->
+
+                <div class="row">
+					<div class="col-md-12">
+
+						<div id="accordionForPatientTab" class="panel panel-primary" data-collapsed="0">
+
+							<div class="panel-heading">
+								<div class="panel-title">
+									<a href="#" data-rel="collapse"><i class="fa fa-tachometer large-icon"></i><span class="i_numberofexits">Number of Exits</span> <i class="fa fa-caret-down"></i></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div id="no-exist-edittabTwo">
+                                	<form id="editUnitOverviewFormTwo">
+										<div class="form-group">
+											<div class="col-sm-4">
+												<div class="col-sm-2">
+													<div class="make-switch" data-text-label="<i class='fa fa-refresh'></i>">
+													  <input id="autoRefreshFlagTwo" type="checkbox" checked />
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-3">
+												<div class="input-group">
+													<input type="text" class="form-control datepicker input-lg" id="fromDateForUnitOverviewTwo" data-format="yyyy-mm-dd"  placeholder="YYYY-MM-DD">
+													<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+												</div>
+											</div>
+											<div class="col-sm-3">
+												<div class="input-group">
+													<input type="text" class="form-control datepicker input-lg" id="toDateForUnitOverviewTwo" data-format="yyyy-mm-dd"  placeholder="YYYY-MM-DD">
+													<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+												</div>
+											</div>
+											<div class="col-sm-2" style="float:right; margin-top:-15px;">
+												<div class="input-group">
+													<button class="btn btn-success btn-lg i_search" title="Search for the corresponding date" id="search_bed_chart1" >Search</button>
+												</div>
+											</div>
+											<div class="col-sm-4" style="margin-top:20px;">
+												<div class="col-sm-10">
+													<select class="selectpicker show-tick form-control" id="time_filter">
+														<option value="Select" class="i_select">Select</option>
+														<option value="24 Hours" class="i_hours">24 Hours</option>
+														<option value="22-06">22-06</option>
+														<option value="06-22">06-22</option>
+														<option value="Custom" class="i_custom">Custom</option>
+													</select>
+												</div>
+											</div>
+											<div class="user_time_input" style="display:none; margin-top:54px;">
+												<div class="col-sm-3">
+													<div class="input-group bootstrap-timepicker timepicker">
+														<input type="text" class="form-control input-lg" id="timeFrom_user" data-format="HH:mm" placeholder="HH:MM" readonly>
+														<span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
+													</div>
+												</div>
+												<div class="col-sm-3">
+													<div class="input-group bootstrap-timepicker timepicker">
+														<input type="text" class="form-control input-lg" id="timeTo_user"  placeholder="HH:MM" readonly>
+														<span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
+													</div>
+												</div>
+
+											</div>
+
+
+										</div>
+										 <hr />
+										<div class="form-group">
+
+                                        	<div id="test-graph-two" style="width:100%; height:400px; margin:10px 0; text-align:center;"></div>
+                                        </div>
+									</form>
+
+								</div><!-- .panel-body -->
+						</div><!-- .panel -->
+					</div><!-- .col-md-12 -->
+				</div>
+                </div>
+
+				<!-- No Exists End -->
+
+				<!-- Patient Details -->
+				<div class="row">
+					<div class="col-md-12">
+						<div id="patient-details" class="panel panel-primary panel-collapse" data-collapsed="0">
+							<div class="panel-heading">
+								<div class="panel-title">
+									<a href="#" data-rel="collapse"><i class="fa fa-wheelchair large-icon"></i><span class="i_patientdetails">Patient Details</span> <i class="fa fa-caret-down"></i></a>
+								</div>
+								<div class="panel-options editPriviledge">
+									<div class="edit-toggle"><i class="fa fa-pencil"></i></div>
+								</div>
+							</div>
+							<div class="panel-body" id="accordionForPatientTab" style="display:none;">
+
+								<!--*******View pannel******-->
+								<div class="content view">
+									<div class="form-group name">
+										<span class="col-sm-3 control-label i_name">Name</span>
+
+										<div class="col-sm-6">
+											<span class="form-presentation" id="patientTab-patientName"></span>
+										</div>
+									</div>
+									<hr />
+									<div class="form-group user-id">
+										<label for="user-id" class="col-sm-3 control-label i_patientid">Patient ID</label>
+
+										<div class="col-sm-6">
+											<span class="form-presentation" id="patientTab-userId"></span>
+										</div>
+									</div>
+									<hr />
+									<div class="form-group">
+										<label for="birth-date" class="col-sm-3 control-label i_birthdate">Birth Date</label>
+
+										<div class="col-sm-6">
+											<span class="form-presentation" id="patientTab-dateOfBirth"></span>
+										</div>
+									</div>
+									<hr />
+
+									<div class="form-group">
+										<label for="start-date" class="col-sm-3 control-label i_startdate">Start Date</label>
+
+										<div class="col-sm-6">
+											<span class="form-presentation" id="patientTab-startDate"></span>
+										</div>
+									</div>
+
+									<hr />
+
+									<div class="form-group">
+										<label for="information" class="col-sm-3 control-label i_contactinformation">Contact Information</label>
+										<div class="col-sm-6">
+											<span class="form-presentation" id="patientTab-contactInfo"></span>
+										</div>
+									</div>
+									<hr />
+									<div class="form-group">
+										<label for="information" class="col-sm-3 control-label i_exitminimumweightinterval">Exit Minimum Weight Interval</label>
+										<div class="col-sm-6">
+											<span class="form-presentation" id="patientWeightInterval_one"></span>
+										</div>
+									</div>
+									<hr />
+									<!-- <div class="form-group">
+										<label for="information" class="col-sm-3 control-label i_exitminimumweight">Exit Minimum Weight</label>
+										<div class="col-sm-6">
+											<span class="form-presentation" id="patientWeight_one"></span>
+										</div>
+									</div> -->
+
+								</div>
+
+								<!--*******Edit pannel******-->
+								<div class="content edit ">
+									<form id="patientForm">
+										<input type="hidden" id="patId" >
+										<div class="form-group">
+											<span class="col-sm-3 control-label i_name">Name</span>
+
+											<div class="col-sm-3">
+												<input type="text" class="form-control" id="patientName" placeholder="Patient Name">
+											</div>
+											<div class="col-sm-3">
+												<div class="input-group">
+													<span class="input-group-addon"><i class="fa fa-credit-card"></i></span>
+													<input type="text" class="form-control" id="patientId" placeholder="Patient Id">
+												</div>
+											</div>
+										</div>
+
+										<hr />
+
+										<div class="form-group">
+											<label for="contactName" class="col-sm-3 control-label i_contactperson">Contact Person</label>
+											<div class="col-sm-3">
+												<div class="input-group">
+													<span class="input-group-addon"><i class="fa fa-user"></i></span>
+													<input type="text" class="form-control" placeholder="Contact Person" id="patientContactPerson">
+												</div>
+											</div>
+											<div class="col-sm-3">
+												<div class="input-group">
+													<span class="input-group-addon"><i class="fa fa-link"></i></span>
+													<input type="text" class="form-control" placeholder="Relation" id="patientContactRelation">
+												</div>
+											</div>
+										</div>
+
+										<hr />
+
+										<div class="form-group">
+											<label for="start-date" class="col-sm-3 control-label i_startdateanddateofbirth"> Start Date & Date Of Birth</label>
+											<div class="col-sm-3">
+												<div class="input-group">
+													<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+													<input type="text" class="form-control" id="patientStartDate" placeholder="YYYY-MM-DD" >
+												</div>
+											</div>
+
+											<div class="col-sm-3">
+												<div class="input-group">
+													<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+													<input type="text" class="form-control" id="patientDob" placeholder="YYYY-MM-DD" >
+												</div>
+											</div>
+										</div>
+
+										<hr />
+
+										<div class="form-group">
+											<label for="start-date" class="col-sm-3 control-label i_contactnumber">Contact Number</label>
+											<div class="col-sm-3">
+												<div class="input-group">
+													<span class="input-group-addon"><i class="fa fa-phone"></i></span>
+													<input type="tel" class="form-control" placeholder="E.g. +46 70 123 45 67" id="patientContactNo">
+												</div>
+											</div>
+										</div>
+
+										<hr />
+
+										<div class="form-group">
+											<label for="start-date" class="col-sm-3 control-label i_exitminimumweightinterval">Exit Minimum Weight Interval</label>
+											<div class="col-sm-3">
+												<div class="input-group">
+													<span class="input-group-addon"><i class="fa fa-external-link"></i></span>
+													<input type="tel" class="form-control" placeholder="Exit Minimum Weight Interval" id="patientWeightInterval">
+												</div>
+											</div>
+
+											<!-- <label for="start-date" class="col-sm-2 control-label i_exitminimumweight">Exit Minimum Weight</label>
+											<div class="col-sm-3">
+												<div class="input-group">
+													<span class="input-group-addon"><i class="fa fa-external-link"></i></span>
+													<input type="tel" class="form-control" placeholder="Exit Minimum Weight" id="patientWeight">
+												</div>
+											</div> -->
+
+										</div>
+
+										<hr />
+
+										<div class="form-group">
+											<div class="col-sm-12 edit-buttons">
+												<div class="save-edit-wrapper responseReceved" id="patientSaveBtnDiv">
+													<button id="patientSaveBtn" type="button" class="btn btn-success save-edit i_save" title="Save Changes">Save</button>
+												</div>
+												<div class="cancel-edit-wrapper" id="patientCancelBtnDiv">
+													<a style="margin-top:0px; text-decoration:none;" id="patientCancelBtn" class="btn btn-success cancel-edit i_cancel" title="Cancel">Cancel</a>
+												</div>
+											</div>
+										</div>
+									</form>
+								</div><!-- .edit-panel -->
+
+							</div><!-- .panel-body -->
+						</div><!-- .panel -->
+					</div><!-- .col-md-12 -->
+				</div><!-- .row -->
+				<!-- End Patient Details -->
+
+				<!-- Caregiver Details -->
+				<div class="row">
+					<div class="col-md-12">
+
+						<div id="caregiver-details" class="panel panel-primary panel-collapse" data-collapsed="0">
+
+							<div class="panel-heading">
+								<div class="panel-title">
+									<!-- data-rel="collapse" -->
+									<a href="" data-rel="collapse"><i class="fa fa-user-md large-icon"></i><span class="i_caregiverdetails">Caregiver Details</span> <i class="fa fa-caret-down"></i></a>
+								</div>
+
+								<div class="panel-options editPriviledge">
+									<div class="edit-toggle"><i class="fa fa-pencil"></i></div>
+								</div>
+							</div>
+
+							<div class="panel-body panel-group" id="accordion" style="display:none;">
+
+							<!--*******View pannel******-->
+							<div class="content view">
+
+								<div class="form-group">
+									<span class="col-sm-3 control-label i_name">Name</span>
+
+									<div class="col-sm-6">
+										<span class="form-presentation i_caregiver" id="caregiverTab-caregiverName"></span>
+									</div>
+								</div>
+
+								<hr />
+
+								<div class="form-group">
+									<label for="information" class="col-sm-3 control-label i_contactinformation">Contact Information</label>
+									<div class="col-sm-6">
+										<span class="form-presentation" id="caregiverTab-contactInfo">
+										</span>
+									</div>
+								</div>
+
+								<hr />
+
+								<div class="form-group">
+									<label for="start-date" class="col-sm-3 control-label i_startdate">Start Date</label>
+
+									<div class="col-sm-6">
+										<span class="form-presentation" id="caregiverTab-startDate"></span>
+									</div>
+								</div>
+
+								<hr />
+
+								<div class="form-group">
+									<label for="start-date" class="col-sm-3 control-label i_email">Email</label>
+
+									<div class="col-sm-6">
+										<span class="form-presentation" id="caregiverTab-email"></span>
+									</div>
+								</div>
+
+							</div>
+
+							<!--*******Edit pannel******-->
+							<div class="content edit responseReceved">
+
+								<form id="caregiverForm">
+										<input type="hidden" id="cgrId">
+									<div class="form-group" >
+										<span class="col-sm-3 control-label i_caregiver">Caregiver</span>
+
+										<div class="col-sm-2">
+											<select id="caregiverFullDetails"></select>
+										</div>
+										<div class="col-sm-4">
+											<span id="freshCareGiver" class="i_blankcaregiver"style="cursor:pointer;">Blank caregiver</span>
+										</div>
+
+									</div>
+									<div class="form-group">
+										<span class="col-sm-3 control-label i_name">Name</span>
+
+										<div class="col-sm-3">
+											<input type="text" class="form-control" id="caregiverName" placeholder="Caregiver Name" required>
+										</div>
+										<div class="col-sm-3">
+											<div class="input-group">
+												<span class="input-group-addon"><i class="fa fa-credit-card"></i></span>
+												<input type="text" class="form-control" id="caregiverId" placeholder="Caregiver Id">
+											</div>
+										</div>
+									</div>
+
+									<hr />
+
+									<div class="form-group">
+										<label for="information" class="col-sm-3 control-label i_contactnumber">Contact Number</label>
+
+										<div class="col-sm-3">
+											<div class="input-group">
+												<span class="input-group-addon"><i class="fa fa-phone"></i></span>
+												<input type="tel" class="form-control" placeholder="E.g. +46 70 123 45 67" id="caregiverContactNo">
+											</div>
+										</div>
+										<div class="col-sm-3">
+											<div class="input-group">
+												<span class="input-group-addon"><i class="fa fa-mobile-phone"></i></span>
+												<input type="tel" class="form-control" placeholder="E.g. +46 70 123 45 67" id="caregiverAlternateContactNo">
+											</div>
+										</div>
+
+									</div>
+
+									<hr />
+									<div class="form-group">
+										<label for="information" class="col-sm-3 control-label i_startdate">Start Date:</label>
+
+										<div class="col-sm-3">
+											<div class="input-group">
+												<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+												<input type="text" class="form-control" id="caregiverStartDate" placeholder="YYYY-MM-DD" >
+											</div>
+										</div>
+
+									</div>
+									<hr />
+
+									<div class="form-group">
+										<label for="information" class="col-sm-3 control-label i_email">Email:</label>
+
+										<div class="col-sm-5">
+											<div class="input-group">
+												<span class="input-group-addon"><i class="fa fa-envelope classFind"></i></span>
+												<input type="email" class="form-control" id="caregiverEmail" placeholder="Email" >
+											</div>
+										</div>
+
+									</div>
+									<hr />
+
+									<div class="form-group">
+										<div class="col-sm-12 edit-buttons">
+											<div class="save-edit-wrapper responseReceved" id="caregiverSaveBtnDiv">
+												<button id="caregiverSaveBtn" class="btn btn-success save-edit i_save" title="Save Changes">Save</button>
+											</div>
+											<div class="cancel-edit-wrapper" id="caregiverCancelBtnDiv">
+												<button style="margin-top:0px;" id="caregiverCancelBtn" class="btn btn-success cancel-edit i_cancel" title="Cancel">Cancel</button>
+											</div>
+										</div>
+									</div>
+								</form>
+
+							</div>
+
+
+							</div><!-- .panel-body -->
+						</div><!-- .panel -->
+					</div><!-- .col-md-12 -->
+				</div><!-- .row -->
+				<!-- End Caregiver Details -->
+
+
+				<!-- Anomaly Settings -->
+				<div class="row">
+					<div class="alertMessage"></div>
+					<div class="col-md-12">
+
+						<div id="anomaly-settings" class="panel panel-primary panel-collapse" data-collapsed="0">
+
+							<div class="panel-heading">
+								<div class="panel-title">
+									<a href="#" data-rel="collapse"><i class="fa fa-bell-o large-icon"></i><span class="i_anomalysettings">Anomaly Settings</span> <i class="fa fa-caret-down"></i></a>
+								</div>
+
+								<div class="panel-options editPriviledge">
+									<div class="edit-toggle"><i class="fa fa-pencil"></i></div>
+								</div>
+							</div>
+
+							<div class="panel-body" style="display:none;">
+
+								<!-- pannel start -->
+								<div class="panel-body" id="anomalyTab" >
+
+									<!--*******view button pannel******-->
+									<div class="content view" id="viewAnomalyTab">
+
+									</div>
+
+									<!--*******edit button pannel******-->
+									<div class="content edit" id="editAnomalyTab">
+										<div id="editAnomalyFormTab">
+
+										</div>
+									</div>
+
+								</div><!-- .panel-body -->
+
+							</div><!-- .panel-body -->
+						</div><!-- .panel -->
+					</div><!-- .col-md-12 -->
+				</div><!-- .row -->
+				<!-- End Anomaly Settings -->
+
+				<!-- Messages & Comments -->
+				<div class="row">
+					<div class="col-md-12">
+
+						<div id="messages-comments" class="panel panel-primary" data-collapsed="0">
+
+							<div class="panel-heading">
+								<div class="panel-title">
+									<a href="#" data-rel="collapse"><i class="fa fa-comments-o large-icon"></i><span class="i_messagesandcomments">Messages &amp; Comments</span> <i class="fa fa-caret-down"></i></a>
+								</div>
+
+								<div class="panel-options" >
+
+								</div>
+							</div>
+
+							<div class="panel-body" id="messagsCommentsTab-messageInfo" style="display:none;">
+
+							</div><!-- .panel-body -->
+						</div><!-- .panel -->
+					</div><!-- .col-md-12 -->
+				</div><!-- .row -->
+				<!-- End Messages & Comments -->
+
+				<!-- Operational Status & History -->
+				<div class="row">
+					<div class="col-md-12">
+
+						<div id="status-history" class="panel panel-primary panel-collapse" data-collapsed="0">
+
+							<div class="panel-heading">
+								<div class="panel-title">
+									<a href="#" data-rel="collapse"><i class="fa fa-plug large-icon"></i><span class="i_operationalstatusandhistory">Operational Status &amp; History</span> <i class="fa fa-caret-down"></i></a>
+								</div>
+
+								<div class="panel-options">
+
+								</div>
+							</div>
+
+							<div class="panel-body" style="display:none;">
+
+								<div class="actions editPriviledge " id="opereationalStatusTab-button">
+
+								</div>
+
+								<!-- pannel start -->
+								<div class="panel-body" id="accordionForOperationalTab" >
+
+									<!--*******start button pannel******-->
+									<div class="panel panel-default">
+										<div id="startBtnPannel" class="panel-collapse collapse">
+											<form id="startForm">
+												<div class="responseReceved">
+													<div class="chat-textarea">
+														<textarea row="3" id="opsMessageForStart" class="form-control" placeholder="Reason..."></textarea>
+													</div>
+													<button class="btn btn-success btn-lg i_confirmstart" ><i class="fa fa-play"></i>Confirm Start</button>
+												</div>
+											</form>
+										</div>
+									</div>
+
+									<!--*******stop button pannel******-->
+									<div class="panel panel-default ">
+										<div id="stopBtnPannel" class="panel panel-collapse collapse">
+											<form id="stopForm">
+												<div class="responseReceved">
+													<div class="chat-textarea">
+														<textarea row="3" id="opsMessageForStop" class="form-control " placeholder="Reason..."></textarea>
+													</div>
+													<button class="btn btn-success btn-lg i_confirmstop" ><i class="fa fa-stop"></i> Confirm Stop</button>
+												</div>
+											</form>
+										</div>
+									</div>
+
+									<!--*******pause pannel******-->
+									<!-- <div class="panel panel-default ">
+										<div id="pauseBtnPannel" class="panel panel-collapse collapse">
+											<form id="pauseForm">
+												<div class="responseReceved">
+													<div class="chat-textarea">
+														<textarea row="3" id="opsMessageForPause" class="form-control" placeholder="Reason..."></textarea>
+													</div>
+													<button class="btn btn-primary btn-lg" ><i class="fa fa-pause"></i> Confirm Pause</button>
+												</div>
+											</form>
+										</div>
+									</div> -->
+
+									<!--*******Tara pannel******-->
+									<div class="panel panel-default ">
+										<div id="taraBtnPannel" class="panel panel-collapse collapse">
+											<form id="taraForm">
+												<div class="responseReceved">
+													<div class="chat-textarea">
+														<textarea row="3" id="opsMessageForTara" class="form-control" placeholder="Reason..."></textarea>
+													</div>
+													<button class="btn btn-success btn-lg i_confirmtara"><i class="fa fa-circle-o"></i> Confirm Tara</button>
+												</div>
+											</form>
+										</div>
+									</div>
+
+								</div><!-- .panel-body -->
+								<form id="editOppStatusForm">
+									<div class="form-group">
+										<label for="information" class="col-sm-3 control-label i_fromdateandtodate">From Date and To Date:</label>
+										<div class="col-sm-3">
+											<div class="input-group">
+												<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+												<input type="text" class="form-control datepicker" id="opsDateRangeFrom" data-format="yyyy-mm-dd"  placeholder="YYYY-MM-DD">
+											</div>
+										</div>
+										<div class="col-sm-3">
+											<div class="input-group">
+												<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+												<input type="text" class="form-control datepicker" id="opsDateRangeTo" data-format="yyyy-mm-dd"  placeholder="YYYY-MM-DD">
+											</div>
+										</div>
+										<div class="col-sm-2" style="float:right;" >
+											<div class="input-group">
+												<button style="margin-top:0px;" class="btn btn-success i_search" title="Search for the corresponding date" id="search_bed_chart3">Show</button>
+										</div>
+										</div>
+									</div>
+									<!-- <hr /> -->
+									<div class="form-group">
+
+									</div>
+									<hr />
+								</form>
+								<div class="row" id="oppStatusNotification" style="display:none;text-align:center;">
+								</div>
+								<ul class="cbp_tmtimeline" id="opereationalStatusTab-statusInfo">
+
+								</ul>
+
+							</div><!-- .panel-body -->
+						</div><!-- .panel -->
+					</div><!-- .col-md-12 -->
+				</div><!-- .row -->
+				<!-- End Operational Status & History -->
+			</div><!-- .form-horizontal -->
+
+			<div class="row">
+				<div class="col-md-12">
+
+					<!-- Footer -->
+					<footer class="main">
+
+					</footer>
+
+				</div><!-- .col-md-12 -->
+			</div><!-- .row -->
+
+		</div><!-- .container -->
+	</div><!-- .main-content -->
+</div><!-- .page-container -->
+
+<link rel="stylesheet" href="../js/client/jvectormap/jquery-jvectormap-1.2.2.css">
+<link rel="stylesheet" href="../js/client/rickshaw/rickshaw.min.css">
+<link rel="stylesheet" href="../js/client/select2/select2-bootstrap.css">
+<link rel="stylesheet" href="../js/client/select2/select2.css">
+<link rel="stylesheet" href="../js/client/vertical-timeline/css/component.css">
+<link rel="stylesheet" href="../theme/themeforest-6434477-neon-bootstrap-admin-theme/html/neon/assets/js/daterangepicker/daterangepicker-bs3.css">
+<link rel="stylesheet" href="../theme/themeforest-6434477-neon-bootstrap-admin-theme/html/neon/assets/js/selectboxit/jquery.selectBoxIt.css">
+
+
+<!-- Bottom Scripts -->
+<script src="../js/client/gsap/main-gsap.js"></script>
+<script src="../js/client/jquery-ui/js/jquery-ui-1.10.3.minimal.min.js"></script>
+<script src="../js/client/bootstrap.js"></script>
+<script src="../js/client/bootstrap-switch.min.js"></script>
+<link rel="stylesheet" href="../js/client/bootstrap-timepicker.min.css">
+<script src="../js/client/bootstrap-timepicker.js"></script>
+<script src="../js/client/joinable.js"></script>
+<script src="../js/client/resizeable.js"></script>
+<script src="../js/client/neon-api.js"></script>
+<script src="../js/client/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
+<script src="../js/client/jvectormap/jquery-jvectormap-europe-merc-en.js"></script>
+<script src="../js/client/jquery.sparkline.min.js"></script>
+<script src="../js/client/rickshaw/vendor/d3.v3.js"></script>
+<script src="../js/client/rickshaw/rickshaw.min.js"></script>
+<script src="../js/client/raphael-min.js"></script>
+<script src="../js/client/morris.min.js"></script>
+<script src="../js/client/toastr.js"></script>
+
+<!-- <script src="../js/client/jquery.dataTables.min.js"></script> -->
+<script src="../js/client/datatables/jquery.dataTables.min.js"></script>
+<script src="../js/client/datatables/TableTools.min.js"></script>
+<script src="../js/client/dataTables.bootstrap.js"></script>
+<script src="../js/client/datatables/jquery.dataTables.columnFilter.js"></script>
+<script src="../js/client/datatables/lodash.min.js"></script>
+<script src="../js/client/datatables/responsive/js/datatables.responsive.js"></script>
+<script src="../js/client/select2/select2.min.js"></script>
+<script src="../theme/themeforest-6434477-neon-bootstrap-admin-theme/html/neon/assets/js/bootstrap-datepicker.js"></script>
+<script src="../theme/themeforest-6434477-neon-bootstrap-admin-theme/html/neon/assets/js/selectboxit/jquery.selectBoxIt.min.js"></script>
+
+<script src="../js/client/jquery.validate.min.js"></script>
+<!--<script src="../js/client/neon-login.js"></script>-->
+<script src="../js/client/jquery.crypt.js" ></script>
+<script src="../js/client/login.js"></script>
+
+<script src="../js/client/neon-chat.js"></script>
+<script src="../js/client/neon-custom.js"></script>
+<!--<script src="../js/client/neon-demo.js"></script>-->
+
+<script src="../js/lib/highstock.js"></script>
+
+<!--<script src="../js/client/custom.js"></script>-->
+<script src="../js/common/requests.js"></script>
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+ $(".switch-left").addClass("i_on");
+ $(".switch-right").addClass("i_off");
+ $(".allunit").addClass("i_allunit");
+ 
+});
+
+
+$(document).ready(function(){
+
+	$('#timeFrom_user1, #timeTo_user1,#timeFrom_user2, #timeTo_user2,#timeFrom_user3, #timeTo_user3,#timeFrom_user, #timeTo_user').timepicker({
+		showMeridian: false
+	});
+
+console.log($("#headerDeviceCode").text());
+console.log('the user role code is'+uroCode);
+	if(uroCode == '"superdev"' || uroCode == '"supergroupdev"'){
+		console.log('the user role code is'+uroCode);
+		$( ".editPriviledge" ).show();
+	}else{
+		$( ".editPriviledge" ).hide();
+	}
+	getNrOfAlarms(populateHeader);
+	//to load the header file in the header section
+	$( "#headerPanner" ).load( "include/header.html" );
+
+	var untId = window.location.search.substring(1);
+	// Add data to header (user name, nr of alarms etc)
+	//populateHeader();
+	var date1 = new Date();
+	var currentDate1 = date1.getFullYear()+'-'+(date1.getMonth()+1)+'-'+date1.getDate();
+	date1.setDate(date1.getDate() - 7);
+	var oldDate1 = date1.getFullYear()+'-'+(date1.getMonth()+1)+'-'+date1.getDate();
+	document.getElementById('opsDateRangeFrom').value = oldDate1;
+	document.getElementById('opsDateRangeTo').value =currentDate1 ;
+
+
+	// Populate table with alarms
+	fillUnitDetail(untId);
+	fillOppStatus(untId);
+	// Toggle edit mode
+	$('.edit-toggle, .cancel-edit').click(function() {
+		$(this).closest('.panel').find('.content').toggle();
+		loadBundles($.i18n.browserLang());
+	});
+
+$('#editOppStatusForm').submit(function(){
+	$('#oppStatusNotification').hide();
+    $('#oppStatusNotification').html('');
+	fillOppStatus(untId);
+	return false;
+});
+
+$('#caregiverFullDetails').change(function(){
+	toFillCaregiverWholeTab($(this).val());
+});
+$('#freshCareGiver').click(function(){
+	document.getElementById('caregiverForm').reset();
+	document.getElementById('cgrId').value = 0;
+	$('#caregiverFullDetails').val(null);
+});
+// $('a').on('click', '.remove', function(){
+// 	console.log('woooo');
+//     $(this).closest('.draggable').remove();
+// });
+	//caregiver edit form submit function
+	$('#patientSaveBtn').click(function(){
+
+		// if($("#patientWeightInterval").val()=='' && $("#patientWeight").val()=='') {
+		// 	alert("Please Fill The Values");
+		// }
+		// else {
+		$('#patientSaveBtnDiv').removeClass('responseReceved');
+		$('#patientSaveBtnDiv').addClass('waitForResponse');
+		document.getElementById('patientSaveBtn').disabled = false;
+		//console.log('worrrr');
+		savePatientDetails();
+		// return false;
+		// }
+	});
+
+	$("#search_bed_chart").click(function() {
+		$("#site_statistics_loading").show();
+	});
+
+	$("#search_bed_chart_Four").click(function() {
+		$("#site_statistics_loading_One").show();
+	});
+
+	//caregiver edit form submit function
+	$('#caregiverForm').submit(function(){
+		$('#caregiverSaveBtnDiv').removeClass('responseReceved');
+		$('#caregiverSaveBtnDiv').addClass('waitForResponse');
+		document.getElementById('caregiverSaveBtn').disabled = true;
+		saveCaregiverDetails();
+		return false;
+	});
+
+     //Start form submit function
+	$('#editUnitOverviewForm').submit(function(){
+		unitOverviewFillChart();
+		return false;
+	});
+	function unitOverviewFillChart(){
+		var fromDate = $('#fromDateForUnitOverview').val();
+		var toDate = $('#toDateForUnitOverview').val();
+		var Time_Filter = $('#time_filter1').val();
+
+		var timeFrom, timeTo;
+
+		if(Time_Filter == "Select" || Time_Filter == "Välj") {
+			timeFrom = "00:00";
+			timeTo = "24:00";
+		}
+
+		if(Time_Filter == "24 Hours" || Time_Filter == "24 Timmar" ) {
+			timeFrom = "00:00";
+			timeTo = "24:00";
+		}
+
+		if(Time_Filter == "22-06") {
+			timeFrom = "22:00";
+			timeTo = "06:00";
+		}
+
+		if(Time_Filter == "06-22") {
+			timeFrom = "06:00";
+			timeTo = "22:00";
+		}
+
+		if(Time_Filter == "Custom" || Time_Filter == "Anpassningsbar") {
+			timeFrom = $("#timeFrom_user1").val();
+			timeTo = $("#timeTo_user1").val();
+			if(timeFrom.indexOf('PM') > -1){
+				timeFrom = parseInt(timeFrom.split(':')[0]) + 12 + ':' + timeFrom.split(':')[1].split('PM')[0];
+			}else{
+				timeFrom = timeFrom.split('AM')[0];
+			}
+			if(timeTo.indexOf('PM') > -1){
+				timeTo = parseInt(timeTo.split(':')[0]) + 12 + ':' + timeTo.split(':')[1].split('PM')[0];
+			}else{
+				timeTo = timeTo.split('AM')[0];
+			}
+		}
+			console.log('unit overview is working witht from date and to date '+fromDate+'--'+toDate);
+			var dataForSearch = {usrId:userId,ussSessionCode:userSessionCode,outputSize:"1000000",untId:untId,devCode:"",grpCode:"",dateTimeFrom:fromDate,dateTimeTo:toDate,timeFrom:timeFrom,timeTo:timeTo};
+			var dataForGraph = JSON.stringify(dataForSearch);
+			console.log(dataForGraph);
+			console.log(timeFrom,timeTo);
+			console.log('testing');
+			fillHighChart(dataForGraph);
+	}
+	//Second Graph
+	$('#editUnitOverviewFormFour').submit(function(){
+		fillSecondGraph();
+		return false;
+	});
+	function fillSecondGraph(){
+		var fromDate = $('#fromDateForMovement').val();
+		var toDate = $('#toDateForMovement').val();
+		var Time_Filter = $('#time_filter2').val();
+
+		var timeFrom, timeTo;
+
+		if(Time_Filter == "Select" || Time_Filter == "Välj") {
+			timeFrom = "00:00";
+			timeTo = "24:00";
+		}
+
+		if(Time_Filter == "24 Hours" || Time_Filter == "24 Timmar" ) {
+			timeFrom = "00:00";
+			timeTo = "24:00";
+		}
+
+		if(Time_Filter == "22-06") {
+			timeFrom = "22:00";
+			timeTo = "06:00";
+		}
+
+		if(Time_Filter == "06-22") {
+			timeFrom = "06:00";
+			timeTo = "22:00";
+		}
+
+		if(Time_Filter == "Custom" || Time_Filter == "Anpassningsbar") {
+			timeFrom = $("#timeFrom_user2").val();
+			timeTo = $("#timeTo_user2").val();
+			if(timeFrom.indexOf('PM') > -1){
+				timeFrom = parseInt(timeFrom.split(':')[0]) + 12 + ':' + timeFrom.split(':')[1].split('PM')[0];
+			}else{
+				timeFrom = timeFrom.split('AM')[0];
+			}
+			if(timeTo.indexOf('PM') > -1){
+				timeTo = parseInt(timeTo.split(':')[0]) + 12 + ':' + timeTo.split(':')[1].split('PM')[0];
+			}else{
+				timeTo = timeTo.split('AM')[0];
+			}
+		}
+			console.log('Movement Index is working witht from date and to date '+fromDate+'--'+toDate);
+			var dataForSearch = {usrId:userId,ussSessionCode:userSessionCode,outputSize:"1000000",untId:untId,devCode:"",grpCode:"",dateTimeFrom:fromDate,dateTimeTo:toDate,timeFrom:timeFrom,timeTo:timeTo};
+		var dataForGraph = JSON.stringify(dataForSearch);
+		console.log(dataForGraph);
+		console.log('testing');
+		fillHighChartFour(dataForGraph);
+	}
+	$('#editUnitOverviewFormOne').submit(function(){
+		fillThirdGraph();
+		return false;
+	});
+	function fillThirdGraph(){
+		var fromDate = $('#fromDateForUnitOverviewOne').val();
+		var toDate = $('#toDateForUnitOverviewOne').val();
+		var Time_Filter = $('#time_filter3').val();
+
+		var timeFrom, timeTo;
+
+		if(Time_Filter == "Select" || Time_Filter == "Välj") {
+			timeFrom = "00:00";
+			timeTo = "24:00";
+		}
+
+		if(Time_Filter == "24 Hours" || Time_Filter == "24 Timmar" ) {
+			timeFrom = "00:00";
+			timeTo = "24:00";
+		}
+
+		if(Time_Filter == "22-06") {
+			timeFrom = "22:00";
+			timeTo = "06:00";
+		}
+
+		if(Time_Filter == "06-22") {
+			timeFrom = "06:00";
+			timeTo = "22:00";
+		}
+
+		if(Time_Filter == "Custom" || Time_Filter == "Anpassningsbar") {
+			timeFrom = $("#timeFrom_user3").val();
+			timeTo = $("#timeTo_user3").val();
+			if(timeFrom.indexOf('PM') > -1){
+				timeFrom = parseInt(timeFrom.split(':')[0]) + 12 + ':' + timeFrom.split(':')[1].split('PM')[0];
+			}else{
+				timeFrom = timeFrom.split('AM')[0];
+			}
+			if(timeTo.indexOf('PM') > -1){
+				timeTo = parseInt(timeTo.split(':')[0]) + 12 + ':' + timeTo.split(':')[1].split('PM')[0];
+			}else{
+				timeTo = timeTo.split('AM')[0];
+			}
+		}
+			console.log('unit overview is working witht from date and to date '+fromDate+'--'+toDate);
+			var dataForSearchOne = {usrId:userId,ussSessionCode:userSessionCode,untId:untId,dateTimeFrom:fromDate,dateTimeTo:toDate,timeFrom:timeFrom,timeTo:timeTo};
+		var dataForGraphOne = JSON.stringify(dataForSearchOne);
+		console.log(dataForGraphOne);
+
+		fillHighChartOne(dataForGraphOne);
+	}
+$('#time_filter1').change(function(e){
+	if($(this).val()!='Custom') {
+		$(".time_filter1").hide();
+	}
+	else {
+		$(".time_filter1").show();
+	}
+});
+$('#time_filter2').change(function(e){
+	if($(this).val()!='Custom') {
+		$(".time_filter2").hide();
+	}
+	else {
+		$(".time_filter2").show();
+	}
+});
+$('#time_filter3').change(function(e){
+	if($(this).val()!='Custom') {
+		$(".time_filter3").hide();
+	}
+	else {
+		$(".time_filter3").show();
+	}
+});
+$('#time_filter').change(function(e){
+	if($(this).val()!='Custom') {
+		$(".user_time_input").hide();
+	}
+	else {
+		$(".user_time_input").show();
+	}
+});
+
+
+//No of Exits Graph
+
+	$('#editUnitOverviewFormTwo').submit(function(){
+		fillFourthGraph();
+		return false;
+		//console.log(untId);
+	});
+	function fillFourthGraph(){
+		var fromDate = $('#fromDateForUnitOverviewTwo').val();
+		var toDate = $('#toDateForUnitOverviewTwo').val();
+		var Time_Filter = $('#time_filter').val();
+
+		var timeFrom, timeTo;
+
+		if(Time_Filter == "Select" || Time_Filter == "Välj") {
+			timeFrom = "00:00";
+			timeTo = "24:00";
+		}
+
+		if(Time_Filter == "24 Hours" || Time_Filter == "24 Timmar" ) {
+			timeFrom = "00:00";
+			timeTo = "24:00";
+		}
+
+		if(Time_Filter == "22-06") {
+			timeFrom = "22:00";
+			timeTo = "06:00";
+		}
+
+		if(Time_Filter == "06-22") {
+			timeFrom = "06:00";
+			timeTo = "22:00";
+		}
+
+		if(Time_Filter == "Custom" || Time_Filter == "Anpassningsbar") {
+			timeFrom = $("#timeFrom_user").val();
+			timeTo = $("#timeTo_user").val();
+			if(timeFrom.indexOf('PM') > -1){
+				timeFrom = parseInt(timeFrom.split(':')[0]) + 12 + ':' + timeFrom.split(':')[1].split('PM')[0];
+			}else{
+				timeFrom = timeFrom.split('AM')[0];
+			}
+			if(timeTo.indexOf('PM') > -1){
+				timeTo = parseInt(timeTo.split(':')[0]) + 12 + ':' + timeTo.split(':')[1].split('PM')[0];
+			}else{
+				timeTo = timeTo.split('AM')[0];
+			}
+		}
+
+
+		//console.log(Time_Filter);
+
+			console.log('No of Exits is working witht from date and to date '+fromDate+'--'+toDate);
+			var dataForSearchTwo = {usrId:userId,ussSessionCode:userSessionCode,untId:untId,dateTimeFrom:fromDate,dateTimeTo:toDate,timeFrom:timeFrom,timeTo:timeTo};
+		var dataForGraphTwo = JSON.stringify(dataForSearchTwo);
+		console.log(dataForGraphTwo);
+
+		fillHighChartTwo(dataForGraphTwo);
+	}
+
+
+	//Start form submit function
+	$('#startForm').submit(function(){
+		var msg=$('#opsMessageForStart').val();
+		console.log('the message is '+msg);
+		operationalStatusOperation('Running',msg);
+		$('#startBtnPannel').collapse('hide');
+		return false;
+	});
+
+	//Stop form submit function
+	$('#stopBtnPannel').submit(function(){
+		var msg=$('#opsMessageForStop').val();
+		console.log('the message is '+msg);
+		operationalStatusOperation('Stopped',msg);
+		$('#stopBtnPannel').collapse('hide');
+		return false;
+	});
+
+	//Pause form submit function
+	// $('#pauseForm').submit(function(){
+	// 	var msg=$('#opsMessageForPause').val();
+	// 	console.log('the message is '+msg);
+	// 	operationalStatusOperation('Paused',msg);
+	// 	 $('#pauseBtnPannel').collapse('hide');
+	// 	return false;
+	// });
+
+	//Pause form submit function
+	$('#taraForm').submit(function(){
+		var msg=$('#opsMessageForTara').val();
+		console.log('the message is '+msg);
+		operationalStatusOperation('Tara',msg);
+		 $('#taraBtnPannel').collapse('hide');
+		return false;
+	});
+
+var timeOutCount = 180 * 1000;
+console.log('working');
+//to auto refresh the unit-overview graph
+	setInterval(function(){
+		if($('#autoRefreshFlag').is(':checked')){
+			unitOverviewFillChart();
+		// var fromDate = $('#fromDateForUnitOverview').val();
+		// var toDate = $('#toDateForUnitOverview').val();
+		// console.log('unit overview is working witht from date and to date '+fromDate+'--'+toDate);
+		// var dataForSearch = {usrId:userId,ussSessionCode:userSessionCode,outputSize:"100000",devCode:"",untId:untId,grpCode:"",dateTimeFrom:fromDate,dateTimeTo:toDate};
+		// var dataForGraph = JSON.stringify(dataForSearch);
+		// console.log(dataForGraph);
+
+		// fillHighChart(dataForGraph);
+		}
+
+	}, timeOutCount);
+
+
+	setInterval(function(){
+		if($('#autoRefreshFlag').is(':checked')){
+			fillSecondGraph();
+		// var fromDate = $('#fromDateForMovement').val();
+		// var toDate = $('#toDateForMovement').val();
+		// console.log('Movement Index is working witht from date and to date '+fromDate+'--'+toDate);
+		// var dataForSearch = {usrId:userId,ussSessionCode:userSessionCode,outputSize:"100000",devCode:"",untId:untId,grpCode:"",dateTimeFrom:fromDate,dateTimeTo:toDate};
+		// var dataForGraph = JSON.stringify(dataForSearch);
+		// console.log(dataForGraph);
+
+		// fillHighChartFour(dataForGraph);
+		}
+
+	}, timeOutCount);
+
+		setInterval(function(){
+		if($('#autoRefreshFlagOne').is(':checked')){
+			fillThirdGraph();
+		// var fromDate = $('#fromDateForUnitOverviewOne').val();
+		// var toDate = $('#toDateForUnitOverviewOne').val();
+		// console.log('unit overview is working witht from date and to date '+fromDate+'--'+toDate);
+		// var dataForSearchOne = {usrId:userId,ussSessionCode:userSessionCode,untId:untId,dateTimeFrom:fromDate,dateTimeTo:toDate};
+		// var dataForGraphOne = JSON.stringify(dataForSearchOne);
+		// console.log(dataForGraphOne);
+
+		// fillHighChartOne(dataForGraphOne);
+		}
+
+	}, timeOutCount);
+
+	setInterval(function(){
+		if($('#autoRefreshFlagTwo').is(':checked')){
+			fillFourthGraph();
+		// var fromDate = $('#fromDateForUnitOverviewTwo').val();
+		// var toDate = $('#toDateForUnitOverviewTwo').val();
+		// console.log('unit overview is working witht from date and to date '+fromDate+'--'+toDate);
+		// var dataForSearchTwo = {usrId:userId,ussSessionCode:userSessionCode,untId:untId,dateTimeFrom:fromDate,dateTimeTo:toDate};
+		// var dataForGraphTwo = JSON.stringify(dataForSearchTwo);
+		// console.log(dataForGraphTwo);
+
+		// fillHighChartTwo(dataForGraphTwo);
+		}
+
+	}, timeOutCount);
+
+	// HighStock
+	$(function() {
+		var date = new Date();
+		var currentDate = date.getFullYear()+'-' + ('0' + (date.getMonth()+1)).slice(-2) + '-' + ('0' + date.getDate()).slice(-2);
+		console.log('date before updating is '+ currentDate);
+		date.setDate(date.getDate() - 1);
+		var oldDate = date.getFullYear()+'-' + ('0' + (date.getMonth()+1)).slice(-2) + '-' + ('0' + date.getDate()).slice(-2);
+		console.log('date after updating '+oldDate);
+		var dataForSearch = {usrId:userId,ussSessionCode:userSessionCode,outputSize:"10000",untId:untId,devCode:"",grpCode:"",dateTimeFrom:oldDate,dateTimeTo:currentDate,timeFrom:"00:00",timeTo:"23:59"};
+		var dataForGraph = JSON.stringify(dataForSearch);
+		console.log(dataForGraph);
+
+		//console.log(firstday);
+		document.getElementById('fromDateForUnitOverview').value = oldDate;
+		document.getElementById('toDateForUnitOverview').value = currentDate;
+		fillHighChart(dataForGraph);
+	});
+
+	$(function() {
+		var date = new Date();
+		var currentDate = date.getFullYear()+'-' + ('0' + (date.getMonth()+1)).slice(-2) + '-' + ('0' + date.getDate()).slice(-2);
+		console.log('date before updating is '+ currentDate);
+		date.setDate(date.getDate() - 1);
+		var oldDate = date.getFullYear()+'-' + ('0' + (date.getMonth()+1)).slice(-2) + '-' + ('0' + date.getDate()).slice(-2);
+		console.log('date after updating '+oldDate);
+		var dataForSearch = {usrId:userId,ussSessionCode:userSessionCode,outputSize:"10000",untId:untId,devCode:"",grpCode:"",dateTimeFrom:oldDate,dateTimeTo:currentDate,timeFrom:"00:00",timeTo:"23:59"};
+		var dataForGraph = JSON.stringify(dataForSearch);
+		console.log(dataForGraph);
+		document.getElementById('fromDateForMovement').value = oldDate;
+		document.getElementById('toDateForMovement').value = currentDate;
+		fillHighChartFour(dataForGraph);
+	});
+
+	$(function() {
+		var date = new Date();
+		var currentDate = date.getFullYear()+'-' + ('0' + (date.getMonth()+1)).slice(-2) + '-' + ('0' + date.getDate()).slice(-2);
+		console.log('date before updating is '+ currentDate);
+		date.setDate(date.getDate() - 1);
+		var oldDate = date.getFullYear()+'-' + ('0' + (date.getMonth()+1)).slice(-2) + '-' + ('0' + date.getDate()).slice(-2);
+		console.log('date after updating '+oldDate);
+		var dataForSearchOne = {usrId:userId,ussSessionCode:userSessionCode,untId:untId,dateTimeFrom:oldDate,dateTimeTo:currentDate,timeFrom:"00:00",timeTo:"23:59"};
+		var dataForGraphOne = JSON.stringify(dataForSearchOne);
+		console.log(dataForGraphOne);
+		document.getElementById('fromDateForUnitOverviewOne').value = oldDate;
+		document.getElementById('toDateForUnitOverviewOne').value = currentDate;
+		fillHighChartOne(dataForGraphOne);
+	});
+
+	$(function() {
+		var date = new Date();
+		var currentDate = date.getFullYear()+'-' + ('0' + (date.getMonth()+1)).slice(-2) + '-' + ('0' + date.getDate()).slice(-2);
+		console.log('date before updating is '+ currentDate);
+		date.setDate(date.getDate() - 1);
+		var oldDate = date.getFullYear()+'-' + ('0' + (date.getMonth()+1)).slice(-2) + '-' + ('0' + date.getDate()).slice(-2);
+		console.log('date after updating '+oldDate);
+		var dataForSearchTwo = {usrId:userId,ussSessionCode:userSessionCode,untId:untId,dateTimeFrom:oldDate,dateTimeTo:currentDate,timeFrom:"00:00",timeTo:"23:59"};
+		var dataForGraphTwo = JSON.stringify(dataForSearchTwo);
+		document.getElementById('fromDateForUnitOverviewTwo').value = oldDate;
+		document.getElementById('toDateForUnitOverviewTwo').value = currentDate;
+		fillHighChartTwo(dataForGraphTwo);
+	});
+
+	// loadBundles($.i18n.browserLang());
+	loadBundles($.i18n.browserLang());
+	// setInterval(function(){
+	// 	loadBundles($.i18n.browserLang());
+	// }, 500);
+});
+
+function loadBundles(lang) {
+	$.i18n.properties({
+		name: 'Messages',
+		path: 'bundle/',
+		mode: 'both',
+		language: lang,
+		callback: function() {
+		$(".i_unitoverview").html(i_unitoverview);
+		$(".i_onbedhours").html(i_onbedhours);
+		$(".i_numberofexits").html(i_numberofexits);
+		$(".i_patientdetails").html(i_patientdetails);
+		$(".i_caregiverdetails").html(i_caregiverdetails);
+		$(".i_anomalysettings").html(i_anomalysettings);
+		$(".i_messagesandcomments").html(i_messagesandcomments);
+		$(".i_operationalstatusandhistory").html(i_operationalstatusandhistory);
+		$(".i_search").html(i_search);
+		$(".i_start").html(i_start);
+		$(".i_stop").html(i_stop);
+		$(".i_tara").html(i_tara);
+		$(".i_confirmstop").html(i_confirmstop);
+		$(".i_confirmstart").html(i_confirmstart);
+		$(".i_confirmtara").html(i_confirmtara);
+		$(".i_addcomment").html(i_addcomment);
+		document.getElementById('unitComment_message').placeholder=i_addcomment;
+		$('.i_name').html(i_name);
+		$('.i_patientid').html(i_patientid);
+		$('.i_contactperson').html(i_contactperson);
+		$('.i_startdateanddateofbirth').html(i_startdateanddateofbirth);
+		$('.i_contactnumber').html(i_contactnumber);
+		$('.i_exitminimumweightinterval').html(i_exitminimumweightinterval);
+		$('.i_exitminimumweight').html(i_exitminimumweight);
+		$('.i_contactinformation').html(i_contactinformation);
+		$('.i_birthdate').html(i_birthdate);
+		$('.i_startdate').html(i_startdate);
+		$('.i_save').html(i_save);
+		$('.i_cancel').html(i_cancel);
+		$('.i_type').html(i_type);
+		$('.i_status').html(i_status);
+		$('.i_anomalyname').html(i_anomalyname);
+		$('.i_priority').html(i_priority);
+		$('.i_minimumweightinterval').html(i_minimumweightinterval);
+		$('.i_minimumweight').html(i_minimumweight);
+		$('.i_primarywait').html(i_primarywait);
+		$('.i_secondarywait').html(i_secondarywait);
+		$('.i_primarycount').html(i_primarycount);
+		$('.i_secondarycount').html(i_secondarycount);
+		$('.i_message').html(i_message);
+		$('.i_contact').html(i_contact);
+		$('.i_contactdetails').html(i_contactdetails);
+		$('.i_addcontact').html(i_addcontact);
+		$('.i_deletecontact').html(i_deletecontact);
+		$('.i_delete').html(i_delete);
+		$('.i_high').html(i_high);
+		$('.i_low').html(i_low);
+		$('.i_medium').html(i_medium);
+		$('.i_morningalert').html(i_morningalert);
+		$('.i_nightalert').html(i_nightalert);
+		$('.i_morningalert').html(i_morningalert);
+		$('.i_nightalert').html(i_nightalert);
+
+
+		$('.i_moringalerttext').html(i_moringalerttext);
+		$('.i_nightalerttext').html(i_nightalerttext);
+		$('.i_morningalerttextOne').html(i_morningalerttextOne);
+		$('.i_nightalerttextOne').html(i_nightalerttextOne);
+		$('.i_remove').html(i_remove);
+
+		$('.i_wakeupbefore').html(i_wakeupbefore);
+		$('.i_anomalybetween').html(i_anomalybetween);
+		$('.i_minimumweight').html(i_minimumweight);
+		$('.i_email').html(i_email);
+		$('.i_caregiver').html(i_caregiver);
+		$('.i_blankcaregiver').html(i_blankcaregiver);
+
+		document.getElementById('patientName').placeholder=i_name;
+		document.getElementById('patientId').placeholder=i_patientid;
+		document.getElementById('patientContactPerson').placeholder=i_contactperson;
+		document.getElementById('patientContactRelation').placeholder=i_relation;
+		document.getElementById('patientWeightInterval').placeholder=i_exitminimumweightinterval;
+		// document.getElementById('patientWeight').placeholder=i_exitminimumweight;
+		document.getElementById('caregiverName').placeholder=i_caregivername; caregiverEmail
+		document.getElementById('caregiverEmail').placeholder=i_email;
+		document.getElementById('caregiverId').placeholder=i_caregiverid;
+
+		// document.getElementsByName('nasMinWeight').placeholder=i_minimumweight;
+		document.getElementById('opsMessageForStop').placeholder=i_reason;
+		document.getElementById('opsMessageForStart').placeholder=i_reason;
+		document.getElementById('opsMessageForTara').placeholder=i_reason;
+		$('.i_movementindex').html(i_movementindex);
+		$('.i_fromdateandtodate').html(i_fromdateandtodate);
+		$('.i_unitid').html(i_unitid);
+
+		$('.i_logout').html(i_logout);
+		$('.i_changepassword').html(i_changepassword);
+
+		$('.i_footertext').html(i_footertext);
+
+
+		$(".i_select").html(i_select);
+		$(".i_custom").html(i_custom);
+		$(".i_hours").html(i_hours);
+		// $(".i_messagesandcomments").text(i_messagesandcomments);
+
+		$(".i_on").html(i_on);
+		$(".i_off").html(i_off);
+		$(".i_allunit").html(i_allunit);
+		$(".i_addanomaly").html(i_addanomaly);
+		$('.i_remove').html(i_remove);
+		$('.i_running').html(i_running);
+		$('.i_nosms').html(i_nosms);
+		$('.i_noemail').html(i_noemail);
+		$('.i_noemsms').html(i_noemsms);
+		$('.i_sms').html(i_sms);
+		$('.i_email').html(i_email);
+		$('.i_primary').html(i_primary);
+		$('.i_secondary').html(i_secondary);
+		// document.getElementById('units').title=i_units;
+  //       document.getElementById('support').title=i_support;
+        //document.getElementById('viewunit').title=i_viweunitdet;
+  //       document.getElementById('search_bed_chart').title=i_search1;
+  //       document.getElementById('search_bed_chart_Four').title=i_search1;
+  //       document.getElementById('search_bed_chart1').title=i_search1;
+  //       document.getElementById('search_bed_chart2').title=i_search1;
+  //       document.getElementById('search_bed_chart3').title=i_search1;
+  //       document.getElementById('caregiverSaveBtn').title=i_savechng;
+		// document.getElementById('caregiverCancelBtn').title=i_cancel;
+		// document.getElementById('patientSaveBtn').title=i_savechng;
+		// document.getElementById('patientCancelBtn').title=i_cancel;
+		// document.getElementById('save_tab').title=i_savechng;
+		// document.getElementById('disabled_tab').title=i_delete;
+		// document.getElementById('type_tab').label=(i_type);
+		// document.getElementById('type_tab1').label=(i_type);
+		 //document.getElementById('anomaly_name').placeholder=i_anomalyname;
+		$('#anomaly_name').attr('placeholder',i_anomalyname);
+		// document.getElementByClassName("address_1").placeholder=i_address;
+		// document.getElementByClassName("name_1").placeholder=i_name;
+		// document.getElementById('type_tab2').label=(i_type);
+		// document.getElementById('type_tab3').label=(i_type);
+		// document.getElementById('prevNav').title=i_prvunit;
+		// document.getElementById('nxtNav').toggle=i_savechng;
+		$('.i_patsavsuc').html(i_patsavsuc);
+		 //document.getElementById('anomaly_name').placeholder=i_anomalyname;
+		 $('#anomaly_name').attr('placeholder',i_anomalyname);
+		//document.getElementById('name_2').placeholder=i_name;
+		}
+	});
+}
+
+//on click of the add comment btn
+function onClickCommentBtn(){
+	console.log('working');
+	$('#addCommentBtnDiv').removeClass('responseReceved');
+	$('#addCommentBtnDiv').addClass('waitForResponse');
+	document.getElementById('addCommentBtn').disabled = true;
+	saveComments_messages();
+}
+
+//on click of the start btn
+function onClickStartBtn(){
+	document.getElementById('opsMessageForStart').value="";
+}
+
+//on click of the stop btn
+function onClickStopBtn(){
+	document.getElementById('opsMessageForStop').value="";
+}
+
+//on click of the pause btn
+function onClickPauseBtn(){
+	document.getElementById('opsMessageForPause').value="";
+}
+
+//on click of the pause btn
+function onClickTaraBtn(){
+	document.getElementById('opsMessageForTara').value="";
+	console.log("nnnnn");
+}
+
+//function to fill the data for the high chart
+function fillHighChart(dataForGraph){
+	$.ajax({
+		type: "POST",
+		url: baseUrl+"searchsampledparseddata",
+		contentType: "application/json;",
+		data: dataForGraph,
+		success: function(data) {
+
+			//console.log(data.parsedDataList);
+
+			var err=data.errorCode;
+
+			if(err==-3){
+				//alert(data.errorMessage)
+				window.location.href = "logout.html";
+			}
+			if(err < 0){
+				$('#errorMessage').fadeIn();
+			$('div#errorMessage').fadeIn();
+			$('div#errorMessage').text(data.errorMessage);
+			$('div#errorMessage').removeClass("alert-success");
+			$('div#errorMessage').addClass("alert-danger");
+			}else{
+				$('#errorMessage').fadeIn();
+			$('div#errorMessage').fadeIn();
+			$('div#errorMessage').text(data.notification);
+			$('div#errorMessage').removeClass("alert-danger");
+			$('div#errorMessage').addClass("alert-success");
+			setHighchartOption(data.buttonsModelList);
+			// Create the chart
+			$('#test-graph').highcharts('StockChart', {
+
+				rangeSelector : {
+					selected : 1
+				},
+
+				title : {
+					text : ''
+				},
+
+				series : [{
+					name : 'Total ',
+					data : data.parsedDataList,
+					tooltip: {
+						valueDecimals: 2
+					},
+					color: '#41BF78',
+					fillColor: 'rgba(65, 191, 120, .1)'
+				}/*,{
+					name : 'WEIGHT1',
+					data : data.parsedDataWeight1List,
+					tooltip: {
+						valueDecimals: 2
+					},
+					color: '#FF8724',
+					fillColor: 'rgba(65, 191, 120, .1)'
+				},
+				{
+					name : 'WEIGHT2',
+					data : data.parsedDataWeight2List,
+					tooltip: {
+						valueDecimals: 2
+					},
+					color: '#6E0404',
+					fillColor: 'rgba(65, 191, 120, .1)'
+				},{
+					name : 'WEIGHT3',
+					data : data.parsedDataWeight3List,
+					tooltip: {
+						valueDecimals: 2
+					},
+					color: '#2E3192',
+					fillColor: 'rgba(65, 191, 120, .1)'
+				},{
+					name : 'WEIGHT4',
+					data : data.parsedDataWeight4List,
+					tooltip: {
+						valueDecimals: 2
+					},
+					color: '#601F5F',
+					fillColor: 'rgba(65, 191, 120, .1)'
+				}*/
+				]
+			});
+			}
+
+// setHighchartOption(data.buttonsModelList);
+		}
+		});
+}
+
+
+
+//function to fill the data for the high chart Four
+function fillHighChartFour(dataForGraph){
+	$.ajax({
+		type: "POST",
+		url: baseUrl+"searchmovementindexparseddata",
+		contentType: "application/json;",
+		data: dataForGraph,
+		success: function(data) {
+
+			//console.log(data.parsedDataList);
+
+			var err=data.errorCode;
+
+			if(err==-3){
+				//alert(data.errorMessage)
+				window.location.href = "logout.html";
+			}
+			if(err < 0){
+				$('#errorMessage').fadeIn();
+			$('div#errorMessage').fadeIn();
+			$('div#errorMessage').text(data.errorMessage);
+			$('div#errorMessage').removeClass("alert-success");
+			$('div#errorMessage').addClass("alert-danger");
+			}else{
+				$('#errorMessage').fadeIn();
+			$('div#errorMessage').fadeIn();
+			$('div#errorMessage').text(data.notification);
+			$('div#errorMessage').removeClass("alert-danger");
+			$('div#errorMessage').addClass("alert-success");
+			setHighchartOptionFour(data.buttonsModelList);
+			// Create the chart
+			$('#test-graph_Four').highcharts('StockChart', {
+
+				rangeSelector : {
+					selected : 1
+				},
+
+				title : {
+					text : ''
+				},
+
+				series : [{
+					name : 'Total Movement',
+					data : data.movementIndexParsedDataList,
+					tooltip: {
+						valueDecimals: 2
+					},
+					color: '#41BF78',
+					fillColor: 'rgba(65, 191, 120, .1)'
+				}
+				]
+			});
+			}
+
+// setHighchartOption(data.buttonsModelList);
+		}
+		});
+}
+
+
+function setHighchartOptionFour(buttonsList){
+	$("#site_statistics_loading_One").hide();
+	Highcharts.setOptions({
+		global: {
+		useUTC: false
+	},
+			chart: {
+				type: 'area',
+				series: {
+					fillColor: 'rgba(65,191,120,0.1)'
+				},
+				zoomType: 'x'
+			},
+
+			lang: {
+				rangeSelectorZoom: '',
+				rangeSelectorFrom: '',
+				rangeSelectorTo: ''
+			},
+
+			plotOptions: {
+				line: {
+					color: '#41BF78'
+				},
+
+				series: {
+					//fillColor: 'rgba(65,191,120,0.3)'
+				}
+			},
+
+			series: {
+				//fillColor: 'red'
+			},
+
+			navigator: {
+				maskFill: 'rgba(65,191,120,0.5)',
+				series: {
+					lineColor: '#41BF78',
+					fillColor: 'rgba(65,191,120,0.1)'
+				},
+				handles: {
+					backgroundColor: '#41BF78',
+					borderColor: '#065E30'
+				}
+			},
+
+			rangeSelector: {
+				allButtonsEnabled: true,
+				inputEnabled: false,
+				// inputDateFormat: '%Y-%m-%d',
+				// inputEditDateFormat: '%Y-%m-%d',
+				buttonTheme: { // styles for the buttons
+					fill: 'none',
+					stroke: '#ddd',
+					'stroke-width': 1,
+					r: 3,
+					style: {
+						color: '#000' // Text color
+					},
+					states: {
+						hover: {
+							fill: '#41BF78',
+							stroke: '#41BF78',
+							style: {
+								color: '#fff'
+							}
+						},
+						select: { // Active
+							fill: '#41BF78',
+							stroke: '#41BF78',
+							style: {
+								fontWeight: 'normal',
+								color: 'white'
+							}
+						}
+					}
+				},
+				inputBoxBorderColor: '#ddd', // Date field border
+				inputBoxWidth: 120, // Date field
+				inputBoxHeight: 18, // Date field
+				selected: 1,
+				buttons: buttonsList
+			},
+
+			xAxis: {
+				// minRange: 86400000
+			},
+
+			scrollbar: {
+				barBackgroundColor: '#41BF78',
+				barBorderWidth: 1,
+				barBorderColor: '#41BF78',
+				rifleColor: '#065E30'
+			},
+
+			credits: {
+				enabled: false
+			}
+		});
+}
+
+//to set option for the high chart
+function setHighchartOption(buttonsList){
+	$("#site_statistics_loading").hide();
+	Highcharts.setOptions({
+		global: {
+		useUTC: false
+	},
+			chart: {
+				type: 'area',
+				series: {
+					fillColor: 'rgba(65,191,120,0.1)'
+				},
+				zoomType: 'x'
+			},
+
+			lang: {
+				rangeSelectorZoom: '',
+				rangeSelectorFrom: '',
+				rangeSelectorTo: ''
+			},
+
+			plotOptions: {
+				line: {
+					color: '#41BF78'
+				},
+
+				series: {
+					//fillColor: 'rgba(65,191,120,0.3)'
+				}
+			},
+
+			series: {
+				//fillColor: 'red'
+			},
+
+			navigator: {
+				maskFill: 'rgba(65,191,120,0.5)',
+				series: {
+					lineColor: '#41BF78',
+					fillColor: 'rgba(65,191,120,0.1)'
+				},
+				handles: {
+					backgroundColor: '#41BF78',
+					borderColor: '#065E30'
+				}
+			},
+
+			rangeSelector: {
+				allButtonsEnabled: true,
+				inputEnabled: false,
+				// inputDateFormat: '%Y-%m-%d',
+				// inputEditDateFormat: '%Y-%m-%d',
+				buttonTheme: { // styles for the buttons
+					fill: 'none',
+					stroke: '#ddd',
+					'stroke-width': 1,
+					r: 3,
+					style: {
+						color: '#000' // Text color
+					},
+					states: {
+						hover: {
+							fill: '#41BF78',
+							stroke: '#41BF78',
+							style: {
+								color: '#fff'
+							}
+						},
+						select: { // Active
+							fill: '#41BF78',
+							stroke: '#41BF78',
+							style: {
+								fontWeight: 'normal',
+								color: 'white'
+							}
+						}
+					}
+				},
+				inputBoxBorderColor: '#ddd', // Date field border
+				inputBoxWidth: 120, // Date field
+				inputBoxHeight: 18, // Date field
+				selected: 1,
+				buttons: buttonsList
+			},
+
+			xAxis: {
+				// minRange: 86400000
+			},
+
+			scrollbar: {
+				barBackgroundColor: '#41BF78',
+				barBorderWidth: 1,
+				barBorderColor: '#41BF78',
+				rifleColor: '#065E30'
+			},
+
+			credits: {
+				enabled: false
+			}
+		});
+}
+
+
+//function to fill the data for the high chart One
+function fillHighChartOne(dataForGraphOne){
+	$.ajax({
+		type: "POST",
+		url: baseUrl+"fetchonbedhours",
+		contentType: "application/json;",
+		data: dataForGraphOne,
+		success: function(data) {
+
+			//console.log(data.parsedDataList);
+
+			var err=data.errorCode;
+
+			if(err==-3){
+				//alert(data.errorMessage)
+				window.location.href = "logout.html";
+			}
+			if(err < 0){
+				$('#errorMessage').fadeIn();
+				$('div#errorMessage').fadeIn();
+				$('div#errorMessage').text(data.errorMessage);
+				$('div#errorMessage').removeClass("alert-success");
+				$('div#errorMessage').addClass("alert-danger");
+			}else{
+				$('#errorMessage').fadeIn();
+				$('div#errorMessage').fadeIn();
+				$('div#errorMessage').text(data.notification);
+				$('div#errorMessage').removeClass("alert-danger");
+				$('div#errorMessage').addClass("alert-success");
+
+				//console.info(data.onBedHoursList[0]);
+				//console.info(data.onBedHoursList[1]);
+				// var tempArray = [];
+				// for(var i = 0 ; i < data.onBedHoursList[1].length; i++){
+				// 	tempArray.push(parseInt(data.onBedHoursList[1][i]));
+				// }
+
+/*				Highcharts.setOptions({
+			        colors: ['#41BF78']
+			    });	*/
+
+				$('#test-graph-one').highcharts({
+
+					chart: {
+						type: 'column'
+					},
+					title: {
+						text: ''
+					},
+
+					xAxis: {
+						categories: data.categories,
+						title: {
+							text: null
+						}
+					},
+					yAxis: {
+						min: 0,	max: 24,
+					tickInterval: 4,
+						tickInterval: 4,
+						title: {
+							text: ' ',
+							align: 'high'
+						},
+						labels: {
+							overflow: 'justify'
+						},
+
+					},
+					tooltip: {
+						valueSuffix: ' Hours'
+					},
+					plotOptions: {
+						bar: {
+							dataLabels: {
+								enabled: true
+							}
+						}
+					},
+					legend: {
+						layout: 'vertical',
+						align: 'right',
+						verticalAlign: 'top',
+						x: -40,
+						y: 80,
+						floating: true,
+						borderWidth: 1,
+						backgroundColor: ((Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'),
+						shadow: true,
+						enabled: false,
+					},
+					credits: {
+						enabled: false
+					},
+					series: data.series
+				});
+
+			}
+		}
+	});
+}
+
+//function to fill the data for the high chart Two
+function fillHighChartTwo(dataForGraphTwo){
+	$.ajax({
+		type: "POST",
+		url: baseUrl+"fetchnoofexits",
+		contentType: "application/json;",
+		data: dataForGraphTwo,
+		success: function(data) {
+
+			var err=data.errorCode;
+
+			if(err==-3){
+				//alert(data.errorMessage)
+				window.location.href = "logout.html";
+			}
+			if(err < 0){
+				$('#errorMessage').fadeIn();
+				$('div#errorMessage').fadeIn();
+				$('div#errorMessage').text(data.errorMessage);
+				$('div#errorMessage').removeClass("alert-success");
+				$('div#errorMessage').addClass("alert-danger");
+			}else{
+				$('#errorMessage').fadeIn();
+				$('div#errorMessage').fadeIn();
+				$('div#errorMessage').text(data.notification);
+				$('div#errorMessage').removeClass("alert-danger");
+				$('div#errorMessage').addClass("alert-success");
+
+				$('#test-graph-two').highcharts({
+
+					chart: {
+						type: 'column'
+					},
+					title: {
+						text: ''
+					},
+
+					xAxis: {
+						categories: data.categories,
+						title: {
+							text: null
+						}
+					},
+					yAxis: {
+						min:0,
+						tickInterval: 4,
+						tickInterval: 4,
+						title: {
+							text: ' ',
+							align: 'high'
+						},
+						labels: {
+							overflow: 'justify'
+						}
+					},
+					tooltip: {
+						//valueSuffix: ' Hours'
+					},
+					plotOptions: {
+						bar: {
+							dataLabels: {
+								enabled: true
+							}
+						}
+					},
+					legend: {
+						layout: 'vertical',
+						align: 'right',
+						verticalAlign: 'top',
+						x: -40,
+						y: 80,
+						floating: true,
+						borderWidth: 1,
+						backgroundColor: ((Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'),
+						shadow: true,
+						enabled: false,
+					},
+
+					credits: {
+						enabled: false
+					},
+					series: data.series
+				});
+			}
+		}
+	});
+}
+
+
+function removeContact(a){
+	loadBundles($.i18n.browserLang());
+
+	console.log('working');
+    // $(this).closest('.draggable').remove();
+    $(a).parent("div").remove();
+}
+
+
+</script>
+
+</body>
+</html>

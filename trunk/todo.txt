@@ -1,0 +1,4 @@
+use transaction for login
+use transaction for logout.. ?
+
+no fk to user_tbl on user_role_permission, master_search_column

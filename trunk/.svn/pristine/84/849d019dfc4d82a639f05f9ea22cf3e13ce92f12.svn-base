@@ -1,0 +1,235 @@
+
+DROP TABLE master_search_column CASCADE CONSTRAINTS;
+
+CREATE TABLE master_search_column (
+mco_id INTEGER NOT NULL PRIMARY KEY,
+mse_id INTEGER NOT NULL ,
+mco_order_no INTEGER NOT NULL,
+mco_header VARCHAR(255) NOT NULL,
+mco_property VARCHAR(255) NOT NULL,
+mco_code VARCHAR(255) NOT NULL,
+mco_bk VARCHAR(255) NOT NULL,
+mco_created_usr_id INTEGER NOT NULL ,
+mco_modified_usr_id INTEGER,
+mco_created_dttm TIMESTAMP NOT NULL,
+mco_modified_dttm TIMESTAMP,
+UNIQUE (mco_code),
+UNIQUE (mco_bk)
+);
+
+insert into master_search_column values ( 211 ,21, 1,'Node Name','nodName', 'node-nodName','node-nodName',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 212 ,21, 2,'Data Directory','nodDatadir', 'node-nodDatadir','node-nodDatadir',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 213 ,21, 3,'Status','nodStatus', 'node-nodStatus','node-nodStatus',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+
+insert into master_search_column values ( 221 ,22, 1,'Node Name','nod', 'jobcapability-nod','jobcapability-nod',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 222 ,22, 2,'Job Type','jbt', 'jobcapability-jbt','jobcapability-jbt',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 223 ,22, 3,'Capability','jbcCount', 'jobcapability-jbcCount','jobcapability-jbcCount',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 224 ,22, 4,'Status','jbcStatus', 'jobcapability-jbcStatus','jobcapability-jbcStatus',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+
+
+
+insert into master_search_column values ( 421 ,42, 1,'Code','atpCode', 'alerttype-atpCode','alerttype-atpCode',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 422 ,42, 2,'Priority','atpPriority', 'alerttype-atpPriority','alerttype-atpPriority',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 423 ,42, 3,'Email','atpEmail', 'alerttype-atpEmail','alerttype-atpEmail',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 424 ,42, 4,'Sms','atpSms', 'alerttype-atpSms','alerttype-atpSms',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 425 ,42, 5,'Description','atpDesc', 'alerttype-atpDesc','alerttype-atpDesc',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+
+insert into master_search_column values ( 511 ,51, 1,'Name','fpsName', 'filepollersettings-fpsName','filepollersettings-fpsName',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 512 ,51, 2,'Source Directory','fpsSourceDir', 'filepollersettings-fpsSourceDir','filepollersettings-fpsSourceDir',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 513 ,51, 3,'Frequency Seconds','fpsFreqSecs', 'filepollersettings-fpsFreqSecs','filepollersettings-fpsFreqSecs',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 514 ,51, 4,'Poller Job Type','fpsPollerJbt', 'filepollersettings-fpsPollerJbt','filepollersettings-fpsPollerJbt',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 515 ,51, 5,'Transfer Job Type','fpsTransferJbt', 'filepollersettings-fpsTransferJbt','filepollersettings-fpsTransferJbt',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+
+insert into master_search_column values ( 521 ,52, 1,'Name','fapName', 'failedtaskspollersettings-fapName','failedtaskspollersettings-fapName',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 522 ,52, 2,'Frequency Seconds','fapFreqSecs', 'failedtaskspollersettings-fapFreqSecs','failedtaskspollersettings-fapFreqSecs',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 523 ,52, 3,'Retry Count','fapRetryCount', 'failedtaskspollersettings-fapRetryCount','failedtaskspollersettings-fapRetryCount',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 524 ,52, 4,'Look Back Days','fapLookbackDays', 'failedtaskspollersettings-fapLookbackDays','failedtaskspollersettings-fapLookbackDays',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 525 ,52, 5,'Poller Job Type','fapPollerJbt', 'failedtaskspollersettings-fapPollerJbt','failedtaskspollersettings-fapPollerJbt',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+
+insert into master_search_column values ( 531 ,53, 1,'Server Address','ftpServerAddress', 'ftpsettings-ftpServerAddress','ftpsettings-ftpServerAddress',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 532 ,53, 2,'User Name','ftpUsername', 'ftpsettings-ftpUsername','ftpsettings-ftpUsername',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 533 ,53, 3,'Directory','ftpDirectory', 'ftpsettings-ftpDirectory','ftpsettings-ftpDirectory',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+
+insert into master_search_column values ( 541 ,54, 1,'Name','hcsName', 'healthcheckersettings-hcsName','healthcheckersettings-hcsName',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 542 ,54, 2,'Job Type','jbt', 'healthcheckersettings-jbt','healthcheckersettings-jbt',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 543 ,54, 3,'Frequency Seconds','hcsFreqSecs', 'healthcheckersettings-hcsFreqSecs','healthcheckersettings-hcsFreqSecs',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+
+insert into master_search_column values ( 551 ,55, 1,'Name','hksName', 'housekeepingsettings-hksName','housekeepingsettings-hksName',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 552 ,55, 2,'Frequency Seconds','hksFreqSecs', 'housekeepingsettings-hksFreqSecs','housekeepingsettings-hksFreqSecs',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 553 ,55, 3,'Job Type','hksJbt', 'housekeepingsettings-hksJbt','housekeepingsettings-hksJbt',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+
+insert into master_search_column values ( 561 ,56, 1,'Name','pbsName', 'pendingbixopfilesettings-pbsName','pendingbixopfilesettings-pbsName',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 562 ,56, 2,'Batch Size','pbsBatchSize', 'pendingbixopfilesettings-pbsBatchSize','pendingbixopfilesettings-pbsBatchSize',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 563 ,56, 3,'Frequency Seconds','pbsFrequencySecs', 'pendingbixopfilesettings-pbsFrequencySecs','pendingbixopfilesettings-pbsFrequencySecs',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 564 ,56, 4,'Timeout Seconds','pbsTimeoutSecs', 'pendingbixopfilesettings-pbsTimeoutSecs','pendingbixopfilesettings-pbsTimeoutSecs',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 565 ,56, 5,'Poller Job Type','pbsPollerJbt', 'pendingbixopfilesettings-pbsPollerJbt','pendingbixopfilesettings-pbsPollerJbt',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 566 ,56, 6,'DWH Export Job Type','pbsBixExportJbt', 'pendingbixopfilesettings-pbsBixExportJbt','pendingbixopfilesettings-pbsBixExportJbt',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+
+
+insert into master_search_column values ( 571 ,57, 1,'Name','pdsName', 'pendingdataloadsettings-pdsName','pendingdataloadsettings-pdsName',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 572 ,57, 2,'Batch Size','pdsBatchSize', 'pendingdataloadsettings-pdsBatchSize','pendingdataloadsettings-pdsBatchSize',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 573 ,57, 3,'Frequency Seconds','pdsFrequencySecs', 'pendingdataloadsettings-pdsFrequencySecs','pendingdataloadsettings-pdsFrequencySecs',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 574 ,57, 4,'Timeout Seconds','pdsTimeoutSecs', 'pendingdataloadsettings-pdsTimeoutSecs','pendingdataloadsettings-pdsTimeoutSecs',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 575 ,57, 5,'Poller Job Type','pdsPollerJbt', 'pendingdataloadsettings-pdsPollerJbt','pendingdataloadsettings-pdsPollerJbt',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 576 ,57, 6,'Dataload Job Type','pdsDataloadJbt', 'pendingdataloadsettings-pdsDataloadJbt','pendingdataloadsettings-pdsDataloadJbt',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+
+insert into master_search_column values ( 591 ,59, 1,'Name','pemName', 'pendingmissingjobsettings-pemName','pendingmissingjobsettings-pemName',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 592 ,59, 2,'Frequency Seconds','pemFrequencySecs', 'pendingmissingjobsettings-pemFrequencySecs','pendingmissingjobsettings-pemFrequencySecs',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 593 ,59, 3,'Poller Job Type','pemPendingMissingPJbt', 'pendingmissingjobsettings-pemPendingMissingPJbt','pendingmissingjobsettings-pemPendingMissingPJbt',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 594 ,59, 4,'Job Type','pemPendingMissingJbt', 'pendingmissingjobsettings-pemPendingMissingJbt','pendingmissingjobsettings-pemPendingMissingJbt',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+
+insert into master_search_column values ( 5101 ,510, 1,'Name','pjsName', 'pendingjobpollersettings-pjsName','pendingjobpollersettings-pjsName',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 5102 ,510, 2,'Batch Size','pjsBatchSize', 'pendingjobpollersettings-pjsBatchSize','pendingjobpollersettings-pjsBatchSize',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 5103 ,510, 3,'Frequency Seconds','pjsFrequencySecs', 'pendingjobpollersettings-pjsFrequencySecs','pendingjobpollersettings-pjsFrequencySecs',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 5104 ,510, 4,'Poller Job Type','pjsPollerJbt', 'pendingjobpollersettings-pjsPollerJbt','pendingjobpollersettings-pjsPollerJbt',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+
+insert into master_search_column values ( 5201 ,520, 1,'Name','prsName', 'pendingraterfilesettings-prsName','pendingraterfilesettings-prsName',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 5202 ,520, 2,'Batch Size','prsBatchSize', 'pendingraterfilesettings-prsBatchSize','pendingraterfilesettings-prsBatchSize',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 5203 ,520, 3,'Frequency Seconds','prsFrequencySecs', 'pendingraterfilesettings-prsFrequencySecs','pendingraterfilesettings-prsFrequencySecs',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 5204 ,520, 4,'Timeout Seconds','prsTimeoutSecs', 'pendingraterfilesettings-prsTimeoutSecs','pendingraterfilesettings-prsTimeoutSecs',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 5205 ,520, 5,'Poller Job Type','prsPollerJbt', 'pendingraterfilesettings-prsPollerJbt','pendingraterfilesettings-prsPollerJbt',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 5206 ,520, 6,'Transfer Job Type','prsTransferJbt', 'pendingraterfilesettings-prsTransferJbt','pendingraterfilesettings-prsTransferJbt',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 5207 ,520, 7,'Rater Job Type','prsRaterJbt', 'pendingraterfilesettings-prsRaterJbt','pendingraterfilesettings-prsRaterJbt',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 5208 ,520, 8,'ReRater Job Type','prsReRaterJbt', 'pendingraterfilesettings-prsReRaterJbt','pendingraterfilesettings-prsReRaterJbt',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+
+insert into master_search_column values ( 5301 ,530, 1,'Name','prcName', 'pendingrecomputesettings-prcName','pendingrecomputesettings-prcName',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 5302 ,530, 2,'Batch Size','prcBatchSize', 'pendingrecomputesettings-prcBatchSize','pendingrecomputesettings-prcBatchSize',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 5303 ,530, 3,'Frequency Seconds','prcFrequencySecs', 'pendingrecomputesettings-prcFrequencySecs','pendingrecomputesettings-prcFrequencySecs',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 5304 ,530, 4,'Poller Job Type','prcPollerJbt', 'pendingrecomputesettings-prcPollerJbt','pendingrecomputesettings-prcPollerJbt',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 5305 ,530, 5,'ReRater Job Type','prcReraterJbt', 'pendingrecomputesettings-prcReraterJbt','pendingrecomputesettings-prcReraterJbt',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+
+insert into master_search_column values ( 5401 ,540, 1,'Name','pesName', 'pendingfiletransfersettings-pesName','pendingfiletransfersettings-pesName',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 5402 ,540, 2,'Batch Size','pesBatchSize', 'pendingfiletransfersettings-pesBatchSize','pendingfiletransfersettings-pesBatchSize',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 5403 ,540, 3,'Frequency Seconds','pesFrequencySecs', 'pendingfiletransfersettings-pesFrequencySecs','pendingfiletransfersettings-pesFrequencySecs',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 5404 ,540, 4,'Timeout Seconds','pesTimeoutSecs', 'pendingfiletransfersettings-pesTimeoutSecs','pendingfiletransfersettings-pesTimeoutSecs',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 5405 ,540, 5,'File Transfer Settings','fts', 'pendingfiletransfersettings-fts','pendingfiletransfersettings-fts',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 5406 ,540, 6,'Poller Job Type','pesPollerJbt', 'pendingfiletransfersettings-pesPollerJbt','pendingfiletransfersettings-pesPollerJbt',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 5407 ,540, 7,'Parser Job Type','pesParserJbt', 'pendingfiletransfersettings-pesParserJbt','pendingfiletransfersettings-pesParserJbt',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+
+insert into master_search_column values ( 5501 ,550, 1,'Name','rpsName', 'referencefilepollersettings-rpsName','referencefilepollersettings-rpsName',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 5502 ,550, 2,'Source Directory','rpsSourceDir', 'referencefilepollersettings-rpsSourceDir','referencefilepollersettings-rpsSourceDir',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 5503 ,550, 3,'Target Directory','rpsTargetDir', 'referencefilepollersettings-rpsTargetDir','referencefilepollersettings-rpsTargetDir',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 5504 ,550, 4,'Frequency Seconds','rpsFreqSecs', 'referencefilepollersettings-rpsFreqSecs','referencefilepollersettings-rpsFreqSecs',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 5505 ,550, 5,'Poller Job Type','rpsPollerJbt', 'referencefilepollersettings-rpsPollerJbt','referencefilepollersettings-rpsPollerJbt',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 5506 ,550, 6,'Reference Data Comparator Job Type','rpsRefDataComparatorJbt', 'referencefilepollersettings-rpsRefDataComparatorJbt','referencefilepollersettings-rpsRefDataComparatorJbt',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+
+insert into master_search_column values ( 811 ,81, 1,'Name','besName', 'bixexportersettings-besName','bixexportersettings-besName',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 812 ,81, 2,'DWH Exporter Job Type','besBixExporterJbt', 'bixexportersettings-besBixExporterJbt','bixexportersettings-besBixExporterJbt',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 813 ,81, 3,'Compressed Directory','besCompressedDir', 'bixexportersettings-besCompressedDir','bixexportersettings-besCompressedDir',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+
+insert into master_search_column values ( 821 ,82, 1,'Name','fiaName', 'filearchiversettings-fiaName','filearchiversettings-fiaName',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 822 ,82, 2,'Source Directory','fiaSourceDir', 'filearchiversettings-fiaSourceDir','filearchiversettings-fiaSourceDir',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 823 ,82, 3,'Destination Directory','fiaDestDir', 'filearchiversettings-fiaDestDir','filearchiversettings-fiaDestDir',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 824 ,82, 4,'Type','fiaType', 'filearchiversettings-fiaType','filearchiversettings-fiaType',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 825 ,82, 5,'Retention Days','fiaRetentionDays', 'filearchiversettings-fiaRetentionDays','filearchiversettings-fiaRetentionDays',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+
+
+insert into master_search_column values ( 831 ,83, 1,'Name','fasName', 'fileparsersettings-fasName','fileparsersettings-fasName',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 832 ,83, 2,'Target Directory','fasTargetDir', 'fileparsersettings-fasTargetDir','fileparsersettings-fasTargetDir',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 833 ,83, 3,'Parent Job Type','fasParserJbt', 'fileparsersettings-fasParserJbt','fileparsersettings-fasParserJbt',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 834 ,83, 4,'Process Duplicate','fasProcessDuplicate', 'fileparsersettings-fasProcessDuplicate','fileparsersettings-fasProcessDuplicate',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+
+insert into master_search_column values ( 841 ,84, 1,'Name','ftsName', 'filetransfersettings-ftsName','filetransfersettings-ftsName',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 842 ,84, 2,'Target Directory','ftsTargetDir', 'filetransfersettings-ftsTargetDir','filetransfersettings-ftsTargetDir',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 843 ,84, 3,'Transferred Job Type','ftsTransferJbt', 'filetransfersettings-ftsTransferJbt','filetransfersettings-ftsTransferJbt',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 844 ,84, 4,'Valid Mask','ftsValidMask', 'filetransfersettings-ftsValidMask','filetransfersettings-ftsValidMask',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 845 ,84, 5,'Rerat Mask','ftsRerateMask', 'filetransfersettings-ftsRerateMask','filetransfersettings-ftsRerateMask',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 846 ,84, 6,'Stability Seconds','ftsStabilitySecs', 'filetransfersettings-ftsStabilitySecs','filetransfersettings-ftsStabilitySecs',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 847 ,84, 7,'Stability Retry','ftsStabilityRetry', 'filetransfersettings-ftsStabilityRetry','filetransfersettings-ftsStabilityRetry',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 848 ,84, 8,'File Poller Settings','fps', 'filetransfersettings-fps','filetransfersettings-fps',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+
+
+insert into master_search_column values ( 851 ,85, 1,'Name','rasName', 'ratersettings-rasName','ratersettings-rasName',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 852 ,85, 2,'Target Directory','rasTargetDir', 'ratersettings-rasTargetDir','ratersettings-rasTargetDir',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 853 ,85, 3,'DWH Target Directory','rasBixTargetDir', 'ratersettings-rasBixTargetDir','ratersettings-rasBixTargetDir',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 854 ,85, 4,'File Poller Settings','rasFps', 'ratersettings-rasFps','ratersettings-rasFps',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 855 ,85, 5,'Rater Job Type','rasRaterJbt', 'ratersettings-rasRaterJbt','ratersettings-rasRaterJbt',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 856 ,85, 6,'Rerater Job Type','rasReRaterJbt', 'ratersettings-rasReRaterJbt','ratersettings-rasReRaterJbt',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 857 ,85, 7,'Dataloader Job Type','rasDataloadJbt', 'ratersettings-rasDataloadJbt','ratersettings-rasDataloadJbt',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+
+insert into master_search_column values ( 861 ,86, 1,'Name','rrsName', 'reratersettings-rrsName','reratersettings-rasName',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 862 ,86, 2,'Target Directory','rrsTargetDir', 'reratersettings-rrsTargetDir','reratersettings-rrsTargetDir',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 863 ,86, 3,'DWH Target Directory','rrsBixTargetDir', 'reratersettings-rrsBixTargetDir','reratersettings-rrsBixTargetDir',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 864 ,86, 4,'File Poller Settings','rrsFps', 'reratersettings-rrsFps','reratersettings-rrsFps',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 865 ,86, 5,'Rerater Job Type','rrsReRaterJbt', 'reratersettings-rrsReRaterJbt','reratersettings-rrsReRaterJbt',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 867 ,86, 6,'Dataloader Job Type','rrsDataloadJbt', 'reratersettings-rrsDataloadJbt','reratersettings-rrsDataloadJbt',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+
+
+insert into master_search_column values ( 871 ,87, 1,'Name','rdcName', 'refdatacomparatorsettings-rdcName','refdatacomparatorsettings-rdcName',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 872 ,87, 2,'Job Type','jbt', 'refdatacomparatorsettings-jbt','refdatacomparatorsettings-jbt',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 873 ,87, 3,'ReRater Job Type','rdcReRaterJbt', 'refdatacomparatorsettings-rdcReRaterJbt','refdatacomparatorsettings-rdcReRaterJbt',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 874 ,87, 4,'File Parser Settings','fas', 'refdatacomparatorsettings-fas','refdatacomparatorsettings-fas',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 875 ,87, 5,'File Poller Settings','fps', 'refdatacomparatorsettings-fps','refdatacomparatorsettings-fps',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+insert into master_search_column values ( 911 ,91, 1,'SMTP Authentication','emsSmtpAuth', 'emailsettings-emsSmtp_Auth','emailsettings-emsSmtp_Auth',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 912 ,91, 2,'SMTP Host','emsSmtpHost', 'emailsettings-emsSmtpHost','emailsettings-emsSmtpHost',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 913 ,91, 3,'SMTP Port','emsSmtpPort', 'emailsettings-emsSmtpPort','emailsettings-emsSmtpPort',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 914 ,91, 4,'SMTP Start TLS Enable','emsSmtpStarttlsEnable', 'emailsettings-emsSmtpStarttlsEnable','emailsettings-emsSmtpStarttlsEnable',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 915 ,91, 5,'User Name','emsUserName', 'emailsettings-emsUserName','emailsettings-emsUserName',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 916 ,91, 6,'From Email','emsFromEmail', 'emailsettings-emsFromEmail','emailsettings-emsFromEmail',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+
+insert into master_search_column values ( 921 ,92, 1,'Code','sesCode', 'serversettings-sesCode','serversettings-sesCode',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 922 ,92, 2,'Value','sesValue', 'serversettings-sesValue','serversettings-sesValue',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+
+insert into master_search_column values ( 931 ,93, 1,'Name','sfsName', 'sfssettings-sfsName','sftsettings-sfsName',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 932 ,93, 2,'Server Address','sfsServerAddress', 'sfssettings-sfsServerAddress','sfssettings-sfsServerAddress',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 933 ,93, 3,'Port','sfsPort', 'sfssettings-sfsPort','sfssettings-sfsPort',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 934 ,93, 4,'User Name','sfsUsername', 'sfssettings-sfsUsername','sfssettings-sfsUsername',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 935 ,93, 5,'Password','sfsPassword', 'sfssettings-sfsPassword','sfssettings-sfsPassword',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 936 ,93, 6,'Directory','sfsDirectory', 'sfssettings-sfsDirectory','sfssettings-sfsDirectory',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 937 ,93, 7,'Job Type','sfsId', 'sfssettings-sfsId','sfssettings-sfsId',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+
+insert into master_search_column values ( 941 ,94, 1,'Name','smsName', 'smssettings-smsName','smssettings-smsName',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 942 ,94, 2,'SMTP Host','smsSmtpHost', 'smssettings-smsSmtpHost','smssettings-smsSmtpHost',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 943 ,94, 3,'SMTP Post','smsSmtpPort', 'smssettings-smsSmtpPort','smssettings-smsSmtpPort',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 944 ,94, 4,'User Name','smsUserName', 'smssettings-smsUserName','smssettings-smsUserName',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+
+insert into master_search_column values ( 951 ,95, 1,'File Name','srtFilName', 'scripttbl-srtFilName','scripttbl-srtFilName',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 952 ,95, 2,'Desciption','srtDesc', 'scripttbl-srtDesc','scripttbl-srtDesc',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+
+
+
+insert into master_search_column values ( 991 ,99, 1,'Role','rol', 'usertbl-jbt','usertbl-jbt',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 992 ,99, 2,'Login Name','usrName', 'usertbl-usrName','usertbl-usrName',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 993 ,99, 3,'Display Name','usrDisplayName', 'usertbl-usrDisplayName','usertbl-usrDisplayName',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 994 ,99, 4,'Email','usrEmail', 'usertbl-usrEmail','usertbl-usrEmail',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 995 ,99, 5,'Phone Number','usrMobilePhone', 'usertbl-usrMobilePhone','usertbl-usrMobilePhone',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_column values ( 996 ,99, 6,'Status','usrStatus', 'usertbl-usrStatus','usertbl-usrStatus',1,null,TIMESTAMP'2014-05-15 00:00:00',null);

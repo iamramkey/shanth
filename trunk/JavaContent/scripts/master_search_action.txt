@@ -1,0 +1,150 @@
+
+DROP TABLE master_search_action CASCADE CONSTRAINTS;
+
+CREATE TABLE master_search_action (
+msa_id INTEGER NOT NULL PRIMARY KEY,
+mse_id INTEGER NOT NULL ,
+msa_type VARCHAR(35) NOT NULL,
+msa_action VARCHAR(255) NOT NULL,
+msa_name VARCHAR(255) NOT NULL,	
+msa_colour VARCHAR(255) NOT NULL,
+msa_icon VARCHAR(255) NOT NULL,
+msa_visible VARCHAR(255) ,
+msa_function VARCHAR(255) ,
+msa_param VARCHAR(255) ,
+msa_code VARCHAR(255) NOT NULL,
+msa_bk VARCHAR(255) NOT NULL,
+msa_created_usr_id INTEGER NOT NULL ,
+msa_modified_usr_id INTEGER,
+msa_created_dttm TIMESTAMP NOT NULL,
+msa_modified_dttm TIMESTAMP,
+UNIQUE (msa_code),
+UNIQUE (msa_bk)
+);
+
+insert into master_search_action values ( 211 , 21 ,'row','refresh','Refresh', 'white','fa fa-refresh','true','refreshModal',null,'node-refresh','node-refresh',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_action values ( 212 , 21 ,'row','shutdown','Shutdown', 'white','fa fa-power-off','true','shutdownModal',null,'node-shutdown','node-shutdown',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+
+
+insert into master_search_action values ( 221 , 22 ,'row','start','Start', 'white','fa-play','true','startModal',null,'jobcapability-start','jobcapability-start',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_action values ( 222 , 22 ,'row','stop','Stop', 'white','fa-square','true','stopModal',null,'jobcapability-stop','jobcapability-stop',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_action values ( 223 , 22 ,'row','edit','Edit', 'white','fa-edit','true','editModal',null,'jobcapability-edit','jobcapability-edit',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_action values ( 224 , 22 ,'row','audit','Audit Info', 'white','fa-eye','true','auditModal',null,'jobcapability-audit','jobcapability-audit',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+
+insert into master_search_action values ( 421 , 42 ,'row','view','View', 'white','fa-eye','true','viewModal',null,'alerttype-view','alerttype-view',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_action values ( 422 , 42 ,'row','edit','Edit', 'white','fa-edit','true','editModal',null,'alerttype-edit','alerttype-edit',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_action values ( 423 , 42 ,'row','audit','Audit Info', 'white','fa-eye','true','auditModal',null,'alerttype-audit','alerttype-audit',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+
+insert into master_search_action values ( 511 , 51 ,'row','view','View', 'white','fa-eye','true','viewModal',null,'filepollersettings-view','filepollersettings-view',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_action values ( 512 , 51 ,'row','edit','Edit', 'white','fa-edit','true','editModal',null,'filepollersettings-edit','filepollersettings-edit',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_action values ( 513 , 51 ,'row','audit','Audit Info', 'white','fa-eye','true','auditModal',null,'filepollersettings-audit','filepollersettings-audit',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+
+insert into master_search_action values ( 521 , 52 ,'row','view','View', 'white','fa-eye','true','viewModal',null,'failedtaskspollersettings-view','failedtaskspollersettings-view',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_action values ( 522 , 52 ,'row','edit','Edit', 'white','fa-edit','true','editModal',null,'failedtaskspollersettings-edit','failedtaskspollersettings-edit',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_action values ( 523 , 52 ,'row','audit','Audit Info', 'white','fa-eye','true','auditModal',null,'failedtaskspollersettings-audit','failedtaskspollersettings-audit',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+
+insert into master_search_action values ( 531 , 53 ,'row','view','View', 'white','fa-eye','true','viewModal',null,'ftpsettings-view','ftpsettings-view',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_action values ( 532 , 53 ,'row','edit','Edit', 'white','fa-edit','true','editModal',null,'ftpsettings-edit','ftpsettings-edit',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_action values ( 533 , 53 ,'row','audit','Audit Info', 'white','fa-eye','true','auditModal',null,'ftpsettings-audit','ftpsettings-audit',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_action values ( 534 , 53 ,'header','addnew','Add New', 'blue','fa-plus','true','addNewModal',null,'ftpsettings-addnew','ftpsettings-addnew',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+
+insert into master_search_action values ( 541 , 54 ,'row','view','View', 'white','fa-eye','true','viewModal',null,'healthcheckersettings-view','healthcheckersettings-view',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_action values ( 542 , 54 ,'row','edit','Edit', 'white','fa-edit','true','editModal',null,'healthcheckersettings-edit','healthcheckersettings-edit',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_action values ( 543 , 54 ,'row','audit','Audit Info', 'white','fa-eye','true','auditModal',null,'healthcheckersettings-audit','healthcheckersettings-audit',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+
+insert into master_search_action values ( 551 , 55 ,'row','view','View', 'white','fa-eye','true','viewModal',null,'housekeepingsettings-view','housekeepingsettings-view',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_action values ( 552 , 55 ,'row','edit','Edit', 'white','fa-edit','true','editModal',null,'housekeepingsettings-edit','housekeepingsettings-edit',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_action values ( 553 , 55 ,'row','audit','Audit Info', 'white','fa-eye','true','auditModal',null,'housekeepingsettings-audit','housekeepingsettings-audit',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+
+insert into master_search_action values ( 561 , 56 ,'row','view','View', 'white','fa-eye','true','viewModal',null,'pendingbixopfilesettings-view','pendingbixopfilesettings-view',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_action values ( 562 , 56 ,'row','edit','Edit', 'white','fa-edit','true','editModal',null,'pendingbixopfilesettings-edit','pendingbixopfilesettings-edit',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_action values ( 563 , 56 ,'row','audit','Audit Info', 'white','fa-eye','true','auditModal',null,'pendingbixopfilesettings-audit','pendingbixopfilesettings-audit',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+
+insert into master_search_action values ( 571 , 57 ,'row','view','View', 'white','fa-eye','true','viewModal',null,'pendingdataloadsettings-view','pendingdataloadsettings-view',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_action values ( 572 , 57 ,'row','edit','Edit', 'white','fa-edit','true','editModal',null,'pendingdataloadsettings-edit','pendingdataloadsettings-edit',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_action values ( 573 , 57 ,'row','audit','Audit Info', 'white','fa-eye','true','auditModal',null,'pendingdataloadsettings-audit','pendingdataloadsettings-audit',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+
+insert into master_search_action values ( 591 , 59 ,'row','view','View', 'white','fa-eye','true','viewModal',null,'pendingmissingjobsettings-view','pendingmissingjobsettings-view',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_action values ( 592 , 59 ,'row','edit','Edit', 'white','fa-edit','true','editModal',null,'pendingmissingjobsettings-edit','pendingmissingjobsettings-edit',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_action values ( 593 , 59 ,'row','audit','Audit Info', 'white','fa-eye','true','auditModal',null,'pendingmissingjobsettings-audit','pendingmissingjobsettings-audit',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+
+insert into master_search_action values ( 5101 , 510 ,'row','view','View', 'white','fa-eye','true','viewModal',null,'pendingjobpollersettings-view','pendingjobpollersettings-view',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_action values ( 5102 , 510 ,'row','edit','Edit', 'white','fa-edit','true','editModal',null,'pendingjobpollersettings-edit','pendingjobpollersettings-edit',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_action values ( 5103 , 510 ,'row','audit','Audit Info', 'white','fa-eye','true','auditModal',null,'pendingjobpollersettings-audit','pendingjobpollersettings-audit',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+
+insert into master_search_action values ( 5201 , 520 ,'row','view','View', 'white','fa-eye','true','viewModal',null,'pendingraterfilesettings-view','pendingraterfilesettings-view',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_action values ( 5202 , 520 ,'row','edit','Edit', 'white','fa-edit','true','editModal',null,'pendingraterfilesettings-edit','pendingraterfilesettings-edit',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_action values ( 5203 , 520 ,'row','audit','Audit Info', 'white','fa-eye','true','auditModal',null,'pendingraterfilesettings-audit','pendingraterfilesettings-audit',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+
+insert into master_search_action values ( 5301 , 530 ,'row','view','View', 'white','fa-eye','true','viewModal',null,'pendingrecomputesettings-view','pendingrecomputesettings-view',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_action values ( 5302 , 530 ,'row','edit','Edit', 'white','fa-edit','true','editModal',null,'pendingrecomputesettings-edit','pendingrecomputesettings-edit',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_action values ( 5303 , 530 ,'row','audit','Audit Info', 'white','fa-eye','true','auditModal',null,'pendingrecomputesettings-audit','pendingrecomputesettings-audit',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+
+insert into master_search_action values ( 5401 , 540 ,'row','view','View', 'white','fa-eye','true','viewModal',null,'pendingfiletransfersettings-view','pendingfiletransfersettings-view',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_action values ( 5402 , 540 ,'row','edit','Edit', 'white','fa-edit','true','editModal',null,'pendingfiletransfersettings-edit','pendingfiletransfersettings-edit',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_action values ( 5403 , 540 ,'row','audit','Audit Info', 'white','fa-eye','true','auditModal',null,'pendingfiletransfersettings-audit','pendingfiletransfersettings-audit',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+
+insert into master_search_action values ( 5501 , 550 ,'row','view','View', 'white','fa-eye','true','viewModal',null,'referencefilepollersettings-view','referencefilepollersettings-view',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_action values ( 5502 , 550 ,'row','edit','Edit', 'white','fa-edit','true','editModal',null,'referencefilepollersettings-edit','referencefilepollersettings-edit',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_action values ( 5503 , 550 ,'row','audit','Audit Info', 'white','fa-eye','true','auditModal',null,'referencefilepollersettings-audit','referencefilepollersettings-audit',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+
+insert into master_search_action values ( 811 , 81 ,'row','view','View', 'white','fa-eye','true','viewModal',null,'bixexportersettings-view','bixexportersettings-view',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_action values ( 812 , 81 ,'row','edit','Edit', 'white','fa-edit','true','editModal',null,'bixexportersettings-edit','bixexportersettings-edit',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_action values ( 813 , 81 ,'row','audit','Audit Info', 'white','fa-eye','true','auditModal',null,'bixexportersettings-audit','bixexportersettings-audit',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+
+insert into master_search_action values ( 821 , 82 ,'row','view','View', 'white','fa-eye','true','viewModal',null,'filearchiversettings-view','filearchiversettings-view',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_action values ( 822 , 82 ,'row','edit','Edit', 'white','fa-edit','true','editModal',null,'filearchiversettings-edit','filearchiversettings-edit',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_action values ( 823 , 82 ,'row','audit','Audit Info', 'white','fa-eye','true','auditModal',null,'filearchiversettings-audit','filearchiversettings-audit',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+
+insert into master_search_action values ( 831 , 83 ,'row','view','View', 'white','fa-eye','true','viewModal',null,'fileparsersettings-view','fileparsersettings-view',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_action values ( 832 , 83 ,'row','edit','Edit', 'white','fa-edit','true','editModal',null,'fileparsersettings-edit','fileparsersettings-edit',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_action values ( 833 , 83 ,'row','audit','Audit Info', 'white','fa-eye','true','auditModal',null,'fileparsersettings-audit','fileparsersettings-audit',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+
+insert into master_search_action values ( 841 , 84 ,'row','view','View', 'white','fa-eye','true','viewModal',null,'filetransfersettings-view','filetransfersettings-view',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_action values ( 842 , 84 ,'row','edit','Edit', 'white','fa-edit','true','editModal',null,'filetransfersettings-edit','filetransfersettings-edit',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_action values ( 843 , 84 ,'row','audit','Audit Info', 'white','fa-eye','true','auditModal',null,'filetransfersettings-audit','filetransfersettings-audit',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+
+insert into master_search_action values ( 851 , 85 ,'row','view','View', 'white','fa-eye','true','viewModal',null,'ratersettings-view','ratersettings-view',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_action values ( 852 , 85 ,'row','edit','Edit', 'white','fa-edit','true','editModal',null,'ratersettings-edit','ratersettings-edit',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_action values ( 853 , 85 ,'row','audit','Audit Info', 'white','fa-eye','true','auditModal',null,'ratersettings-audit','ratersettings-audit',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+
+insert into master_search_action values ( 861 , 86 ,'row','view','View', 'white','fa-eye','true','viewModal',null,'reratersettings-view','reratersettings-view',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_action values ( 862 , 86 ,'row','edit','Edit', 'white','fa-edit','true','editModal',null,'reratersettings-edit','reratersettings-edit',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_action values ( 863 , 86 ,'row','audit','Audit Info', 'white','fa-eye','true','auditModal',null,'reratersettings-audit','reratersettings-audit',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+
+insert into master_search_action values ( 871 , 87 ,'row','view','View', 'white','fa-eye','true','viewModal',null,'refdatacomparatorsettings-view','refdatacomparatorsettings-view',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_action values ( 872 , 87 ,'row','edit','Edit', 'white','fa-edit','true','editModal',null,'refdatacomparatorsettings-edit','refdatacomparatorsettings-edit',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_action values ( 873 , 87 ,'row','audit','Audit Info', 'white','fa-eye','true','auditModal',null,'refdatacomparatorsettings-audit','refdatacomparatorsettings-audit',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+
+insert into master_search_action values ( 911 , 91 ,'row','view','View', 'white','fa-eye','true','viewModal',null,'emailsettings-view','emailsettings-view',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_action values ( 912 , 91 ,'row','edit','Edit', 'white','fa-edit','true','editModal',null,'emailsettings-edit','emailsettings-edit',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_action values ( 913 , 91 ,'row','audit','Audit Info', 'white','fa-eye','true','auditModal',null,'emailsettings-audit','emailsettings-audit',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_action values ( 914 , 91 ,'header','addnew','Add New', 'blue','fa-plus','true','addnewModal',null,'emailsettings-addnew','emailsettings-addnew',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+
+insert into master_search_action values ( 921 , 92 ,'row','view','View', 'white','fa-eye','true','viewModal',null,'serversettings-view','serversettings-view',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_action values ( 922 , 92 ,'row','edit','Edit', 'white','fa-edit','true','editModal',null,'serversettings-edit','serversettings-edit',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_action values ( 923 , 92 ,'row','audit','Audit Info', 'white','fa-eye','true','auditModal',null,'serversettings-audit','serversettings-audit',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+
+insert into master_search_action values ( 931 , 93 ,'row','view','View', 'white','fa-eye','true','viewModal',null,'sfssettings-view','sfssettings-view',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_action values ( 932 , 93 ,'row','edit','Edit', 'white','fa-edit','true','editModal',null,'sfssettings-edit','sfssettings-edit',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_action values ( 933 , 93 ,'row','audit','Audit Info', 'white','fa-eye','true','auditModal',null,'sfssettings-audit','sfssettings-audit',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+
+insert into master_search_action values ( 941 , 94 ,'row','view','View', 'white','fa-eye','true','viewModal',null,'smssettings-view','smssettings-view',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_action values ( 942 , 94 ,'row','edit','Edit', 'white','fa-edit','true','editModal',null,'sms_settings-edit','smssettings-edit',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_action values ( 943 , 94 ,'row','audit','Audit Info', 'white','fa-eye','true','auditModal',null,'smssettings-audit','sms_settings-audit',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_action values ( 944 , 94 ,'header','addnew','Add New', 'blue','fa-plus','true','addNewModal',null,'smssettings-addnew','smssettings-addnew',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+
+insert into master_search_action values ( 951 , 95 ,'row','view','View', 'white','fa-eye','true','viewModal',null,'scripttbl-view','scripttbl-view',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_action values ( 952 , 95 ,'row','runscript','Run Script', 'white','fa-run','true','runscriptModal',null,'scripttbl-runscript','scripttbl-runscript',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+
+
+insert into master_search_action values ( 991 , 99 ,'row','view','View', 'white','fa-eye','true','viewModal',null,'usertbl-view','usertbl-view',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_action values ( 992 , 99 ,'row','edit','Edit', 'white','fa-edit','true','editModal',null,'usertbl-edit','usertbl-edit',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_action values ( 993 , 99 ,'row','audit','Audit Info', 'white','fa-eye','true','auditModal',null,'usertbl-audit','usertbl-audit',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_action values ( 994 , 99 ,'row','deactivate','DeActivate', 'white','fa fa-power-off','true','deactivateModal',null,'usertbl-deactivate','usertbl-deactivate',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_action values ( 995 , 99 ,'row','activate','Activate', 'white','fa fa-sun-o','true','activateModal',null,'usertbl-activate','usertbl-activate',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_action values ( 996 , 99 ,'row','resetpassword','Reset Password', 'white','fa fa-refresh','true','resetpasswordModal',null,'usertbl-resetpassword','usertbl-resetpassword',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+insert into master_search_action values ( 997 , 99 ,'header','addnew','Add New', 'blue','fa-plus','true','addNewModal',null,'usertbl-addnew','usertbl-addnew',1,null,TIMESTAMP'2014-05-15 00:00:00',null);
+
+
+commit;

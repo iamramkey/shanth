@@ -1,0 +1,267 @@
+<style type="text/css">
+#jobLogs{
+	 height: 400px;
+	margin-left: 50px;
+	overflow-y: scroll;
+}
+</style>
+
+<!-- BEGIN PAGE CONTENT-->
+			<div class="row">
+				<div class="col-md-12">
+				<!-- BEGIN EXAMPLE TABLE PORTLET-->
+				<div class="message"></div>
+
+					<div class="portlet box blue-hoki">
+						<div class="portlet-title">
+							<div class="caption" id="screenHeader">
+							</div>
+							<div class="tools">
+								<a href="javascript:;" class="reload" id="refreshDataTable">
+								</a>
+								<a href="javascript:;" class="collapse">
+								</a>
+							</div>
+						</div>
+
+						<div class="portlet-body">
+							<form class="form-horizontal" id="searchForm" role="form">
+								<div class="form-group">
+									<label for="inputPassword12" class="col-md-2 control-label">Created From</label>
+									<div class="col-md-2 ">
+										<div class="input-group input-small date date-picker" data-date="2015-01-01" data-date-format="yyyy-mm-dd" data-date-viewmode="years">
+												<input type="text" class="form-control modelInput" id="createdFromDate" size="16" readonly class="form-control">
+												<span class="input-group-btn">
+												<button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
+												</span>
+											</div>
+											<!-- /input-group -->
+											<span class="help-block">
+											 </span>
+									</div>
+									<label for="inputPassword12" class="col-md-1 control-label">Start From<span class="required">
+										* </span></label>
+									<div class="col-md-2 ">
+										<div class="input-group input-small date date-picker date-picker1" data-date="2015-01-01" data-date-format="yyyy-mm-dd" data-date-viewmode="years">
+												<input type="text" class="form-control modelInput" id="fromDate" size="16" readonly class="form-control" required>
+												<span class="input-group-btn">
+												<button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
+												</span>
+											</div>
+											<!-- /input-group -->
+											<span class="help-block">
+											 </span>
+									</div>
+									<label for="inputPassword12" class="col-md-1 control-label">End From</label>
+									<div class="col-md-2 ">
+										<div class="input-group input-small date date-picker" data-date="2015-01-01" data-date-format="yyyy-mm-dd" data-date-viewmode="years">
+												<input type="text" class="form-control modelInput" id="endFromDate" size="16" readonly class="form-control">
+												<span class="input-group-btn">
+												<button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
+												</span>
+											</div>
+											<!-- /input-group -->
+											<span class="help-block">
+											 </span>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="inputPassword12" class="col-md-2 control-label">Created To</label>
+									<div class="col-md-2 ">
+										<div class="input-group input-small date date-picker" data-date="2015-01-01" data-date-format="yyyy-mm-dd" data-date-viewmode="years">
+												<input type="text" class="form-control modelInput" id="createdToDate" size="16" readonly class="form-control">
+												<span class="input-group-btn">
+												<button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
+												</span>
+											</div>
+											<span class="help-block">
+											 </span>
+									</div>
+									<label for="inputPassword12" class="col-md-1 control-label">Start To<span class="required">
+										* </span></label>
+									<div class="col-md-2 ">
+										<div class="input-group input-small date date-picker date-picker1" data-date="2015-01-01" data-date-format="yyyy-mm-dd" data-date-viewmode="years">
+												<input type="text" class="form-control modelInput" id="toDate" size="16" readonly class="form-control" required>
+												<span class="input-group-btn">
+												<button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
+												</span>
+											</div>
+											<!-- /input-group -->
+											<span class="help-block">
+											 </span>
+									</div>
+									<label for="inputPassword12" class="col-md-1 control-label">End To</label>
+									<div class="col-md-2 ">
+										<div class="input-group input-small date date-picker" data-date="2015-01-01" data-date-format="yyyy-mm-dd" data-date-viewmode="years">
+												<input type="text" class="form-control modelInput" id="endToDate" size="16" readonly class="form-control">
+												<span class="input-group-btn">
+												<button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
+												</span>
+											</div>
+											<span class="help-block">
+											 </span>
+									</div>
+								</div>
+								<div class="form-group">
+									<label  class="col-md-2 control-label">Max Count<span class="required">
+										* </span></label>
+									<div class="col-md-2">
+										<input type="number" class="form-control modelInput" id="maxCount" placeholder="Max Count" required>
+									</div>
+									<label  class="col-md-1 control-label">Job Id</label>
+									<div class="col-md-3">
+										<input type="text" class="form-control modelInput" id="jobId" placeholder="use >995 (or) =999 (or) in(998,999,1000)">
+									</div>
+									<label  class="col-md-1 control-label">Node</label>
+									<div class="col-md-1">
+										<input type="text" class="form-control modelInput" id="job_nodeName" placeholder="nodeName">
+									</div>
+								</div>
+								<div class="form-group">
+									<label  class="col-md-2 control-label">Job Type</label>
+									<div class="col-md-2">
+										<input type="text" class="form-control modelInput" id="jbtName" placeholder="jbtName">
+									</div>
+									<label  class="col-md-1 control-label">Job Status</label>
+									<div class="col-md-2">
+										<input type="text" class="form-control modelInput" id="jobStatus" placeholder="jobStatus">
+									</div>
+									<label  class="col-md-1 control-label">Job Extra1</label>
+									<div class="col-md-2">
+										<input type="text" class="form-control modelInput" id="jobExtra1" placeholder="(-99,9,10)">
+									</div>
+								</div>
+								<div class="form-group">
+									<label  class="col-md-2 control-label">Job Extra2</label>
+									<div class="col-md-2">
+										<input type="text" class="form-control modelInput" id="jobExtra2" placeholder="(-99,9,10)">
+									</div>
+									<label  class="col-md-1 control-label">Job Extra3</label>
+									<div class="col-md-2">
+										<input type="text" class="form-control modelInput" id="jobExtra3" placeholder="(-99,9,10)">
+									</div>
+									<div class="col-md-4">
+										<label  class="col-md-3 control-label"></label>
+										<button class="btn blue-hoki" id="searchBtn">Search</button>
+									</div>
+								</div>
+								<!-- <div class="form-group">
+									<div class="col-md-offset-3 col-md-8">
+										<button  class="btn blue" id="searchBtn">Search</button>
+									</div>
+								</div> -->
+							</form>
+
+						</div>
+					</div>
+					<div class="downloadErrorMessage"></div>
+					<!-- END EXAMPLE TABLE PORTLET-->
+					<table class="table table-striped table-bordered table-hover" id="job_data_table">
+						<thead>
+							<tr role="row" class="heading">
+								<th width="5%">Job Id</th>
+								<th width="12%">Node Name</th>
+	                            <th width="12%">Job Type</th>
+	                            <th width="10%">Status</th>
+	                            <th width="11%">Start Date</th>
+	                            <th width="11%">End Date</th>
+	                            <th width="11%">Created Date</th>
+	                            <th width="10%">Job Extra1</th>
+	                            <th width="10%">Job Extra2</th>
+	                            <th width="10%">Job Extra3</th>
+	                            <th width="10%">Priority</th>
+	                            <th width="10%">Action</th>
+							</tr>
+							<tr role="row" class="filter">
+								<td><input type="text" class="form-control form-filter input-sm" name="order_id" placeholder="searchkey"></td>
+								<td><input type="text" class="form-control form-filter input-sm" name="order_id" placeholder="searchkey"></td>
+								<td><input type="text" class="form-control form-filter input-sm" name="order_id" placeholder="searchkey"></td>
+								<td><input type="text" class="form-control form-filter input-sm" name="order_id" placeholder="searchkey"></td>
+								<td><input type="text" class="form-control form-filter input-sm" name="order_id" placeholder="searchkey"></td>
+								<td><input type="text" class="form-control form-filter input-sm" name="order_id" placeholder="searchkey"></td>
+								<td><input type="text" class="form-control form-filter input-sm" name="order_id" placeholder="searchkey"></td>
+								<td><input type="text" class="form-control form-filter input-sm" name="order_id" placeholder="searchkey"></td>
+								<td><input type="text" class="form-control form-filter input-sm" name="order_id" placeholder="searchkey"></td>
+								<td><input type="text" class="form-control form-filter input-sm" name="order_id" placeholder="searchkey"></td>
+								<td><input type="text" class="form-control form-filter input-sm" name="order_id" placeholder="searchkey"></td>
+								<td></td>
+							</tr>
+						</thead>
+						<tbody>
+
+						</tbody>
+					</table>
+
+					<!-- responsive Model-->
+					<div id="restartModal" class="modal fade" tabindex="-1" data-width="760">
+						<!-- <div class="message"></div> -->
+						<div class="modal-body">
+							<!-- BEGIN SAMPLE FORM PORTLET-->
+							<div id="modalColor" class="portlet box">
+								<div class="portlet-title">
+									<div class="caption">
+										<i class="fa fa-gift" ></i><span id="modalHead"></span>
+									</div>
+
+								</div>
+								<div class="portlet-body">
+								<form class="form-horizontal" id="restartform" role="form">
+									<div class="errorMessage"></div>
+									<input type="hidden" class="form-control" id="jobId1">
+									<div class="col-md-offset-4">
+										<button class="btn red" id="positiveBtn">Yes</button>
+										<button type="button" data-dismiss="modal" class="btn btn-default formHandler" id="nagitiveBtn">No</button>
+									</div>
+							</form>
+									<!-- <hr> -->
+								</div>
+							</div>
+					<!-- END SAMPLE FORM PORTLET-->
+						</div>
+			</div>
+			<!-- End of the model -->
+			<!-- responsive Model-->
+					<div id="jobLogModel" class="modal fade" tabindex="-1" data-width="1200">
+						<div class="message1"></div>
+						<div class="modal-body">
+							<!-- BEGIN SAMPLE FORM PORTLET-->
+							<div id="modalColor" class="portlet box blue-hoki">
+								<div class="portlet-title">
+									<div class="caption">
+										<i class="fa fa-eye" ></i><span id="modalHead1"></span>
+									</div>
+
+								</div>
+								<div class="portlet-body">
+								<form class="form-horizontal" id="restartform" role="form">
+									<input type="hidden" id="jobIdForViewLog">
+									<input type="hidden" id="jobStatusForViewLog">
+									<label class="col-md-2 control-label"></label>
+									<div class="form-group">
+										<!-- <center> -->
+											<div class="col-md-11 " id="jobLogs">
+											</div>
+										<!-- </center> -->
+
+									</div>
+								<!-- <div class="form-group">
+									<div class="col-md-6">
+										<textarea id="lobLog" size="16" disabled></textarea>
+									</div>
+								</div> -->
+
+									<div class="col-md-offset-5">
+										<button type="button" data-dismiss="modal" class="btn btn-default">Cancel</button>
+										<button type="button" class="btn blue-hoki" id="reloadViewLogBtn">Reload</button>
+									</div>
+							</form>
+									<!-- <hr> -->
+								</div>
+							</div>
+					<!-- END SAMPLE FORM PORTLET-->
+						</div>
+			</div>
+			<!-- End of the model -->
+				</div>
+			</div>
+			<!-- END PAGE CONTENT-->
