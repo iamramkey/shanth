@@ -1,0 +1,23 @@
+[
+  {
+    "destinationGroup": "Sweden",
+    "destination": "Sweden - Fixed",
+    "origin": "All",
+    "service": "Gold",
+    "tier": "1",
+    "volumeFrom": "0",
+    "volumeTo": "1000000",
+    "volume": "1000000",
+    "rate": "0.005",
+    "settlementRate": "0.005",
+    "incrementalRate": "0.0045",
+    "cost": "0.0035",
+    "price": "0.0048",
+    "calculatedCost": "0.0032",
+    "weighting": "1.95",
+    "committed": true,
+    "currency": "EUR",
+    "validFrom": "2015-01-01",
+    "validTo": "2015-06-30"
+  }
+]

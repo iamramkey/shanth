@@ -1,0 +1,23 @@
+[
+  {
+    "firstName": "Cox",
+    "lastName": "Wise",
+    "company": "Enormo",
+    "employed": true,
+    "age": 36
+  },
+  {
+    "firstName": "Lorraine",
+    "lastName": "Wise",
+    "company": "Enormo",
+    "employed": false,
+    "age": 36
+  },
+  {
+    "firstName": "Nancy",
+    "lastName": "Waters",
+    "company": "Fuelton",
+    "employed": false,
+    "age": 36
+  }
+]

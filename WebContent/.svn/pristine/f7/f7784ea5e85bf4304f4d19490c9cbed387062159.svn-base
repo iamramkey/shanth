@@ -1,0 +1,1 @@
+document.write('<div class="copyright" style="color: #818fa2; margin-top:10px;">2016 &copy; Developed by Signa AB.</div>');

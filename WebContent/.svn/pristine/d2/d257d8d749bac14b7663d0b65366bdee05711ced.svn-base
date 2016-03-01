@@ -1,0 +1,111 @@
+<!-- BEGIN PAGE CONTENT-->
+			<div class="row">
+				<div class="col-md-12">
+				<!-- BEGIN EXAMPLE TABLE PORTLET-->
+					<div class="portlet box blue-chambray">
+						<div class="portlet-title">
+							<div class="caption" id="screenHeader">
+							</div>
+							<div class="tools">
+								<a href="javascript:;" class="reload" id="refreshDataTable">
+								</a>
+								<a href="javascript:;" class="collapse">
+								</a>
+							</div>
+						</div>
+
+						<div class="portlet-body">
+							<form class="form-horizontal" id="searchForm" role="form">
+								<div class="form-group">
+									<label for="inputPassword12" class="col-md-3 control-label">Start Date<span class="required">
+										* </span></label>
+									<div class="col-md-6 ">
+										<div class="input-group input-large date date-picker" data-date="2015-01-01" data-date-format="yyyy-mm-dd" data-date-viewmode="years" style="margin:">
+												<input type="text" class="form-control" id="fromDate" size="16" readonly class="form-control" required>
+												<span class="input-group-btn">
+												<button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
+												</span>
+											</div>
+											<!-- /input-group -->
+											<span class="help-block">
+											 </span>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="inputPassword12" class="col-md-3 control-label">End Date<span class="required">
+										* </span></label>
+									<div class="col-md-6 ">
+										<div class="input-group input-large date date-picker" data-date="2015-01-01" data-date-format="yyyy-mm-dd" data-date-viewmode="years">
+												<input type="text" class="form-control" id="toDate" size="16" readonly class="form-control" required>
+												<span class="input-group-btn">
+												<button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
+												</span>
+											</div>
+											<!-- /input-group -->
+											<span class="help-block">
+											 </span>
+									</div>
+								</div>
+								<div class="form-group">
+									<label  class="col-md-3 control-label">Max Count<span class="required">
+										* </span></label>
+									<div class="col-md-2">
+										<input type="number" class="form-control" id="maxCount" placeholder="Max Count" value="1000" required>
+									</div>
+									<label  class="col-md-2 control-label">Parrent File Name</label>
+									<div class="col-md-2">
+										<input type="text" class="form-control" id="parentFileName" placeholder="Enter the Parent File Name">
+									</div>
+								</div>
+								<div class="form-group">
+									<label  class="col-md-3 control-label">File Name</label>
+									<div class="col-md-2">
+										<input type="text" class="form-control" id="fileName" placeholder="Enter the File Name">
+									</div>
+									<label  class="col-md-2 control-label">File Type</label>
+									<div class="col-md-2">
+										<input type="text" class="form-control" id="fileType" placeholder="Enter the File Type">
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="col-md-offset-5 col-md-5">
+										<button  class="btn blue-chambray" id="searchBtn">Search</button>
+									</div>
+								</div>
+							</form>
+
+						</div>
+					</div>
+					<!-- END EXAMPLE TABLE PORTLET-->
+					<table class="table table-striped table-bordered table-hover" id="auditfile_data_table">
+						<thead>
+						<tr role="row" class="heading">
+							<th width="5%">File Id</th>
+							<th width="17%">File Name</th>
+							<th width="15%">Parent File Name</th>
+							<th width="15%">File Type</th>
+							<th width="6%">Job Id</th>
+							<th width="8%">CheckSum</th>
+                            <th width="8%">File Size</th>
+                            <th width="8%">Child Count</th>
+                            <th width="18%">Created Date Time</th>
+						</tr>
+						<tr role="row" class="filter">
+							<td><input type="text" class="form-control form-filter input-sm" name="order_id" placeholder="searchkey"></td>
+							<td><input type="text" class="form-control form-filter input-sm" name="order_id" placeholder="searchkey"></td>
+							<td><input type="text" class="form-control form-filter input-sm" name="order_id" placeholder="searchkey"></td>
+							<td><input type="text" class="form-control form-filter input-sm" name="order_id" placeholder="searchkey"></td>
+							<td><input type="text" class="form-control form-filter input-sm" name="order_id" placeholder="searchkey"></td>
+							<td><input type="text" class="form-control form-filter input-sm" name="order_id" placeholder="searchkey"></td>
+							<td><input type="text" class="form-control form-filter input-sm" name="order_id" placeholder="searchkey"></td>
+							<td><input type="text" class="form-control form-filter input-sm" name="order_id" placeholder="searchkey"></td>
+							<td><input type="text" class="form-control form-filter input-sm" name="order_id" placeholder="searchkey"></td>
+						</tr>
+						</thead>
+						<tbody>
+
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<!-- END PAGE CONTENT-->
