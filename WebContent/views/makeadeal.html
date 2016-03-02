@@ -3,6 +3,13 @@
 	<div class="row">
 		<div class="col-md-12">
 			<h3 class="page-title">New Deal</h3>
+			<h3 class="page-title" style="float: left;">
+	<small id="display_container"  ng-show="carriersOutput[0]">
+		<span class="dealDetails-carrier" ng-show="carriersOutput[0]">{{carriersOutput[0].carrierName}}</span>
+		<span class="dealDetails-startDate"></span> 
+		<span class="dealDetails-endDate"></span>
+	</small>
+</h3>
 		</div>
 	</div>
 
@@ -141,39 +148,8 @@
 				</div>
 			</div>
 		</div>
-
+		
 		<div class="col-sm-4">
-			<div class="portlet deal-grace-period light bordered">
-				<div class="message"></div>
-				<div class="portlet-title">
-					<div class="caption">
-						<i class="fa fa-calendar"></i>
-						Grace Period
-					</div>
-				</div>
-
-				<div class="portlet-body">
-					<!--<a href="#" class="add-grace-period">Add grace period</a>
-					<div id="deal-grace-date-range" class="input-group input-group">
-							<input type="text" class="form-control" placeholder="Select grace date range">
-							<span class="input-group-btn">
-									<button class="btn default date-range-toggle" type="button">
-										<i class="fa fa-calendar"></i>
-									</button>
-							</span>
-					</div>-->
-					<ul class="select-grace-period">
-						<li ng-click="toggleGrace(0)" class="grace {{grace0}}">None</li>
-						<li ng-click="toggleGrace(15)" class="grace {{grace15}}">15</li>
-						<li ng-click="toggleGrace(30)" class="grace {{grace30}}">30</li>
-						<li ng-click="toggleGrace(60)" class="grace {{grace60}}">60</li>
-						<li ng-click="toggleGrace('custom')" class="grace {{graceCustom}} custom"><input type="number" min="0" step="10" value="" placeholder="Custom" name="custom-grace-period"></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-
-		<div class="col-sm-3">
 			<div class="portlet light bordered">
 				<div class="message"></div>
 				<div class="portlet-title">
@@ -197,6 +173,37 @@
 							helper-elements="filter">
 						</div>
 					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-sm-3">
+			<div class="portlet deal-grace-period light bordered">
+				<div class="message"></div>
+				<div class="portlet-title">
+					<div class="caption">
+						<i class="fa fa-calendar"></i>
+						Grace Period
+					</div>
+				</div>
+
+				<div class="portlet-body">
+					<!--<a href="#" class="add-grace-period">Add grace period</a>
+					<div id="deal-grace-date-range" class="input-group input-group">
+							<input type="text" class="form-control" placeholder="Select grace date range">
+							<span class="input-group-btn">
+									<button class="btn default date-range-toggle" type="button">
+										<i class="fa fa-calendar"></i>
+									</button>
+							</span>
+					</div>-->
+					<ul class="select-grace-period">
+						<li ng-click="toggleGrace(0)" class="grace" ng-class="{active:dealTypesOutput.length==0}">None</li>
+						<li ng-click="toggleGrace(15)" class="grace" ng-class="{active:dealTypesOutput[0].type=='Best Effort'}">15</li>
+						<li ng-click="toggleGrace(30)" class="grace" ng-class="{active:dealTypesOutput[0].type=='Committed'||dealTypesOutput[0].type=='Hybrid' }">30</li>
+						<li ng-click="toggleGrace(60)" class="grace {{grace60}}">60</li>
+						<li ng-click="toggleGrace('custom')" class="grace {{graceCustom}} custom"><input type="number" min="0" step="10" value="" placeholder="Custom" name="custom-grace-period"></li>
+					</ul>
 				</div>
 			</div>
 		</div>
