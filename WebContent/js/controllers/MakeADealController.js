@@ -7,18 +7,44 @@ SignatureApp.controller('MakeADealController',function($rootScope, $scope, $http
 
 	// Populate Counterpart dropdown
 	dataService.getCarrierList(function(carrierListResponse) {
-		//console.log('getCarrierList:');
-		//console.log(carrierListResponse.data.list);
 		$scope.carriers = carrierListResponse.data.list;
 	});
 
 	// Carrier selected
 	$scope.carrierSelected = function(data) {
-    console.log('OMG the following item was selected:');
-		console.log(data);
-		$scope.accountManagers[0].accountManagerName = 'Hello';
-		$scope.accountManagers[0].ticked = true;
-		console.log()
+
+		// Set default Currency
+		for (var i = 0; i < $scope.accountManagers.length ; i++) {
+
+			// Find index of default Currency
+			if ($scope.accountManagers[i].accountManagerId === data.defaultAccountManagerId) {
+
+				// Deselect previous Currency (looping through all since we don't know the index of the selected item)
+				for (var y = 0; y < $scope.accountManagers.length ; y++) {
+					$scope.accountManagers[y].selected = false;
+				}
+
+				// Select Currency
+				$scope.accountManagers[i].selected = true;
+	    }
+		}
+
+		// Set default Currency
+		for (var i = 0; i < $scope.currencies.length ; i++) {
+
+			// Find index of default Account Manager
+			if ($scope.currencies[i].currencyCode === data.defaultCurrency) {
+
+				// Deselect previous Account Manager (looping through all since we don't know the index of the selected item)
+				for (var y = 0; y < $scope.currencies.length ; y++) {
+					$scope.currencies[y].selected = false;
+				}
+
+				// Select Account Manager
+				$scope.currencies[i].selected = true;
+	    }
+		}
+
   }
 
 	// Populate Account Manager dropdown

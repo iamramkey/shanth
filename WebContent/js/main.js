@@ -259,8 +259,9 @@ Main.fillTreeTable = function(id, data, subParam, onclickFunction){
 			level1 += '<td>'+data[i].trend+'</td>';
 			level1 += '<td style="background:'+data[i].blockColor+'">'+data[i].required+'</td></tr>';
 			$('#'+id).append(level1);
-		
+			
 			if(data[i][subParam]){
+				$('#'+id).append('<tr class="expanding '+i+data[i].destinationGroup.replace(/ /g , '').replace(/&/g , '_')+'">');
 				//level two
 				'use strict';
 				for(var j = 0; j < data[i].volumeDetailsList.length; j++){
@@ -278,7 +279,7 @@ Main.fillTreeTable = function(id, data, subParam, onclickFunction){
 						//level three
 						'use strict';
 						for(var k = 0; k < data[i][subParam][j][subParam].length; k++){
-							var level3 = '<tr style="display:none;" class="'+i+j+data[i].destinationGroup.replace(/ /g , '').replace(/&/g , '_')+'"><td>- '+data[i][subParam][j][subParam][k].destinationGroup+'</td>';
+							var level3 = '<tr style="display:none;" class="child'+i+data[i].destinationGroup.replace(/ /g , '').replace(/&/g , '_')+' '+i+j+data[i].destinationGroup.replace(/ /g , '').replace(/&/g , '_')+'"><td>- '+data[i][subParam][j][subParam][k].destinationGroup+'</td>';
 							level3 += '<td>'+data[i][subParam][j][subParam][k].direction+'</td>';
 							level3 += '<td>'+data[i][subParam][j][subParam][k].startDate+'</td>';
 							level3 += '<td>'+data[i][subParam][j][subParam][k].endDate+'</td>';
@@ -290,6 +291,8 @@ Main.fillTreeTable = function(id, data, subParam, onclickFunction){
 						}
 					}
 				}
+				$('#'+id).append('</tr>');
 			}
+
 	}
 }

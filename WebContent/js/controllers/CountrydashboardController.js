@@ -98,7 +98,7 @@ SignatureApp.controller('CountrydashboardController', function($rootScope, $scop
 		//to fill Full Fill Top Shortfall List
     	httpPost('cdbshortfallwarninglist',input,fillshortfalist,errorCallback);
 
-    	//to fill Agreement Table
+    	// to fill Agreement Table
     	httpPost('cdbagreementsforcountry',input,fillAgreementTable,errorCallback);
 
 	}
@@ -1021,23 +1021,35 @@ function fillUncommittedChart_graph(seriesArray){
 
 //  Graph End
 
-$(document).on("mouseover",".cd_toolTip",function(){
-	$('[data-toggle="popover"]').popover(); 
-});
+	$(document).on("mouseover",".cd_toolTip",function(){
+		$('[data-toggle="popover"]').popover(); 
+	});
+
+	$("#countryNameList").click(function(){
+		$("#cdbDropDown").show();
+	});
 
 });
 
 
 //extra function 
 function redirectToDD_CD(carrier, deal){
+	$('#Cd_First_Full_screen').click();
+	$("#Cd_Second_Full_screen").removeClass("on");
+	$("#cd_table_layout_trend").hide();
 	window.location.href = '#/dealdashboard?accNameList='+carrier+'_&_dealIdList='+deal;
-	$("#Cd_First_Full_screen").click();
-	// $("#Cd_First_Full_screen").removeClass("on");
 }
 
 function dealDetailParent(className){
-    if($('.'+className).parent('#Agreements_Table_Body').find('.'+className).is(":visible"))
-        $('.'+className).parent('#Agreements_Table_Body').find('.'+className).hide();
+    if($('#Agreements_Table_Body').find('.'+className).is(":visible")){
+        $('#Agreements_Table_Body').find('.'+className).hide();
+     	$('#Agreements_Table_Body').find('.child'+className).hide();
+        
+    }
     else
-        $('.'+className).parent('#Agreements_Table_Body').find('.'+className).show();
+        $('#Agreements_Table_Body').find('.'+className).show();
 }
+
+
+
+

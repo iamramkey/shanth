@@ -210,7 +210,7 @@ SignatureApp.config(['$stateProvider', '$urlRouterProvider', function($stateProv
                             'theme/assets/global/plugins/morris/morris.css',
                             'theme/assets/admin/pages/css/tasks.css',
 
-                            'theme/assets/global/plugins/select2/select2.min.js',
+                            // 'theme/assets/global/plugins/select2/select2.min.js',
                             'theme/assets/global/plugins/morris/morris.min.js',
                             'theme/assets/global/plugins/morris/raphael-min.js',
                             'theme/assets/global/plugins/jquery.sparkline.min.js',

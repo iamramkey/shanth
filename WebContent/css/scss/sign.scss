@@ -1,4 +1,4 @@
-/* Signature */
+/* Signature (compiled SCSS) */
 
 
 // IMPORT *************************************************************
@@ -221,6 +221,21 @@ table.dataTable {
 // Make a Deal ***************************
 .page-make-deal {
 
+  /* NEW (TO KEEP EVEN AFTER MERGING SOME OF THE STYLING TO ALL PAGES) */
+
+  input[type='number'] {
+    -moz-appearance:textfield;
+  }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+  }
+
+
+
+  /* OLD (SOME OF THIS SHOULD BE MERGED TO STYLE ALL PAGES) */
+
   $header-height: 60px;
 
   .bold {
@@ -371,6 +386,7 @@ table.dataTable {
     li {
       display: inline-block;
       padding: 7px 12px;
+      //width: 58px;
       margin-right: 4px;
       margin-bottom: 6px;
       background-color: #f0f0f0;
@@ -389,6 +405,7 @@ table.dataTable {
       &:hover {
         cursor: pointer;
 
+
         &:not(.active),
         &.custom:not(.active) input {
           background-color: #e5e5e5;
@@ -396,14 +413,18 @@ table.dataTable {
       }
 
       &.custom {
-        padding: 0 8px 0 0;
+        //padding: 0 8px 0 0;
+
+        &:hover {
+          //cursor: default;
+        }
 
         input {
           background-color: #f0f0f0;
-          padding: 7px 6px 7px 12px;
+          //padding: 7px 6px 7px 12px;
           border: 0;
           outline: none;
-          width: 85px;
+          width: 34px;
 
           &::-webkit-input-placeholder {
             color: #34495e;
@@ -878,6 +899,8 @@ table.dataTable {
 .multiSelect .checkBoxContainer {
     padding-left: 0;
     padding-right: 0;
+    max-height: 330px;
+    overflow-y: scroll !important;
 }
 
 /* right-align the tick mark (&#10004;) */
