@@ -102,6 +102,7 @@ initialization can be disabled and Layout.init() should be called on page load c
 SignatureApp.controller('HeaderController', ['$scope', function($scope) {
     $scope.qns = Main.fetchQNS();
     $scope.favs = Main.fetchFavs();
+	$scope.toolbars = Main.fetchToolbars();
     $scope.$on('$includeContentLoaded', function() {
         Layout.initHeader(); // init header
     });

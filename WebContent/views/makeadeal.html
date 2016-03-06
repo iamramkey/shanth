@@ -61,6 +61,7 @@
 						<div
 					    isteven-multi-select
 							class="isteven-multi-select"
+							ng-class="{autoselectflash: startAutoselectflash}"
 					    input-model="accountManagers"
 					    output-model="accountManagersOutput"
 					    button-label="accountManagerName"
@@ -89,6 +90,7 @@
 						<div
 							isteven-multi-select
 							class="isteven-multi-select"
+							ng-class="{currencyautoselectedflash: startCurrencyautoselectedflash}"
 							input-model="currencies"
 							output-model="currenciesOutput"
 							button-label="currencyCode"
@@ -228,7 +230,7 @@
 							selection-mode="multiple"
 							helper-elements="filter">
 						</div>
-						<button type="button" class="btn dark secondary" style="width:20%">Add</button>
+						<button type="button" class="btn dark secondary" style="width:15%">Add</button>
 					</div>
 
 				</div>
@@ -258,7 +260,7 @@
 							selection-mode="multiple"
 							helper-elements="filter">
 						</div>
-						<button type="button" class="btn dark secondary" style="width:20%">Add</button>
+						<button type="button" class="btn dark secondary" style="width:15%">Add</button>
 					</div>
 				</div>
 			</div>
@@ -277,7 +279,10 @@
 				</div>
 
 				<div class="portlet-body">
-					<button style="margin-bottom: 20px;" type="button" id="addData" class="btn btn-success" ng-click="addDestinationTest()">Add Destination Test</button>
+					<div class="table-controls">
+						<button type="button" class="btn dark secondary" ng-click="showMoreColumns()">Show more</button>
+						<button type="button" id="addData" class="btn dark secondary" ng-click="addDestinationTest()">Add Destination Test</button>
+					</div>
 					<div ui-grid="gridOptions" ui-grid-selection ui-grid-edit ui-grid-cellNav ui-grid-grouping ></div>
 				</div>
 			</div>
@@ -481,7 +486,7 @@
 		<div class="col-md-3">
 			<div class="action">
 				<span class="last-saved">Last saved 15 minutes ago</span>
-				<button type="button" class="btn sign">Save</button>
+				<button type="button" class="btn btn-circle sign">Save</button>
 			</div>
 		</div>
 	</div>

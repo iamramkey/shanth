@@ -1,9 +1,8 @@
 /* Signature (compiled SCSS) */
 body {
-  background-color: #2b3643;
   font-family: "Varela Round", sans-serif; }
   body .page-content-wrapper .page-content {
-    background-color: #f7f7f7 !important; }
+    background-color: #f8f7f3 !important; }
 
 .page-footer {
   padding: 15px 30px;
@@ -62,11 +61,21 @@ h6 {
   .bootstrap-select .dropdown-menu li.selected a span small.text-muted {
     color: #e87e04 !important; }
 
-.btn.sign {
-  background-color: #e87e04;
-  color: #fff; }
-  .btn.sign.secondary {
-    background-color: #2f353b; }
+.portlet,
+.dashboard-stat {
+  -moz-border-radius: 0 !important;
+  -webkit-border-radius: 0 !important;
+  border-radius: 0 !important; }
+
+.btn {
+  -moz-border-radius: 3px !important;
+  -webkit-border-radius: 3px !important;
+  border-radius: 3px !important; }
+  .btn.sign {
+    background-color: #e87e04;
+    color: #fff; }
+    .btn.sign.secondary {
+      background-color: #2f353b; }
 
 .form-group .btn:last-child {
   float: right; }
@@ -96,9 +105,21 @@ table.dataTable.stripe tbody tr.group {
       table.dataTable.stripe tbody tr.group td .rename-dg:hover {
         cursor: pointer; }
 
+.table-controls {
+  margin-bottom: 20px; }
+  .table-controls button {
+    margin-right: 10px; }
+
 .ui-grid .ui-grid-top-panel {
   background: #ebebeb; }
 
+@-webkit-keyframes flash {
+  0% {
+    background-color: #fff0a5; }
+  20% {
+    background-color: #fff0a5; }
+  100% {
+    background-color: none; } }
 .page-make-deal {
   /* NEW (TO KEEP EVEN AFTER MERGING SOME OF THE STYLING TO ALL PAGES) */
   /* OLD (SOME OF THIS SHOULD BE MERGED TO STYLE ALL PAGES) */ }
@@ -112,7 +133,7 @@ table.dataTable.stripe tbody tr.group {
   .page-make-deal .page-content {
     padding-right: 30px;
     padding-left: 30px;
-    background-color: #f7f7f7; }
+    background-color: #f8f7f3; }
   .page-make-deal .page-container {
     margin-bottom: 40px !important; }
   .page-make-deal .page-title {
@@ -172,7 +193,10 @@ table.dataTable.stripe tbody tr.group {
       padding: 7px 12px;
       margin-right: 4px;
       margin-bottom: 6px;
-      background-color: #f0f0f0; }
+      background-color: #f0f0f0;
+      -moz-border-radius: 3px;
+      -webkit-border-radius: 3px;
+      border-radius: 3px; }
       .page-make-deal .select-grace-period li:last-child {
         margin-right: 0; }
       .page-make-deal .select-grace-period li.active, .page-make-deal .select-grace-period li.active.custom input {
@@ -193,7 +217,7 @@ table.dataTable.stripe tbody tr.group {
           background-color: #f0f0f0;
           border: 0;
           outline: none;
-          width: 34px; }
+          width: 33px; }
           .page-make-deal .select-grace-period li.custom input::-webkit-input-placeholder {
             color: #34495e; }
           .page-make-deal .select-grace-period li.custom input:-moz-placeholder {
@@ -497,18 +521,24 @@ table.dataTable.stripe tbody tr.group {
   max-height: 22px;
   max-width: 22px; }
 
+.isteven-multi-select.autoselectflash button, .isteven-multi-select.currencyautoselectedflash button {
+  -webkit-animation-name: flash;
+  -webkit-animation-duration: 2000ms;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-timing-function: ease-in-out; }
+
 /* the multiselect button */
 .multiSelect > button {
   text-align: left;
   border: 1px solid #e2e2e2;
   width: 100%;
   background-image: none;
-  padding-top: 0;
+  padding-top: 1px;
   padding-bottom: 0;
   min-height: 34px !important;
   line-height: 16px; }
   .deal-destinations .multiSelect > button {
-    width: 75%; }
+    width: 80%; }
 
 /* button: hover */
 .multiSelect > button:hover {

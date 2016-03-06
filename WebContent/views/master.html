@@ -8,13 +8,15 @@
 					
 				</div>
 				<div class="tools">
-					<a href="javascript:;" class="reload" ng-click="refreshTable()" id="refreshTable">
-					</a>
+					
 				</div>
 				<div class="actions" id="headerActionsId">
 					<span ng-repeat="ha in headerActions"> 
-						<a ng-show="ha.visible" ng-click="this[ha.function](ha.param)" class="btn default" id="headerBtn" href="javascript:void(0);" ><i class="fa {{ha.icon}}"></i><span class="hidden-480"> {{ha.label}} </span></a>
+						<a ng-show="ha.visible" ng-click="this[ha.function](ha.param)" class="btn btn-sm" style="color:#fff" id="headerBtn" href="javascript:void(0);" ><i class="fa {{ha.icon}}"></i><span class="hidden-480"> {{ha.label}} </span></a>
 					</span>
+					<a href="javascript:;" class="btn btn-sm" style="color:#fff" ng-click="refreshTable()" id="refreshTable">
+						<i class="glyphicon glyphicon-refresh"></i> Refresh
+					</a>
 				</div>
 			</div>
 			<div class="portlet-body">
@@ -28,9 +30,24 @@
 						<tr ng-repeat="row in tableData">
 							<td ng-repeat="cell in row  track by $index">{{cell}}</td>
 							<td>
-								<span ng-repeat="ra in rowActions">
-								<a ng-show="ra.visible" ng-click="this[ra.function](row[0],ra.param)" href="javascript:void(0);" id="rowBtn" class="edit btn default btn-xs {{ra.colour}}"><i class="fa {{ra.icon}}"></i>{{ra.label}}</a>
-								</span>
+							<div class="btn-group btn-group-xs" role="group" aria-label="...">
+								<button type="button" class="btn btn-link" ng-repeat="ra in rowActions" ng-show="ra.visible" ng-click="this[ra.function](row[0],ra.param)" class="{{ra.colour}}" title="{{ra.label}}"><i class="fa {{ra.icon}}"></i></button>
+							</div>
+								<!--<div class="btn-group pull-right">
+									<button type="button" class="btn btn-default btn-sm btn-outline dropdown-toggle" data-toggle="dropdown" aria-expanded="false"> Actions
+										<i class="fa fa-angle-down"></i>
+									</button>
+									<ul class="dropdown-menu pull-right" role="menu">
+										<li ng-repeat="ra in rowActions">
+											<a ng-show="ra.visible" ng-click="this[ra.function](row[0],ra.param)" href="javascript:void(0);" class="{{ra.colour}}"><i class="fa {{ra.icon}}"></i>{{ra.label}}</a>
+										</li>
+									</ul>
+								</div>-->
+								<!--<span ng-repeat="ra in rowActions">
+								<a style="padding: 5px;border: 1px solid rgba(0,0,0,.2);" ng-show="ra.visible"
+								   ng-click="this[ra.function](row[0],ra.param)"
+								    href="javascript:void(0);" id="rowBtn" class="edit btn default btn-xs {{ra.colour}}"><i class="fa {{ra.icon}}"></i>{{ra.label}}</a>
+								</span>-->
 							</td>
 						</tr>
 					</tbody>
@@ -75,7 +92,8 @@
 		<div class="modal-content">
 			<div class="portlet box green-haze" style="border-bottom: 0 none;">
 				<div class="portlet-title">
-					<div class="caption" id="modalTitle">{{modalTitle}}
+					<div class="caption" id="modalTitle">
+					{{modalTitle}}
 					</div>
 				</div>
 				<div class="portlet-body form">

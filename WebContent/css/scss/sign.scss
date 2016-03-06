@@ -8,7 +8,6 @@
 
 // LAYOUT *************************************************************
 body {
-  background-color: #2b3643;
   font-family: $font-family;
 
   .page-content-wrapper .page-content {
@@ -136,13 +135,27 @@ h6,
   }
 }
 
-// Buttons
-.btn.sign {
-  background-color: $sign-main;
-  color: $white;
+// Portlets
+.portlet,
+.dashboard-stat {
+  -moz-border-radius: 0 !important;
+  -webkit-border-radius: 0 !important;
+  border-radius: 0 !important;
+}
 
-  &.secondary {
-    background-color: $sign-secondary;
+// Buttons
+.btn {
+  -moz-border-radius: 3px !important;
+  -webkit-border-radius: 3px !important;
+  border-radius: 3px !important;
+
+  &.sign {
+    background-color: $sign-main;
+    color: $white;
+
+    &.secondary {
+      background-color: $sign-secondary;
+    }
   }
 }
 .form-group .btn:last-child {
@@ -203,6 +216,15 @@ table.dataTable {
   }
 }
 
+// Table Controls (buttons above tables)
+.table-controls {
+  margin-bottom: 20px;
+
+  button {
+    margin-right: 10px;
+  }
+}
+
 // UI-Grid
 .ui-grid {
 
@@ -212,6 +234,19 @@ table.dataTable {
 
   .ui-grid-header-cell-row {
     //line-height: 24px;
+  }
+}
+
+// Animations
+@-webkit-keyframes flash {
+  0% {
+    background-color: $yellow;
+  }
+  20% {
+    background-color: $yellow;
+  }
+  100% {
+    background-color: none;
   }
 }
 
@@ -391,6 +426,9 @@ table.dataTable {
       margin-bottom: 6px;
       background-color: #f0f0f0;
       //@include border-radius(4px);
+      -moz-border-radius: 3px;
+      -webkit-border-radius: 3px;
+      border-radius: 3px;
 
       &:last-child {
         margin-right: 0;
@@ -424,7 +462,7 @@ table.dataTable {
           //padding: 7px 6px 7px 12px;
           border: 0;
           outline: none;
-          width: 34px;
+          width: 33px;
 
           &::-webkit-input-placeholder {
             color: #34495e;
@@ -813,9 +851,15 @@ table.dataTable {
 }
 
 // isteven-multi-select (OVERRIDES) ******
-
 .isteven-multi-select {
 
+  &.autoselectflash button,
+  &.currencyautoselectedflash button {
+    -webkit-animation-name: flash;
+    -webkit-animation-duration: 2000ms;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-timing-function: ease-in-out;
+  }
 }
 
 /* the multiselect button */
@@ -824,13 +868,13 @@ table.dataTable {
     border: 1px solid #e2e2e2;
     width: 100%;
     background-image: none;
-    padding-top: 0;
+    padding-top: 1px;
     padding-bottom: 0;
     min-height: 34px !important;
     line-height: 16px;
 
     .deal-destinations & {
-      width: 75%;
+      width: 80%;
     }
 }
 

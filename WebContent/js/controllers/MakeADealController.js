@@ -1,6 +1,6 @@
 'use strict';
 
-SignatureApp.controller('MakeADealController',function($rootScope, $scope, $http, dataService) {
+SignatureApp.controller('MakeADealController',function($rootScope, $scope, $http, dataService, $timeout) {
 
 	// Log active controller
 	Main.log("MakeADealController");
@@ -13,35 +13,47 @@ SignatureApp.controller('MakeADealController',function($rootScope, $scope, $http
 	// Carrier selected
 	$scope.carrierSelected = function(data) {
 
-		// Set default Currency
+		// Set default Account Manager
 		for (var i = 0; i < $scope.accountManagers.length ; i++) {
 
-			// Find index of default Currency
+			// Find index of default Account Manager
 			if ($scope.accountManagers[i].accountManagerId === data.defaultAccountManagerId) {
 
-				// Deselect previous Currency (looping through all since we don't know the index of the selected item)
+				// Deselect previous Account Manager (looping through all since we don't know the index of the selected item)
 				for (var y = 0; y < $scope.accountManagers.length ; y++) {
 					$scope.accountManagers[y].selected = false;
 				}
 
-				// Select Currency
+				// Select Account Manager
 				$scope.accountManagers[i].selected = true;
+
+				// Flash to show auto-select
+				$scope.startAutoselectflash = true;
+		    $timeout(function(){
+		        $scope.startAutoselectflash = false;
+		    }, 2200);
 	    }
 		}
 
 		// Set default Currency
 		for (var i = 0; i < $scope.currencies.length ; i++) {
 
-			// Find index of default Account Manager
+			// Find index of default Currency
 			if ($scope.currencies[i].currencyCode === data.defaultCurrency) {
 
-				// Deselect previous Account Manager (looping through all since we don't know the index of the selected item)
+				// Deselect previous Account Manager (looping through all since we don't know the index of the selected item)// Deselect previous Currency (looping through all since we don't know the index of the selected item)
 				for (var y = 0; y < $scope.currencies.length ; y++) {
 					$scope.currencies[y].selected = false;
 				}
 
-				// Select Account Manager
+				// Select Currency
 				$scope.currencies[i].selected = true;
+
+				// Flash to show auto-select
+				$scope.startCurrencyautoselectedflash = true;
+		    $timeout(function(){
+		        $scope.startCurrencyautoselectedflash = false;
+		    }, 2200);
 	    }
 		}
 
@@ -49,36 +61,26 @@ SignatureApp.controller('MakeADealController',function($rootScope, $scope, $http
 
 	// Populate Account Manager dropdown
 	dataService.getAccountManagerList(function(accountManagerListResponse) {
-		//console.log('getAccountManagerList:');
-		//console.log(accountManagerListResponse.data.list);
 		$scope.accountManagers = accountManagerListResponse.data.list;
 	});
 
 	// Populate Currency dropdown
 	dataService.getCurrencyList(function(currencyListResponse) {
-		//console.log('getCurrencyList:');
-		//console.log(currencyListResponse.data.list);
 		$scope.currencies = currencyListResponse.data.list;
 	});
 
 	// Populate Outgoing Destinations dropdown
 	dataService.getOutgoingDestinationList(function(outgoingDestinationListResponse) {
-		//console.log('getOutgoingDestinationList:');
-		//console.log(outgoingDestinationListResponse.data.list);
 		$scope.outgoingDestinations = outgoingDestinationListResponse.data.list;
 	});
 
 	// Populate Incoming Destinations dropdown
 	dataService.getIncomingDestinationList(function(incomingDestinationListResponse) {
-		//console.log('getIncomingDestinationList:');
-		//console.log(incomingDestinationListResponse.data.list);
 		$scope.incomingDestinations = incomingDestinationListResponse.data.list;
 	});
 
 	// Populate Deal Types dropdown
 	dataService.getDealTypeList(function(dealTypeListResponse) {
-		//console.log('getDealTypeList:');
-		//console.log(dealTypeListResponse.data.list);
 		$scope.dealTypes = dealTypeListResponse.data.list;
 	});
 

@@ -15,7 +15,7 @@ var Layout = function () {
     // Set proper height for sidebar and content. The content and sidebar height must be synced always.
     var handleSidebarAndContentHeight = function () {
         var content = $('.page-content');
-        var sidebar = $('.page-sidebar');
+        var sidebar = $('.hor-menu');
         var body = $('body');
         var height;
 
@@ -52,7 +52,7 @@ var Layout = function () {
     var handleSidebarMenuActiveLink = function(mode, el) {
         var url = location.hash.toLowerCase();    
 
-        var menu = $('.page-sidebar-menu');
+        var menu = $('.navbar-nav');
 
         if (mode === 'click' || mode === 'set') {
             el = $(el);
@@ -107,7 +107,7 @@ var Layout = function () {
         });
 
         if (mode === 'click') {
-            if (Metronic.getViewPort().width < resBreakpointMd && $('.page-sidebar').hasClass("in")) { // close the menu on mobile view while laoding a page 
+            if (Metronic.getViewPort().width < resBreakpointMd && $('.hor-menu').hasClass("in")) { // close the menu on mobile view while laoding a page 
                 $('.page-header .responsive-toggler').click();
             }
         }
@@ -116,9 +116,9 @@ var Layout = function () {
     // Handle sidebar menu
     var handleSidebarMenu = function () {
         // handle sidebar link click
-        $('.page-sidebar').on('click', 'li > a', function (e) {
+        $('.hor-menu').on('click', 'li > a', function (e) {
 
-            if (Metronic.getViewPort().width >= resBreakpointMd && !$('.page-sidebar-menu').attr("data-initialized") && $('body').hasClass('page-sidebar-closed') &&  $(this).parent('li').parent('.page-sidebar-menu').size() === 1) {
+            if (Metronic.getViewPort().width >= resBreakpointMd && !$('.navbar-nav').attr("data-initialized") && $('body').hasClass('page-sidebar-closed') &&  $(this).parent('li').parent('.navbar-nav').size() === 1) {
                 return;
             }
 
@@ -129,7 +129,7 @@ var Layout = function () {
             }
 
             if (hasSubMenu === false) {
-                if (Metronic.getViewPort().width < resBreakpointMd && $('.page-sidebar').hasClass("in")) { // close the menu on mobile view while laoding a page 
+                if (Metronic.getViewPort().width < resBreakpointMd && $('.hor-menu').hasClass("in")) { // close the menu on mobile view while laoding a page 
                     $('.page-header .responsive-toggler').click();
                 }
                 return;
@@ -141,7 +141,7 @@ var Layout = function () {
 
             var parent = $(this).parent().parent();
             var the = $(this);
-            var menu = $('.page-sidebar-menu');
+            var menu = $('.navbar-nav');
             var sub = $(this).next();
 
             var autoScroll = menu.data("auto-scroll");
@@ -192,7 +192,7 @@ var Layout = function () {
         });
 
         // handle ajax links within sidebar menu
-        $('.page-sidebar').on('click', ' li > a.ajaxify', function (e) {
+        $('.hor-menu').on('click', ' li > a.ajaxify', function (e) {
             e.preventDefault();
             Metronic.scrollTop();
 
@@ -210,7 +210,7 @@ var Layout = function () {
             });
             $(this).parents('li').addClass('active');
 
-            if (Metronic.getViewPort().width < resBreakpointMd && $('.page-sidebar').hasClass("in")) { // close the menu on mobile view while laoding a page 
+            if (Metronic.getViewPort().width < resBreakpointMd && $('.hor-menu').hasClass("in")) { // close the menu on mobile view while laoding a page 
                 $('.page-header .responsive-toggler').click();
             }
 
@@ -251,7 +251,7 @@ var Layout = function () {
 
             Metronic.startPageLoading();
 
-            if (Metronic.getViewPort().width < resBreakpointMd && $('.page-sidebar').hasClass("in")) { // close the menu on mobile view while laoding a page 
+            if (Metronic.getViewPort().width < resBreakpointMd && $('.hor-menu').hasClass("in")) { // close the menu on mobile view while laoding a page 
                 $('.page-header .responsive-toggler').click();
             }
 
@@ -282,7 +282,7 @@ var Layout = function () {
         handleFixedSidebarHoverEffect();
 
         // handle the search bar close
-        $('.page-sidebar').on('click', '.sidebar-search .remove', function (e) {
+        $('.hor-menu').on('click', '.sidebar-search .remove', function (e) {
             e.preventDefault();
             $('.sidebar-search').removeClass("open");
         });
@@ -338,7 +338,7 @@ var Layout = function () {
 
     // Handles fixed sidebar
     var handleFixedSidebar = function () {
-        var menu = $('.page-sidebar-menu');
+        var menu = $('.navbar-nav');
 
         Metronic.destroySlimScroll(menu);
 
@@ -358,13 +358,13 @@ var Layout = function () {
     var handleFixedSidebarHoverEffect = function () {
         var body = $('body');
         if (body.hasClass('page-sidebar-fixed')) {
-            $('.page-sidebar').on('mouseenter', function () {
+            $('.hor-menu').on('mouseenter', function () {
                 if (body.hasClass('page-sidebar-closed')) {
-                    $(this).find('.page-sidebar-menu').removeClass('page-sidebar-menu-closed');
+                    $(this).find('.navbar-nav').removeClass('page-sidebar-menu-closed');
                 }
             }).on('mouseleave', function () {
                 if (body.hasClass('page-sidebar-closed')) {
-                    $(this).find('.page-sidebar-menu').addClass('page-sidebar-menu-closed');
+                    $(this).find('.navbar-nav').addClass('page-sidebar-menu-closed');
                 }
             });
         }
@@ -375,13 +375,13 @@ var Layout = function () {
         var body = $('body');
         if ($.cookie && $.cookie('sidebar_closed') === '1' && Metronic.getViewPort().width >= resBreakpointMd) {
             $('body').addClass('page-sidebar-closed');
-            $('.page-sidebar-menu').addClass('page-sidebar-menu-closed');
+            $('.navbar-nav').addClass('page-sidebar-menu-closed');
         }
 
         // handle sidebar show/hide
         $('body').on('click', '.sidebar-toggler', function (e) {
-            var sidebar = $('.page-sidebar');
-            var sidebarMenu = $('.page-sidebar-menu');
+            var sidebar = $('.hor-menu');
+            var sidebarMenu = $('.navbar-nav');
             $(".sidebar-search", sidebar).removeClass("open");
 
             if (body.hasClass("page-sidebar-closed")) {
