@@ -10,6 +10,7 @@ var SignatureApp = angular.module('SignatureApp', [
     'ngSanitize',
     'ngTouch',
     'isteven-multi-select',
+	'ngMessages',
     'daterangepicker',
     'ui.grid',
     'ui.grid.selection',
