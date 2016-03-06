@@ -9,6 +9,46 @@ SignatureApp.controller('MakeADealController',function($rootScope, $scope, $http
 	dataService.getCarrierList(function(carrierListResponse) {
 		$scope.carriers = carrierListResponse.data.list;
 	});
+	
+	$scope.rangeDate = {
+        startDate: moment().subtract(1, "days"),
+        endDate: moment()
+    };
+    $scope.singleDate = moment();
+
+    $scope.opts = {
+        locale: {
+            applyClass: 'btn-green',
+            applyLabel: "Apply",
+            fromLabel: "From",
+            format: "YYYY-MM-DD",
+            toLabel: "To",
+            cancelLabel: 'Cancel',
+            customRangeLabel: 'Custom range'
+        },
+        ranges: {
+            'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+            'Last 30 Days': [moment().subtract(29, 'days'), moment()]
+        }
+    };
+
+    $scope.setStartDate = function () {
+        $scope.rangeDate.startDate = moment().subtract(4, "days").toDate();
+    };
+
+    $scope.setRange = function () {
+        $scope.rangeDate = {
+            startDate: moment().subtract(5, "days"),
+            endDate: moment()
+        };
+    };
+
+    //Watch for date changes
+    $scope.$watch('rangeDate', function(newDate) {	
+        console.log('New date set: ', newDate);
+    }, false);
+
+
 
 	// Carrier selected
 	$scope.carrierSelected = function(data) {

@@ -4056,8 +4056,8 @@ S2.define('select2/dropdown/attachBody',[
     };
 
     var viewport = {
-      top: $window.scrollTop(),
-      bottom: $window.scrollTop() + $window.height()
+    //  top: $window.scrollTop(),
+      //bottom: $window.scrollTop() + $window.height()
     };
 
     var enoughRoomAbove = viewport.top < (offset.top - dropdown.height);
@@ -4092,6 +4092,8 @@ S2.define('select2/dropdown/attachBody',[
         .addClass('select2-container--' + newDirection);
     }
 
+      css.left = offset = this.$container.offset().left;
+	
     this.$dropdownContainer.css(css);
   };
 
@@ -4106,7 +4108,7 @@ S2.define('select2/dropdown/attachBody',[
       css.minWidth = css.width;
       css.width = 'auto';
     }
-
+	  alert(css.width);
     this.$dropdown.css(css);
   };
 

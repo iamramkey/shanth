@@ -3,6 +3,13 @@
 	<div class="row">
 		<div class="col-md-12">
 			<h3 class="page-title">New Deal</h3>
+			<h3 class="page-title" style="float: left;">
+ 	<small id="display_container"  ng-show="carriersOutput[0]">
+	<span class="dealDetails-carrier" ng-show="carriersOutput[0]">{{carriersOutput[0].carrierName}}</span>  
+ 		<span class="">{{rangeDate.startDate.format('DD-MMM-YYYY') }}</span>  to  
+ 		<span class="">{{rangeDate.endDate.format('DD-MMM-YYYY') }}</span>
+ 	</small>	
+ </h3>
 		</div>
 	</div>
 
@@ -116,7 +123,12 @@
 				</div>
 
 				<div class="portlet-body">
-					<div class="form-group input-group">
+					<div>
+					<div class="form-group">
+                    <label for="daterange1" class="control-label">Simple picker</label>
+                    <input date-range-picker="" id="daterange1" name="daterange1" class="form-control date-picker ng-pristine ng-untouched ng-valid ng-isolate-scope ng-valid-required" type="text" ng-model="rangeDate" options="opt" required="">
+                </div>
+            
 						<!--<div id="deal-date-range-one" class="btn default">
 								<i class="fa fa-calendar"></i> &nbsp;
 								<span> </span>
@@ -191,12 +203,12 @@
 							</span>
 					</div>-->
 					<ul class="select-grace-period">
-						<li ng-click="toggleGrace(0)" class="grace {{grace0}}">None</li>
-						<li ng-click="toggleGrace(15)" class="grace {{grace15}}">15</li>
-						<li ng-click="toggleGrace(30)" class="grace {{grace30}}">30</li>
+						<li ng-click="toggleGrace(0)" class="grace" ng-class="{active:dealTypesOutput.length==0}">None</li>
+ +						<li ng-click="toggleGrace(15)" class="grace" ng-class="{active:dealTypesOutput[0].type=='Best Effort'}">15</li>
+ +						<li ng-click="toggleGrace(30)" class="grace" ng-class="{active:dealTypesOutput[0].type=='Committed'||dealTypesOutput[0].type=='Hybrid' }">30</li>
 						<li ng-click="toggleGrace(60)" class="grace {{grace60}}">60</li>
 						<li ng-click="toggleGrace('custom')" class="grace {{graceCustom}} custom"><input type="number" min="0" value="" placeholder="..." name="custom-grace-period"></li>
-					</ul>
+					</ul>	
 				</div>
 			</div>
 		</div>

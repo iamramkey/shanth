@@ -133,7 +133,7 @@ Bootstrap Daterangepicker
     border-radius: 4px; }
 
 .daterangepicker .ranges .btn {
-  margin-top: 10px; }
+  margin-top: 0px; }
 
 .daterangepicker.dropdown-menu {
   padding: 5px; }
